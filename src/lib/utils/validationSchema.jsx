@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-import defaultAxios from "../../api/axios";
 
 const phoneRegEx =
   /^((\+\d{1,3}(-|)?\(?\d\)?(-|)?\d{1,3})|(\(?\d{2,3}\)?))(-|)?(\d{3,4})(-|)?(\d{4})((x|ext)\d{1,5}){0,1}(?=\d{1,10}$)/;
@@ -10,20 +9,7 @@ const validate = Yup.object({
     .matches(/^[A-Za-z]+$/, "Votre nom doit seulement contenir des lettres"),
   email: Yup.string()
     .required("Vous devez mettre votre adresse email")
-    .email(`l'adresse email est invalide`)
-    .test({
-      message: () => `L'utilisateur existe déjà`,
-      test: async function (value) {
-        const res = await defaultAxios.post("/auth/validationRegister", {
-          email: value,
-        });
-        if (res.data == `User`) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    }),
+    .email(`l'adresse email est invalide`),
   password: Yup.string()
     .min(8, "Le mot de passe doit avoir au moins 8 caractères")
     .matches(
@@ -55,21 +41,7 @@ const validate = Yup.object({
       "Le mot de passe doit contenir au moins une lettre majuscule"
     )
     .matches(/[0-9]/, "Le mot de passe doit contenir au moins un chiffre")
-    .required("Le mot de passe est requis")
-    .test({
-      message: () => `Mot de passe ou email incorrect`,
-      test: async function (value) {
-        const res = await defaultAxios.post("/auth/validationLogin", {
-          loginPassword: value,
-          loginMail: this.parent.loginMail,
-        });
-        if (res.data == `Login`) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    }),
+    .required("Le mot de passe est requis"),
   type: Yup.array()
     .of(Yup.string())
     .min(1, "Selectionnez un type")

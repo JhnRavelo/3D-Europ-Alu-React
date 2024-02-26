@@ -12,7 +12,6 @@ import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 import defaultAxios, { privateAxios } from "../../../api/axios";
 import FileField from "./FileField";
 import ListCheckboxField from "./ListCheckboxField";
-import useButtonContext from "../../../hooks/useButtonContext";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
@@ -139,7 +138,6 @@ const FormAdd = (props) => {
   const valueRef = useRef();
   const folderRef = useRef();
   const listPageRef = useRef([]);
-  const {socket} = useButtonContext()
 
   useEffect(() => {
     handleTitle();
@@ -209,7 +207,6 @@ const FormAdd = (props) => {
   valueRef.current = handleInitialValue();
 
   const onSubmit = async (values) => {
-    socket.emit("formAdd", {values})
     try {
       if (props.slug == "profile") {
         const formData = new FormData();

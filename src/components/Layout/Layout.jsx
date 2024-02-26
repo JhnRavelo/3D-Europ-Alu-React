@@ -26,15 +26,9 @@ const Layout = () => {
     socket,
     onMessage,
     setOnMessage,
-    onAvatar,
-    setOnAvatar,
     setData,
     dataPage,
     setNotif,
-    onForm,
-    setOnForm,
-    onDelete,
-    setOnDelete,
   } = useButtonContext();
   const axiosPrivate = useAxiosPrivate();
   const location = useLocation();
@@ -43,15 +37,6 @@ const Layout = () => {
     if (socket) {
       socket.on("receiveMessage", (data) => {
         setOnMessage(data);
-      });
-      socket.on("receiveAvatar", (data) => {
-        setOnAvatar(data);
-      });
-      socket.on("receiveForm", (data) => {
-        setOnForm(data);
-      });
-      socket.on("receiveDelete", (data) => {
-        setOnDelete(data);
       });
     }
   }, [socket]);
@@ -73,10 +58,7 @@ const Layout = () => {
     receiver,
     sendMessage,
     onMessage,
-    onAvatar,
-    onForm,
-    onDelete,
-    commercialChat
+    commercialChat,
   ]);
 
   const fetchData = async () => {

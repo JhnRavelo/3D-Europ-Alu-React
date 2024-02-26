@@ -5,7 +5,6 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import avatars from "../../../assets/json/avatar.json";
 import propTypes from "prop-types";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
-import useButtonContext from "../../../hooks/useButtonContext";
 
 const UserProfileCard = ({ data, handleSetCart, handleSetChat }) => {
   const showChangeAvatarRef = useRef();
@@ -15,7 +14,6 @@ const UserProfileCard = ({ data, handleSetCart, handleSetChat }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const privateAxios = useAxiosPrivate();
-  const {socket}= useButtonContext()
 
   const showChangeAvatar = () => {
     listeAvatarRef.current.classList.toggle("showed");
@@ -51,7 +49,6 @@ const UserProfileCard = ({ data, handleSetCart, handleSetChat }) => {
       await privateAxios.put("/auth/avatar", {
         avatar: avatars[index],
       });
-      socket.emit("sendAvatar", {avatar:avatars[index]})
 
     } catch (error) {
       console.log(error);

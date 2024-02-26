@@ -20,11 +20,7 @@ const ButtonProvider = ({ children }) => {
   const [receiver, setReceiver] = useState(null);
   const [sendMessage, setsendMessage] = useState(false);
   const [lastMessage, setLastMessage] = useState([]);
-  const [socket, setSocket] = useState(null);
   const [onMessage, setOnMessage] = useState(null);
-  const [onAvatar, setOnAvatar] = useState(null);
-  const [onForm, setOnForm] = useState(null);
-  const [onDelete, setOnDelete] = useState(null);
   const [search, setSearch] = useState(false);
   const [notif, setNotif] = useState([]);
 
@@ -83,22 +79,14 @@ const ButtonProvider = ({ children }) => {
         setsendMessage,
         lastMessage,
         setLastMessage,
-        socket,
-        setSocket,
         onMessage,
         setOnMessage,
-        onAvatar,
-        setOnAvatar,
         search,
         setSearch,
         data,
         setData,
         notif,
         setNotif,
-        onForm,
-        setOnForm,
-        onDelete,
-        setOnDelete,
       }}
     >
       {children}
