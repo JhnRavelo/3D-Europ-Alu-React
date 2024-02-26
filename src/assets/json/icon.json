@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Icon habillage",
+    "img": "img_habillage",
+    "src": "./src/assets/icon/iconizer-facade-de-maison-de-trois-etages.svg",
+    "position": {
+      "x": 0.1,
+      "y": 1.55,
+      "z": 1.4
+    }
+  },
+  {
+    "title": "Icon baie",
+    "img": "img_baie",
+    "src": "./src/assets/icon/iconizer-porte-coulissante.svg",
+    "position": {
+      "x": 1.32,
+      "y": -0.18,
+      "z": 0.22
+    }
+  },
+  {
+    "title": "Icon gardecorps",
+    "img": "img_gardecorps",
+    "src": "./src/assets/icon/iconizer-escaliers_1.svg",
+    "position": {
+      "x": 0.03,  
+      "y": 0.65,
+      "z": 1.65
+    }
+  },
+  {
+    "title": "Icon exterieur",
+    "img": "img_exterieur",
+    "src": "./src/assets/icon/icon.png",
+    "position": {
+      "x": 1.38,
+      "y": 0.26,
+      "z": 0.9
+    }
+  },
+  {
+    "title": "Icon porte",
+    "img": "img_porte",
+    "src": "./src/assets/icon/iconizer-ouverture-de-porte-ouverte.svg",
+    "position": {
+      "x": 0,    
+      "y": -0.2,
+      "z": 0.965
+    }
+  },
+  {
+    "title": "Icon fenetre",
+    "img": "img_fenetre",
+    "src": "./src/assets/icon/iconizer-la-fenetre.svg",
+    "position": {
+      "x": 1.2,    
+      "y": 0.9,
+      "z": 0.2
+    }
+  },
+  {
+    "title": "Icon garage",
+    "img": "img_garage",
+    "src": "./src/assets/icon/iconizer-garage.svg",
+    "position": {
+      "x": -1.3,    
+      "y": -0.01,
+      "z": 0.23
+    }
+  },
+  {
+    "title": "Icon interieur",
+    "img": "img_interieur",
+    "src": "./src/assets/icon/iconizer-plan-de-la-maison.svg",
+    "position": {
+      "x": 0,      
+      "y": -0.75,
+      "z": 2.6
+    }
+  }
+]

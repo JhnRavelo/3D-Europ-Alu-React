@@ -1,0 +1,333 @@
+.wrapper .img-area,
+.social-icons a{
+    background-color: rgba(255,255,255,0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* border: 2px solid rgba(255,255,255,0.1); */
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+}
+
+.gauche {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper{
+    background: #f8f8f9;
+    /* box-shadow: rgba(0,0,0,0.24) 0px 3px 8px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    position: relative;
+    width: 25vw;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+} 
+
+.wrapper .img-area{                    
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.changeImg {
+    position: absolute;
+    top: 115px;
+    left: 125px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #b5b5b5;
+    background: #fff;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+    transition: all .3s ease;
+
+}
+
+.changeImg:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.changeImg:active {
+    transform: scale(.9);
+}
+
+.changeImg .plusIcon {
+    color: var(--orange);
+}
+
+.img-area .inner-area{
+    height: calc(100% - 25px);
+    width: calc(100% - 25px);
+    border-radius: 50%;
+}
+
+.inner-area img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.wrapper .name{                        
+    font-size: 23px;
+    font-weight: 700;
+    /* color: #06001a; */
+    color: var(--orange);
+    margin: 10px 0 5px 0;
+}
+
+.wrapper .firstname{
+    color: #06001a;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 17px;
+}
+.wrapper .email{
+    color: #06001a;
+    padding: 3px;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.wrapper .number{
+    color: #06001a;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 3px;
+
+}
+
+.wrapper .social-icons{
+    margin: 15px 0 25px 0;
+}
+
+.social-icons {
+    pointer-events: none;
+    transition: all .3s ease;
+    transform: scale(0);
+    position: absolute;
+    top: 20px;
+    margin: 1rem;
+    background: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+}
+
+.social-icons.showed {
+    pointer-events: all;
+    transform: scale(1);
+}
+
+.social-icons a img {
+    border-radius: 50%;
+}
+
+.social-icons a {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    display: inline-flex;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+}  
+
+.social-icons img {
+    transition: all .3s ease;
+}
+
+.social-icons img:hover{
+    transform: scale(1.1);
+}
+
+.social-icons img:active {
+    transform: scale(1);
+}
+
+.wrapper .icon:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: #ecf0f3;
+    box-shadow: inset -3px -3px 7px #ffffff,
+                inset 3px 3px 5px #ceced1;
+}
+
+.buttons button:active {
+    /* color: #06001a; */
+    transform: scale(.9);
+    background: #ecf0f3 !important;
+    box-shadow: inset -3px -3px 7px #ffffff,
+                inset 3px 3px 5px #ceced1;
+
+}
+
+
+.buttons button:hover{
+    background: #06001a;
+    transform: scale(1.02);
+    transition: .2s ease;
+}  
+
+
+.wrapper .buttons{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+
+}
+
+.buttons button{
+    position: relative;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-top: 2rem;
+    padding: 12px 0;
+    background-color: #06001a;
+    color: #fff;                                                              
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 4;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #fff;
+
+}
+
+.social-icons a i{
+    position: relative;
+    z-index: 3;
+    margin-top: 3px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+/* ================ RESP ================ */
+
+@media screen and (max-width: 720px) and (min-height: 1000px) {
+    .profile__page {
+        margin-top: 8vh !important;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .profile__page {
+        top: 0rem;
+    }
+    /* .profile__page {
+        padding-top: 15vh;
+    } */
+
+    .wrapper{
+        height: 300px;
+        width: 95vw;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    
+    .wrapper .buttons{
+        width: 25%;
+        justify-content: space-between;
+    }
+
+    .wrapper .buttons button{
+        width: 100%;
+    }
+
+    .gauche {
+        width: 50%;
+    }
+    
+    .social-icons {
+        top: 50px;
+        left: 320px;
+    }
+}
+
+@media (max-width: 800px) {
+    .social-icons {
+        top: 50px;
+        left: 280px;
+    }
+    
+}
+
+
+@media (max-width:700px) {
+    .social-icons {
+        top: 162px;
+        left: 10%;
+    }
+
+    .wrapper .buttons{
+        width: 35%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 550px) {
+    .social-icons {
+        top: 162px;
+        left: 5%;
+    }
+    
+}
+@media (max-width: 395px) {
+    .social-icons {
+        top: 160px;
+        left: 2%;
+    }
+}
+
+@media (max-width: 375px) {
+    .social-icons {
+        top: 180px;
+        left: 70px;
+    }
+    .wrapper {
+        flex-direction: column;
+        height: 55vh;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .wrapper .buttons{
+        width: 100%;
+        margin-top: 0;
+    }
+    .wrapper .buttons button{
+        margin-top: 0;
+    }
+}

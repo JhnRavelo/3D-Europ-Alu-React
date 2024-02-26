@@ -1,0 +1,90 @@
+.pannier {
+    height: 80vh;
+    width: 65vw;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+    border-radius: 10px;
+    background: #f8f8f9;
+    padding: 40px;
+    overflow-y: scroll;
+    position: relative;
+    animation: tonga .6s ease;
+}
+
+.pannier .titre__pannier h1 {
+    text-align: center;
+    color: var(--orange);
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    
+}
+
+.title__cart__item h1 {
+    color: #060606;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+}
+
+.cart-item {
+    display: flex;
+    width: 90%;
+    height: 125px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #e1e1e1;
+    border-top: 2px solid #e1e1e1;
+    padding: 10px;
+    /* box-shadow: rgba(0,0,0,0.24) 0px 3px 8px; */
+    margin-bottom: 1rem;
+}
+
+.img__cart__item img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+/* ================== RESPA ================== */
+@media (max-width: 1024px) {
+    .pannier {
+        width: 95vw;
+    }
+    
+    .pannier .titre__pannier h1 {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .pannier .title__cart__item h1 {
+        font-size: 1.3rem;
+    } 
+}
+@media (max-width: 600px) {
+    .pannier .title__cart__item h1 {
+        font-size: 1.1rem;
+        font-weight: 700;
+    } 
+}
+
+@media (max-width: 500px) {
+    .pannier .titre__pannier h1 {
+        font-size: 1.3rem;
+
+    }
+    .cart-item {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 380px) {
+    .img__cart__item img {
+        max-height: 75px;
+        max-width: 75px;
+    }
+}
+

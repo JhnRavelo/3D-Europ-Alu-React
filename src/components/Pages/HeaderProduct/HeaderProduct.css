@@ -1,0 +1,75 @@
+.header__produits__fenetre {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    padding-top: 5rem;
+    margin-bottom: 100px;
+}
+
+.heading-section .subheading {
+    margin: 100px;
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 0;
+    color: rgb(232, 98, 34);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeInUp 1s ease-in;
+}
+
+.heading-section .subheading::after {
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    content: '';
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100px;
+    height: 2px;
+    margin-top: -1px;
+    background: rgb(232, 98, 34);
+}
+
+.heading-section .subheading::before {
+    position: absolute;
+    top: 50%;
+    right: -120px;
+    content: '';
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100px;
+    height: 2px;
+    margin-top: -1px;
+    background: rgb(232, 98, 34);
+}
+
+.heading-section h2 {
+    margin-top: 10px;
+    margin-bottom: 70px;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+
+/* =================== RESPA =================== */
+
+@media (max-width: 767.98px) {
+    .heading-section h2 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 450px) {
+    .heading-section .subheading {
+        font-size: 17px;
+    }
+
+    .heading-section h2 {
+        font-size: 25px;
+    }
+}

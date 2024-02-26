@@ -1,0 +1,22 @@
+.grids {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.grids div {
+  width: 1px;
+  height: 100%;
+  background-color: #d8d8d8c9 !important; 
+}
+
+.grids div:nth-child(5) {
+  background-color: #a5a5a563 !important; 
+}
+
+.grids div:first-child, .grids div:last-child {
+  background-color: transparent; 
+}

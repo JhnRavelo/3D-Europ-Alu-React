@@ -1,0 +1,69 @@
+[
+  {
+    "title": "Fenêtre",
+    "home": {
+      "title": "FENÊTRES",
+      "img": "img-fenetre",
+      "src": "/images/FENÊTRES/_MG_7819-1.jpg"
+    },
+    "products": [
+      {
+        "title": "Fenêtres Coulissante",
+        "description": "Lorem, ipsum. Quam, sit obcaecati corrupti accusamusui suscipit morum quis. Incidunt aliquid maiores soluta mollitia eveniet?",
+        "png": "/images/FENÊTRES/PNG/FENÊTRE COULISSANTE.png",
+        "gallery": [
+          "/images/FENÊTRES/FENÊTRE_COULISSANTES/_MG_4788.JPG",
+          "/images/FENÊTRES/FENÊTRE_COULISSANTES/_MG_4805-1.jpg",
+          "/images/FENÊTRES/FENÊTRE_COULISSANTES/_MG_7673.jpg",
+          "/images/FENÊTRES/FENÊTRE_COULISSANTES/_MG_7927-1.jpg"
+        ]
+      },
+      {
+        "title": "Fenêtres Oscillo-Battente",
+        "description": "Lorem, ipsum. Quam, sit obcaecati corrupti accusamusui suscipit morum quis. Incidunt aliquid maiores soluta mollitia eveniet?",
+        "png": "/images/FENÊTRES/PNG/FENÊTRE OSCILLO-BATTANTE.png",
+        "gallery": [
+          "/images/FENÊTRES/FENÊTRE_OSCILLO-BATTANTE/_MG_2897-1.jpg",
+          "/images/FENÊTRES/FENÊTRE_OSCILLO-BATTANTE/_MG_3801-1.jpg",
+          "/images/FENÊTRES/FENÊTRE_OSCILLO-BATTANTE/_MG_3883.jpg",
+          "/images/FENÊTRES/FENÊTRE_OSCILLO-BATTANTE/P1030588-1.jpg"
+        ]
+      },
+      {
+        "title": "Fenêtres à Souffltet",
+        "description": "Lorem, ipsum. Quam, sit obcaecati corrupti accusamusui suscipit morum quis. Incidunt aliquid maiores soluta mollitia eveniet?",
+        "png": "/images/FENÊTRES/PNG/SOUFFLET.png",
+        "gallery": [
+          "/images/FENÊTRES/FENÊTRE_À_SOUFFLET/_DSC9027.JPG",
+          "/images/FENÊTRES/FENÊTRE_À_SOUFFLET/_MG_3994-1.jpg",
+          "/images/FENÊTRES/FENÊTRE_À_SOUFFLET/_MG_7691-1.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Habillage",
+    "home": {
+      "title": "HABILLAGE",
+      "img": "img-habillage",
+      "src": "/images/HABILLAGE_FAÇADE/MUR_RIDEAU/_MG_4038.png"
+    },
+    "products": [
+      {
+        "title": "Panneau Composite",
+        "description": "Lorem, ipsum. Quam, sit obcaecati corrupti accusamusui suscipit morum quis. Incidunt aliquid maiores soluta mollitia eveniet?",
+        "png": "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/LYZA.png",
+        "gallery": [
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/AKOOR--(1).png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/DHL.png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/FDV_9742-a.png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/HCM-1.png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/HCM-2.png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/LYZA.png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/SANIFER.png",
+          "/images/HABILLAGE_FAÇADE/PANNEAU_COMPOSITE_ALUMINIUM/SBM.png"
+        ]
+      }
+    ]
+  }
+]

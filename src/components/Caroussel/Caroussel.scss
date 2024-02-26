@@ -1,0 +1,90 @@
+@mixin resp1024{
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+#caroussel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .slide {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: .3s ease-in;
+        img {
+            max-width:100% !important;
+            height: auto;
+            flex-shrink: 0;
+        }
+    }
+
+    .buttonChevron {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            border: none;
+            outline: none;
+            padding: 5px;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: transparent;
+            backdrop-filter: blur(10px);
+            box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
+            cursor: pointer;
+            .chevron {
+                color: #fff;
+                font-size: 40px;
+                @include resp1024 {
+                    width: 20px;
+                    height: 20px;
+                }
+            }   
+            @include resp1024 {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    .indicator {
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+        left: 0;
+
+        .circles {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            .circle {
+                background-color: #fff;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                opacity: .7;
+                transition: all .3s ease;
+                cursor: pointer;
+                &.opacity {
+                    width: 20px;
+                    height: 20px;
+                    opacity: 1;
+
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,38 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+      /* background: #F6F6F5; */
+      scroll-behavior: smooth;
+  }
+
+.container {
+  width: 80%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  background: transparent;
+}
+
+.home-content-tablecell .row {
+  position: relative;
+  padding-top: 16.2rem;
+  padding-bottom: 15rem;
+}
+
+/* ========================== MEDIA QUERY ========================= */

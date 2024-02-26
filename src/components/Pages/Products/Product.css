@@ -1,0 +1,177 @@
+.fenetre__coulissante {
+    height: auto;
+}
+
+.fenetre {
+    margin-top: 6rem;
+    height: auto;
+}
+
+.fenetre__coulissante .presentation {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.fenetre .presentation {
+    width: 100%;
+    display: flex;
+    padding-bottom: 5rem;
+    position: relative;
+}
+
+.img__pres {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fenetre__coulissante img {
+    display: flex;
+    width: 50%;
+    max-height: 500px;
+}
+
+.fenetre img {
+    width: 80%;
+    max-height: 500px;
+}
+
+.presentation .desc {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.presentation .desc h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    width: 100%;
+}
+
+.presentation .desc .short__desc {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 1.2rem;
+}
+
+.presentation.pres2 {
+    text-align: end;
+    flex-direction: row-reverse;
+}
+
+
+.presentation.pres2 .button_intrested_start {
+    display: flex;
+    align-items: flex-end !important;
+}
+
+
+
+.button_intrested_start {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+/* ======================= RESPA ====================== */
+
+@media screen and (max-width: 750px) {
+
+    .gallery__title h1 {
+        width: 60%;
+        color: var(--orange);
+        font-size: 2.5rem;
+        font-weight: 300;
+        border-bottom: 2px solid var(--orange);
+        margin-bottom: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .presentation .img__pres {
+        width: 120%;
+    }
+
+    .fenetre__coulissante img {
+        display: flex;
+        width: 50%;
+    }
+
+    .presentation .desc {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .presentation .desc h1 {
+        font-size: 4rem;
+        font-weight: 500;
+        width: 100%;
+    }
+}
+
+@media (min-width: 550px) {
+    .presentation .img__pres {
+        width: 120%;
+    }
+
+    .fenetre__coulissante img {
+        display: flex;
+        width: 60%;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .presentation .desc {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .presentation .desc h1 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        width: 100%;
+    }
+    .presentation .desc p {
+        margin-top: 1em;
+        font-size: 0.9rem;
+    }
+
+    .presentation .img__pres {
+        width: 118%;
+    }
+
+    .fenetre__coulissante img {
+        display: flex;
+        /* width: 80%; */
+    }
+}
+
+@media (max-width: 550px) {
+    .presentation {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 650px) {
+    .fenetre__coulissante .presentation {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5rem;
+    }
+
+    .bricks-wrapper .brick {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}

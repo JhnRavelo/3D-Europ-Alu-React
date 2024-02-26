@@ -1,0 +1,21 @@
+[
+  {
+    "type": "text",
+    "name": "name",
+    "inputMode": "text",
+    "placeholder": "Nom"
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "inputMode": "email",
+    "placeholder": "Adresse email"
+  },
+  {},
+  {
+    "type": "text",
+    "name": "phone",
+    "inputMode": "numeric",
+    "placeholder": "Numéro de téléphone)"
+  }
+]

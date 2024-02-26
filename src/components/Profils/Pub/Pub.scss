@@ -1,0 +1,22 @@
+@mixin resp1024{
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+.pub {
+    // overflow: hidden;
+    width: 68vw;
+    // width: 40vw;
+    height: 80vh;
+    background: #f8f8f9;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+    @include resp1024 {
+        width: 100%;
+    }
+
+    img {
+        min-width: 100%;
+        height: auto;
+    }
+}
