@@ -13,7 +13,10 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
 const Login = () => {
+  const [loginError, setLoginError] = useState(null);
   const [visible, setVisible] = useState(false);
+  const loginMailRef = useRef();
+  const loginPasswordRef = useRef();
   const location = useLocation();
   const { setAuth } = useAuth();
   const formContext = useContext(FormContext);
@@ -29,24 +32,29 @@ const Login = () => {
       !loginMail ||
       !loginPassword ||
       errors.loginMail ||
-      errors.loginPassword
+      errors.loginPassword ||
+      (loginError &&
+        loginMailRef.current == loginMail &&
+        loginPasswordRef.current == loginPassword)
     ) {
       btnLogin.classList.add("desabledBtn");
     } else {
       btnLogin.classList.remove("desabledBtn");
     }
-  }, [loginMail, loginPassword, errors]);
+  }, [loginMail, loginPassword, errors, loginError]);
 
   const handleLogin = async () => {
     const body = { loginMail: loginMail, loginPassword: loginPassword };
-    try {
-      const res = await defaultAxios.post("/auth/login", body),
-        role = res.data.role,
-        accessToken = res.data.accessToken;
+    loginMailRef.current = loginMail;
+    loginPasswordRef.current = loginPassword;
 
-        console.log("TOKEN", accessToken);
-      if (role) {
-        await setAuth({ role, accessToken });
+    try {
+      const res = await defaultAxios.post("/auth/login", body);
+
+      if (res.data.success) {
+        let role = res.data.role;
+        let accessToken = res.data.accessToken;
+        setAuth({ role, accessToken });
         if (from) {
           navigate(from, { replace: true });
         } else {
@@ -70,6 +78,8 @@ const Login = () => {
         });
 
         toast.success("Vous êtes connecté.");
+      } else {
+        setLoginError(res.data.message);
       }
     } catch (error) {
       if (error) {
@@ -116,6 +126,9 @@ const Login = () => {
           component={"p"}
           className="error login-name-error"
         />
+        {loginError ? (
+          <p className="error login-name-error">{loginError}</p>
+        ) : null}
 
         <div className="username" style={{ marginTop: "15px" }}>
           <FontAwesomeIcon icon={faKey} className="fa" />
@@ -146,6 +159,9 @@ const Login = () => {
           component={"p"}
           className="error login-loginMail-error"
         />
+        {loginError ? (
+          <p className="error login-name-error">{loginError}</p>
+        ) : null}
       </div>
 
       <div className="buttons">
