@@ -5,12 +5,12 @@ import FormContext from "./FormContext";
 import { useEffect, useRef } from "react";
 import { validate } from "../../../lib/utils/validationSchema";
 import useButtonContext from "../../../hooks/useButtonContext";
+import useAuth from "../../../hooks/useAuth";
 
 const FormField = () => {
-  const { open, selectedProduct, body } = useButtonContext();
+  const { open, selectedProduct } = useButtonContext();
+  const { auth } = useAuth();
   const formRef = useRef();
-  
-  const { name, email, phone } = body;
 
   useEffect(() => {
     const form = formRef.current;
@@ -20,21 +20,21 @@ const FormField = () => {
         form.classList.add("active");
       }, 200);
     } else {
-        form.classList.remove("active");
+      form.classList.remove("active");
     }
   }, [open]);
 
   const iniatialValues = {
-    name,
-    email,
+    name: auth?.name,
+    email: auth?.email,
     password: "",
     confirmPassword: "",
-    phone,
+    phone: auth?.phone,
     checked: [selectedProduct],
     checkbox: true,
     loginMail: "",
     loginPassword: "",
-    typeUser:"Particulier",
+    typeUser: "Particulier",
   };
   return (
     <section id="form" ref={formRef}>
