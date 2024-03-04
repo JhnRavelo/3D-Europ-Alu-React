@@ -19,17 +19,18 @@ import { toast } from "react-toastify";
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
 const SignupStepFinal = () => {
-  const { selectedProduct, showForm, body, socket } = useButtonContext();
+  const { selectedProduct, showForm, socket } = useButtonContext();
   const formContext = useContext(FormContext);
   const btnListRef = useRef();
   const btnSubmitRef = useRef();
   const checkboxRef = useRef([]);
   const [productSelected, setproductSelected] = useState(selectedProduct);
-  const { setAuth } = useAuth();
+  const { setAuth, auth } = useAuth();
   const { dataFetch } = useProductContext();
   const errors = formContext[0];
   const location = useLocation();
-  const navigate=  useNavigate();
+  const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState(null);
 
   checkboxRef.current = [];
   const { name, email, phone, checked } = formContext[1];
@@ -77,46 +78,53 @@ const SignupStepFinal = () => {
 
   const onSubmit = async () => {
     try {
-      let res;
-      if (body.name == "") {
+      let res, track;
+      if (!auth?.name) {
         res = await defaultAxios.post("/auth", formContext[1]);
+        if (res.data.success) {
+          setAuth({
+            role: res.data.role,
+            accessToken: res.data.accessToken,
+            name: res.data.name,
+            email: res.data.email,
+            phone: res.data.phone,
+            avatar: res.data.avatar,
+            id: res.data.id,
+          });
+          if (checked[0] !== "") {
+            track = await addTraker(formContext[1]);
+          }
+        } else {
+          setRegisterError(res.data.message);
+        }
+      } else {
+        if (checked[0] !== "") {
+          track = await addTraker(formContext[1]);
+        }
       }
 
-      var track;
-      if (res?.data !== `L'utilisateur existe déjà` && res?.data?.role) {
-        const role = res.data.role,
-          accessToken = res.data.accessToken;
-        setAuth({ role, accessToken });
-      }
+      socket.emit("UserInterested", {
+        body: auth,
+        value: formContext[1],
+        room: prime[0],
+      });
 
-      if (!checked[0] == "") {
-        track = await addTraker(formContext[1]);
-      }
-
-      if (res?.data == "L'utilisateur existe déjà") {
-        toast.error("L'utilisateur existe déjà");
-      }
-
-      socket.emit("UserInterested", {body: body, value: formContext[1], room: prime[0]})
-
-      if (res?.data?.role && location.pathname != "/") {
+      if (res?.data?.success && location.pathname != "/") {
         showForm();
         toast.success("Votre compte a bien été créé.");
       }
-      if (res?.data?.role && location.pathname == "/") {
+      if (res?.data?.success && location.pathname == "/") {
         showForm();
         toast.success("Votre compte a bien été créé.");
-        navigate("/pageProd")
+        navigate("/pageProd");
       }
 
-      if (track && location.pathname != "/") {
+      if (track?.success && location.pathname != "/") {
         showForm();
         toast.success("Votre produit a bien été ajouté");
       }
     } catch (error) {
-      if (!error) {
-        toast.error("Erreur du server");
-      }
+      toast.error("Erreur du server");
       console.log(error);
     }
   };
@@ -185,7 +193,7 @@ const SignupStepFinal = () => {
       />
 
       <div className="check">
-        {body.name == "" && (
+        {auth?.name && (
           <label>
             <Field id="acceptCheckbox" type="checkbox" name="checkbox" />
             {"Cette action va vous créer un compte chez Europ'Alu"}
@@ -208,6 +216,7 @@ const SignupStepFinal = () => {
         name="checkbox"
         className="errorNotChecked"
       />
+      {registerError && <p className="errorNotChecked">{registerError}</p>}
     </>
   );
 };

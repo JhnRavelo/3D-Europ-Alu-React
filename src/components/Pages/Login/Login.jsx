@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ErrorMessage, Field } from "formik";
+import { Field } from "formik";
 import { useContext, useEffect, useRef, useState } from "react";
 import FormContext from "../Form/FormContext";
 import defaultAxios from "../../../api/axios";
@@ -26,6 +26,7 @@ const Login = () => {
   const errors = formContext[0];
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname;
+
   useEffect(() => {
     const btnLogin = btnLoginRef.current;
     if (
@@ -54,7 +55,16 @@ const Login = () => {
       if (res.data.success) {
         let role = res.data.role;
         let accessToken = res.data.accessToken;
-        setAuth({ role, accessToken });
+        console.log(res.data.id)
+        setAuth({
+          role,
+          accessToken,
+          name: res.data.name,
+          email: res.data.email,
+          phone: res.data.phone,
+          avatar: res.data.avatar,
+          id: res.data.id,
+        });
         if (from) {
           navigate(from, { replace: true });
         } else {
@@ -121,13 +131,10 @@ const Login = () => {
             onKeyPress={handleEnterPressed}
           />
         </div>
-        <ErrorMessage
-          name="loginMail"
-          component={"p"}
-          className="error login-name-error"
-        />
         {loginError ? (
           <p className="error login-name-error">{loginError}</p>
+        ) : errors.loginMail ? (
+          <p className="error login-name-error">{errors.loginMail}</p>
         ) : null}
 
         <div className="username" style={{ marginTop: "15px" }}>
@@ -154,13 +161,10 @@ const Login = () => {
             />
           )}
         </div>
-        <ErrorMessage
-          name="loginPassword"
-          component={"p"}
-          className="error login-loginMail-error"
-        />
         {loginError ? (
           <p className="error login-name-error">{loginError}</p>
+        ) : errors.loginPassword ? (
+          <p className="error login-name-error">{errors.loginPassword}</p>
         ) : null}
       </div>
 

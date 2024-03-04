@@ -5,6 +5,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import FormContext from "../Form/FormContext";
 import errorShake from "../../../lib/utils/errorShake";
 import useButtonContext from "../../../hooks/useButtonContext";
+import useAuth from "../../../hooks/useAuth";
 
 const SignupTemplate = () => {
   const [index, setIndex] = useState(5);
@@ -12,7 +13,8 @@ const SignupTemplate = () => {
   const nextBtnRef = useRef();
   const btnStepRef = useRef();
   const formContext = useContext(FormContext);
-  const {body, showForm, show } = useButtonContext()
+  const { showForm, show } = useButtonContext();
+  const { auth } = useAuth();
   const [title, setTitle] = useState(`S'enregistrer`);
 
   const errors = [
@@ -77,7 +79,7 @@ const SignupTemplate = () => {
       if (!password && !confirmPassword && champs[0].value && champs[1].value) {
         setIndex((prevIndex) => prevIndex + 1);
       }
-    } else if(index == 1){
+    } else if (index == 1) {
       var inputEmail = document.querySelector(".username");
       var champEmail = document.querySelector(".user-input");
       var errorEmail = errors[index];
@@ -88,14 +90,12 @@ const SignupTemplate = () => {
           setIndex((prevIndex) => prevIndex + 1);
         }
       } catch (error) {
-        if(error){
+        if (error) {
           errorShake(inputEmail);
         }
-        console.log(error)
+        console.log(error);
       }
-      
-    }
-    else {
+    } else {
       var input = document.querySelector(".username");
       var champ = document.querySelector(".user-input");
       var error = errors[index];
@@ -134,19 +134,18 @@ const SignupTemplate = () => {
     if (corps) {
       corps.classList.remove("none");
     }
-    showForm()
-    
+    showForm();
   };
 
   useEffect(() => {
-    if (body.name !== "") {
+    if (auth?.name) {
       setIndex(4);
       btnStepRef.current.style.display = "none";
     } else {
       setIndex(5);
       btnStepRef.current.style.display = "flex";
     }
-  }, [body, show]);
+  }, [auth, show]);
   return (
     <div className="card" data-step>
       <div className="modal-box register-form">
