@@ -4,7 +4,6 @@ import propTypes from "prop-types";
 const AdminContext = createContext();
 
 const AdminProviser = ({ children }) => {
-  const [data, setData] = useState({});
   const [open, setOpen] = useState(false);
   const [top, setTop] = useState([]);
   const [nbUser, SetNbUser] = useState(null);
@@ -31,14 +30,15 @@ const AdminProviser = ({ children }) => {
   const [logout, setLogout] = useState(null);
   const [onInterested, setOnInterested] = useState(null);
   const [singleProduct, setSingleProduct] = useState(null);
+  const [products, setProducts] = useState(null);
 
   return (
     <AdminContext.Provider
       value={{
-        data,
         commercial,
         setCommercial,
-        setData,
+        products,
+        setProducts,
         open,
         setOpen,
         top,
