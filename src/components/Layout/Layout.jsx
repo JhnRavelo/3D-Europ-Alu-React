@@ -10,11 +10,11 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import defaultAxios from "../../api/axios";
+import useAuth from "../../hooks/useAuth";
 
 const Layout = () => {
   const {
     show,
-    setBody,
     setDataPage,
     setCommercials,
     setMessages,
@@ -30,6 +30,7 @@ const Layout = () => {
     dataPage,
     setNotif,
   } = useButtonContext();
+  const { auth } = useAuth();
   const axiosPrivate = useAxiosPrivate();
   const location = useLocation();
 
@@ -52,26 +53,13 @@ const Layout = () => {
 
   useEffect(() => {
     fetchData();
-  }, [
-    show,
-    sender,
-    receiver,
-    sendMessage,
-    onMessage,
-    commercialChat,
-  ]);
+  }, [sender, receiver, sendMessage, onMessage, commercialChat, auth]);
 
   const fetchData = async () => {
     try {
       const data = await defaultAxios.get("/page");
       setData(data.data);
-      const res = await axiosPrivate.get("/auth");
-      if (res.data) {
-        setBody({
-          name: res.data.name,
-          email: res.data.email,
-          phone: res.data.phone,
-        });
+      if (auth?.name) {
         const page = await axiosPrivate.get("/traker");
         setDataPage(page.data);
         const commercial = await axiosPrivate.get("/auth/getCommercials");
@@ -84,22 +72,9 @@ const Layout = () => {
         }
         const notif = await axiosPrivate.get("/message/getNotif");
         setNotif(notif.data);
-      } else {
-        setBody({
-          name: "",
-          email: "",
-          phone: "",
-        });
       }
     } catch (error) {
-      if (error) {
-        setBody({
-          name: "",
-          email: "",
-          phone: "",
-        });
-        console.log(error);
-      }
+      console.log(error);
     }
   };
 
