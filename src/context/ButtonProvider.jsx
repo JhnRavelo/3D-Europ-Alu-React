@@ -6,7 +6,6 @@ const ButtonContext = createContext();
 const ButtonProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("");
-  const [body, setBody] = useState({ name: "", email: "", phone: "" });
   const [open, setOpen] = useState(false);
   const [dataPage, setDataPage] = useState({
     traker: [],
@@ -58,8 +57,6 @@ const ButtonProvider = ({ children }) => {
       value={{
         selectedProduct,
         setSelectedProduct,
-        body,
-        setBody,
         showForm,
         show,
         setShow,
