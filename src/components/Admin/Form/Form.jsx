@@ -217,7 +217,8 @@ const FormAdd = (props) => {
         }
 
         const res = await privateAxios.put(`${props.url}/pro`, formData);
-        await defaultAxios.put(`${props.url}/upload`, formData);
+        if (values.avatar)
+          await defaultAxios.put(`${props.url}/upload`, formData);
 
         if (res.data == "Utilisateur modifié") {
           props.setOpen(false);
@@ -244,10 +245,7 @@ const FormAdd = (props) => {
           formData.append("phone", values.phone);
 
           const res = await privateAxios.put(`${props.url}`, formData);
-          await defaultAxios.put(
-            `${props.url}/upload`,
-            formData
-          );
+          await defaultAxios.put(`${props.url}/upload`, formData);
 
           if (res.data == "Utilisateur modifié") {
             props.setOpen(false);
@@ -267,10 +265,7 @@ const FormAdd = (props) => {
 
           const res = await privateAxios.put(`${props.url}`, formData);
 
-          await defaultAxios.put(
-            `${props.url}/upload`,
-            formData
-          );
+          await defaultAxios.put(`${props.url}/upload`, formData);
 
           if (res.data == `Page modifié`) {
             props.setOpen(false);
@@ -312,10 +307,7 @@ const FormAdd = (props) => {
           formData.append("phone", values.phone);
 
           const res = await privateAxios.post(`${props.url}`, formData);
-          await defaultAxios.put(
-            `${props.url}/upload`,
-            formData
-          );
+          await defaultAxios.put(`${props.url}/upload`, formData);
 
           if (res.data == `Utilisateur ajouté`) {
             props.setOpen(false);
@@ -334,10 +326,7 @@ const FormAdd = (props) => {
 
           const res = await privateAxios.post(`${props.url}`, formData);
 
-          await defaultAxios.post(
-            `${props.url}/upload`,
-            formData
-          );
+          await defaultAxios.post(`${props.url}/upload`, formData);
 
           if (res.data == `Page ajouté`) {
             props.setOpen(false);
@@ -354,11 +343,8 @@ const FormAdd = (props) => {
             formData.append("gallery", values.gallery[i]);
           }
           const res = await privateAxios.post(`${props.url}`, formData);
-  
-          await defaultAxios.post(
-            `${props.url}/upload`,
-            formData
-          );
+
+          await defaultAxios.post(`${props.url}/upload`, formData);
 
           if (res.data == "Produit ajouté") {
             props.setOpen(false);
