@@ -7,15 +7,17 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../../../hooks/useAuth";
 import useButtonContext from "../../../hooks/useButtonContext";
 import useLogout from "../../../hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { auth } = useAuth();
   const headerRef = useRef();
+  const navigate = useNavigate();
   const showLogoutRef = useRef();
   const showProfileRef = useRef();
   const location = useLocation();
   const userRef = useRef();
-  const { body, show, data } = useButtonContext();
+  const { data } = useButtonContext();
   const logout = useLogout();
 
   function menuIsClosed(e) {
@@ -69,16 +71,17 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (!body.name == "") {
+    if (auth?.name) {
       userRef.current.classList.add("connected");
     } else {
       userRef.current.classList.remove("connected");
     }
-  }, [auth, body, show]);
+  }, [auth]);
 
   const handleLogOut = async () => {
     userRef.current.classList.remove("connected");
     logout();
+    navigate("/");
   };
 
   return (
