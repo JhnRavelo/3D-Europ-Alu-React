@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import "../../../assets/css/jquery.fancybox.css"
+import "../../../assets/js/jquery.fancybox.min.js"
 
 const Gallery = ({ gallery, indexCategory }) => {
   const galleryRef = useRef();

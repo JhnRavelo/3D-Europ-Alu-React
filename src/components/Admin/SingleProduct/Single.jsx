@@ -9,6 +9,8 @@ import {
 } from "recharts";
 import "./Single.scss";
 import propTypes from "prop-types";
+import "../../../assets/css/jquery.fancybox.css"
+import "../../../assets/js/jquery.fancybox.min.js"
 
 const Single = (props) => {
   return (
