@@ -6,6 +6,7 @@ import useAdminContext from "../../../hooks/useAdminContext";
 import FormAdd from "../../../components/Admin/Form/Form";
 import { useNavigate } from "react-router-dom";
 import useLogout from "../../../hooks/useLogout";
+import useAuth from "../../../hooks/useAuth";
 
 const columns = [
   {
@@ -23,11 +24,13 @@ const columns = [
 ];
 
 const Profile = () => {
-  const { data, setOpen, open } = useAdminContext();
+  const { setOpen, open } = useAdminContext();
+  const { auth } = useAuth();
   const logout = useLogout();
   const navigate = useNavigate();
 
   const handleClick = () => {
+    console.log(auth)
     setOpen(true);
   };
 
@@ -49,11 +52,11 @@ const Profile = () => {
         </div>
         <div className="admin__card">
           <div className="admin__img">
-            <img src={data.avatar} alt="sary" />
+            <img src={auth.avatar} alt="sary" />
           </div>
           <div className="info__admin">
-            <h1 className="admin__name">{data.name}</h1>
-            <h2 className="admin__email">{data.email}</h2>
+            <h1 className="admin__name">{auth.name}</h1>
+            <h2 className="admin__email">{auth.email}</h2>
             <h1 className="user__admin">- Administrateur</h1>
           </div>
         </div>
@@ -67,7 +70,7 @@ const Profile = () => {
           slug="profile"
           columns={columns}
           setOpen={setOpen}
-          editRow={data}
+          editRow={auth}
           url="/auth/User"
         />
       )}
