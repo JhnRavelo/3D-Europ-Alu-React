@@ -7,12 +7,14 @@ import { useEffect, useRef, useState } from "react";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
   const location = useLocation();
   const { pathname } = location;
-  const { years, setYear, data, year, log, setNotifOpen, notifOpen } =
+  const { years, setYear, year, log, setNotifOpen, notifOpen } =
     useAdminContext();
+  const { auth } = useAuth();
   const selectDate = useRef();
   const chevron = useRef();
   const notication = useRef();
@@ -140,8 +142,8 @@ const Header = () => {
           {notif !== 0 && <span> {notif} </span>}
         </div>
         <div className="user">
-          <img src={data.avatar} alt="" className="userIcon" />
-          <span>{data.name}</span>
+          <img src={auth?.avatar} alt="" className="userIcon" />
+          <span>{auth?.name}</span>
         </div>
       </div>
     </div>
