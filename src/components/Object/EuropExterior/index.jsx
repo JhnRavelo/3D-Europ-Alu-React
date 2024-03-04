@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import { AroundLight, HemiLight, ToplLight } from "../Light";
-import Camera from "../Camera/Camera";
 import { Tone } from "../Postprocessing";
 import Icon from "../Icon";
 import Controls from "../Controls/Controls";
@@ -14,7 +13,6 @@ function EuropExterior() {
   return (
     <>
       <Canvas
-        // dpr={window.devicePixelRatio}
         ref={controlsRef}
         camera={{
           fov: 45,
@@ -24,13 +22,11 @@ function EuropExterior() {
         }}
       >
         <Tone />
-        {/* <axesHelper args={[20, 20, 20]} /> */}
-        <Europ2/>
+        <Europ2 />
         <Icon />
         <AroundLight />
         <ToplLight />
         <HemiLight />
-        <Camera />
         <Controls />
       </Canvas>
       <Loading />
