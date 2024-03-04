@@ -12,7 +12,6 @@ import useButtonContext from "../../hooks/useButtonContext";
 const Admin = () => {
   const privateAxios = useAxiosPrivate();
   const {
-    setData,
     open,
     setTop,
     SetNbUser,
@@ -47,15 +46,13 @@ const Admin = () => {
         setLogout(data);
       });
       socket.on("receiveInterested", (data) => {
-        setOnInterested(data)
+        setOnInterested(data);
       });
     }
   }, [socket]);
 
   const fetchData = async () => {
     try {
-      const res = await privateAxios.get("/auth");
-      setData(res.data);
       const order = await privateAxios.get("/traker/all");
       setOrder(order.data);
       const user = await privateAxios.get("/auth/getUsers");
@@ -72,7 +69,7 @@ const Admin = () => {
 
       SetNbProd(nbrProd.data);
       setYears(nbrProd.data.getYear);
-  
+
       if (notifOpen == false) {
         const log = await privateAxios.post("/log", { year: year });
         setLog(log.data);
