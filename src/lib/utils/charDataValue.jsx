@@ -1,9 +1,9 @@
-const charDataValue = (prevState, nbUser, count) => {
-  const newState = prevState.map((prev) => {
-    const matchingNb = nbUser[count].find(
-      (nb) => nb.month == prev.number
-    );
-  
+import { dataHome } from "../../assets/js/data";
+
+const charDataValue = (nbUser, count) => {
+  const newState = dataHome.map((prev) => {
+    const matchingNb = nbUser[count].find((nb) => nb.month == prev.number);
+
     if (matchingNb) {
       return { ...prev, users: matchingNb.count };
     } else {
