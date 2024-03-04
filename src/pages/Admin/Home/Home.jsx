@@ -12,28 +12,14 @@ import useAdminContext from "../../../hooks/useAdminContext";
 import { useEffect, useState } from "react";
 import charDataValue from "../../../lib/utils/charDataValue";
 import differencePercentage from "../../../lib/utils/differencePercentage";
-
-const data = [
-  { name: "Jan", users: 0, number: 1 },
-  { name: "Feb", users: 0, number: 2 },
-  { name: "Mar", users: 0, number: 3 },
-  { name: "Apr", users: 0, number: 4 },
-  { name: "May", users: 0, number: 5 },
-  { name: "Jun", users: 0, number: 6 },
-  { name: "Jul", users: 0, number: 7 },
-  { name: "Aug", users: 0, number: 8 },
-  { name: "Sep", users: 0, number: 9 },
-  { name: "Oct", users: 0, number: 10 },
-  { name: "Nov", users: 0, number: 11 },
-  { name: "Dec", users: 0, number: 12 },
-];
+import { dataHome } from "../../../assets/js/data";
 
 const Home = () => {
   const [totalUser, setTotalUser] = useState(0);
   const [totalProd, setTotalProd] = useState(0);
-  const [chartDataUser, setChartDataUser] = useState(data);
-  const [chartDataProd, setChartDataProd] = useState(data);
-  const [chartDataVisit, setChartDataVisit] = useState(data);
+  const [chartDataUser, setChartDataUser] = useState(dataHome);
+  const [chartDataProd, setChartDataProd] = useState(dataHome);
+  const [chartDataVisit, setChartDataVisit] = useState(dataHome);
   const [percUser, setPercUser] = useState(0);
   const [percProd, setPercProd] = useState(0);
   const { nbUser, nbProd } = useAdminContext();
@@ -41,30 +27,29 @@ const Home = () => {
   useEffect(() => {
     if (nbUser) {
       setTotalUser(nbUser.countUserByYear?.userCount);
-      setChartDataUser((prevState) => {
-        return charDataValue(prevState, nbUser, "countByMonthByYear");
+      setChartDataUser(() => {
+        return charDataValue(nbUser, "countByMonthByYear");
       });
 
       setPercUser(() => {
         return differencePercentage(nbUser);
       });
 
-      setChartDataVisit((prevState) => {
-        return charDataValue(prevState, nbUser, "userVisitByMonth");
+      setChartDataVisit(() => {
+        return charDataValue(nbUser, "userVisitByMonth");
       });
     }
 
     if (nbProd) {
       setTotalProd(nbProd.countProdInterested[0]?.prodCount);
-      setChartDataProd((prevState) => {
-        return charDataValue(prevState, nbProd, "countByMonthByYear");
+      setChartDataProd(() => {
+        return charDataValue(nbProd, "countByMonthByYear");
       });
 
       setPercProd(() => {
         return differencePercentage(nbProd);
       });
     }
-
   }, [nbUser, nbProd]);
 
   return (
