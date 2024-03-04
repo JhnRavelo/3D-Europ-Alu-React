@@ -2,15 +2,19 @@ import useAuth from "./useAuth";
 import defaultAxios from "../api/axios";
 
 const useRefresh = () => {
-  const {setAuth} = useAuth()
+  const { setAuth } = useAuth();
   const refresh = async () => {
     const response = await defaultAxios.get("/refresh");
-    setAuth(prev=>{
-      return{
-        ...prev, role: response.data.role ,accesToken: response.data.accesToken
-      }
-    })
-    return response.data
+    setAuth({
+      name: response.data.name,
+      email: response.data.email,
+      phone: response.data.phone,
+      avatar: response.data.avatar,
+      role: response.data.role,
+      accessToken: response.data.accessToken,
+      id: response.data.id,
+    });
+    return response.data;
   };
   return refresh;
 };
