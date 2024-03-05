@@ -7,6 +7,7 @@ import ModalDelete from "../../../components/Admin/ModalDelete/ModalDelete";
 import "./Product.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import useAdminContext from "../../../hooks/useAdminContext";
 
 const columns = [
   {
@@ -81,6 +82,7 @@ const columns = [
 ];
 
 const Products = () => {
+  const { setProducts } = useAdminContext();
   const [open, setOpen] = useState(false);
   const [rows, setRows] = useState([]);
   const [editRow, setEditRow] = useState(null);
@@ -108,7 +110,7 @@ const Products = () => {
           createdAt,
         };
       });
-
+      setProducts(newTable);
       setRows(newTable);
       return res.data;
     } catch (error) {

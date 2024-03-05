@@ -24,7 +24,14 @@ const data = [
 
 const Product = () => {
   const { id } = useParams();
-  const { singleProduct, year, nbUser, onInterested } = useAdminContext();
+  const {
+    singleProduct,
+    year,
+    nbUser,
+    onInterested,
+    products,
+    setSingleProduct,
+  } = useAdminContext();
   const privateAxios = useAxiosPrivate();
   const [dataProduct, setDataProduct] = useState(null);
   const [chartSingle, setChartSingle] = useState(data);
@@ -40,12 +47,16 @@ const Product = () => {
       }
     };
     fetchData();
-  }, [id, year]);
+    if (products) {
+      const single = products.filter((item) => item.id == id);
+      setSingleProduct(single[0]);
+    }
+  }, [id, year, products]);
 
   useEffect(() => {
     if (nbUser && dataProduct) {
-      setChartSingle((prev) => {
-        const newState = prev.map((prev) => {
+      setChartSingle(() => {
+        const newState = data.map((prev) => {
           const matchVisit = nbUser?.userVisitByMonth.find(
             (nb) => nb.month == prev.number
           );
@@ -72,11 +83,11 @@ const Product = () => {
   return (
     <div className="product">
       <Single
-        title={singleProduct.title}
+        title={singleProduct?.title}
         id={id}
-        img={singleProduct.png}
-        description={singleProduct.description}
-        gallery={singleProduct.gallery.split(",")}
+        img={singleProduct?.png}
+        description={singleProduct?.description}
+        gallery={singleProduct?.gallery.split(",")}
         data={chartSingle}
         activities={dataProduct?.logSingleProductInterested}
         {...singleProductData}
