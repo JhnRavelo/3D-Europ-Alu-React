@@ -5,10 +5,7 @@ import { useEffect, useState } from "react";
 import generateColor from "../../../lib/utils/generateColor";
 
 const data = [
-  { name: "Fenêtre", value: 400, color: "#0088FE" },
-  { name: "Habillage", value: 300, color: "#00C49F" },
-  { name: "Volet", value: 300, color: "#FFBB28" },
-  { name: "Cloison", value: 200, color: "#FF8042" },
+  { name: "", value: 0, color: "#0088FE" },
 ];
 
 const PieChartBox = () => {
