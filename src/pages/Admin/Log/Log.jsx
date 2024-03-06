@@ -24,21 +24,21 @@ const Log = () => {
           const time = item.time.split(":")
           return (
             <div className="journal" key={index}>
-              {item.user ? (
+              {item?.user?.name ? (
                 <>
-                  <h2>{`${item.user.name} a créer un compte avec adresse email ${item.user.email}`}</h2>
+                  <h2>{`${item?.user?.name} a créer un compte avec adresse email ${item.user.email}`}</h2>
                   <h2 className="date">
                     {item.date} à {`${time[0]}:${time[1]}`}
                   </h2>
                 </>
-              ) : (
+              ) : (item?.traker?.user && item?.traker?.product) ? (
                 <>
                   <h2>{`${item.traker.user.name} est intéresser par ${item.traker.product.title}`}</h2>
                   <h2 className="date">
                     {item.date} à {`${time[0]}:${time[1]}`}
                   </h2>
                 </>
-              )}
+              ) : null}
             </div>
           );
         })}
