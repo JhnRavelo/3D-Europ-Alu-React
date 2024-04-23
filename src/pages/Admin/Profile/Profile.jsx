@@ -30,7 +30,6 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(auth)
     setOpen(true);
   };
 

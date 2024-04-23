@@ -1,6 +1,5 @@
 const handleClassNewMessage = (setClassNewMessage, commercials, notif, setCountMessage) => {
   const classNewMessages = new Array(), countMessages = new Array();
-  // console.log(notif)
   commercials.map((item) => {
     const find = notif.find((n) => n.send.ID_user == item.ID_user);
     if (find) {

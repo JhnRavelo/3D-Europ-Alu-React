@@ -55,7 +55,6 @@ const Login = () => {
       if (res.data.success) {
         let role = res.data.role;
         let accessToken = res.data.accessToken;
-        console.log(res.data.id)
         setAuth({
           role,
           accessToken,

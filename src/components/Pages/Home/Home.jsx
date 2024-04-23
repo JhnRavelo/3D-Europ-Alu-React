@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import propTypes from "prop-types";
 import "./Home.css";
 import { useEffect, useState } from "react";
@@ -50,7 +51,7 @@ const Home = () => {
 
         <div className="scrolldown">
           <a href="#produit" className="scroll-icon smoothscroll">
-            Scroll Down
+            Défiler
             <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
