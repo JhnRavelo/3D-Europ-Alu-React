@@ -142,6 +142,11 @@ const Header = () => {
                   <h1>Modèle 3D</h1>
                 </NavLink>
               </li>
+              <li>
+                <a target="_blank" href="https://www.calameo.com/read/007599869b24efb474be2" rel="noreferrer">
+                  <h1>Catalogue</h1>
+                </a>
+              </li>
               {data?.length > 0 &&
                 data.map((page, index) => {
                   return (
