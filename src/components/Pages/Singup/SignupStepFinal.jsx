@@ -193,7 +193,7 @@ const SignupStepFinal = () => {
       />
 
       <div className="check">
-        {auth?.name && (
+        {!auth?.name && (
           <label>
             <Field id="acceptCheckbox" type="checkbox" name="checkbox" />
             {"Cette action va vous créer un compte chez Europ'Alu"}
