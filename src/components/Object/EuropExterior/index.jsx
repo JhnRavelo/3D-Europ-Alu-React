@@ -1,28 +1,37 @@
 import { Canvas } from "@react-three/fiber";
 import { AroundLight, HemiLight, ToplLight } from "../Light";
-import { Tone } from "../Postprocessing";
+// import { Tone } from "../Postprocessing";
 import Icon from "../Icon";
 import Controls from "../Controls/Controls";
-import { useRef } from "react";
 import Loading from "../../Loading/Loading";
-import { Europ2 } from "../Models/Europ2";
+import { Europ3 } from "../Models/Europ3";
+import { useEffect, useState } from "react";
 
 function EuropExterior() {
-  const controlsRef = useRef();
+  const [position, setPosition] = useState([
+    0.1207495869371528, 1.7967386171333914, 6.74719555004217,
+  ]);
+  useEffect(() => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth < 900) {
+      setPosition([0.21125456236270693, 2.143441231316623, 12.80439518887682]);
+    } else {
+      setPosition([0.1207495869371528, 1.7967386171333914, 6.74719555004217]);
+    }
+  }, []);
 
   return (
     <>
       <Canvas
-        ref={controlsRef}
         camera={{
-          fov: 45,
+          fov: 55,
           near: 0.1,
           far: 20,
-          position: [0.1207495869371528, 1.7967386171333914, 6.74719555004217],
+          position: position,
         }}
       >
-        <Tone />
-        <Europ2 />
+        {/* <Tone /> */}
+        <Europ3 />
         <Icon />
         <AroundLight />
         <ToplLight />
