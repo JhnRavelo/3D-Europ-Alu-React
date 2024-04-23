@@ -18,9 +18,13 @@ const Controls = () => {
     const polar = controlsRef.current.getPolarAngle();
     const distance = controlsRef.current.getDistance();
     if (deviceWidth < 900) {
-      setMaxDistance(15);
-      setMaxDistanceDisplay(12);
+      setMaxDistance(20);
+      setMaxDistanceDisplay(13);
       setMinDistanceDisplay(4);
+    }else {
+      setMaxDistance(10);
+      setMaxDistanceDisplay(7);
+      setMinDistanceDisplay(5);
     }
 
     if (data?.length > 0) {
@@ -46,7 +50,7 @@ const Controls = () => {
       minDistance={2}
       enablePan={false}
       maxPolarAngle={Math.PI / 2}
-      rotateSpeed={2}
+      rotateSpeed={1}
     />
   );
 };
