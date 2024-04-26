@@ -94,6 +94,7 @@ const Habillage = ({ products, productslenght, title, id }) => {
 };
 
 Habillage.propTypes = {
+  id: propTypes.number,
   products: propTypes.array,
   title: propTypes.string,
   productslenght: propTypes.number,

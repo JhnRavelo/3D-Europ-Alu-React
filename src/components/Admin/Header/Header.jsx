@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logoEuro from "../../../assets/Logo_Euro.png";
+import logoEuro from "../../../assets/png/Logo_Euro.png";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
 import useAdminContext from "../../../hooks/useAdminContext";

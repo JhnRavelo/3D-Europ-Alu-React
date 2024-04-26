@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./Product.css";
 import propTypes from "prop-types";
 import { useEffect } from "react";

@@ -79,6 +79,11 @@
     flex-direction: column;
   }
 
+.button_intrested_start .short__desc {
+    text-align: justify;
+  } 
+
+
 /* ======================= RESPA ====================== */
 
 @media screen and (max-width: 750px) {
