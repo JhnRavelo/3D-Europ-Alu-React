@@ -8,17 +8,20 @@ import { AuthProvider } from "./context/AuthProvider";
 import { ButtonProvider } from "./context/ButtonProvider";
 import { ProductProvider } from "./context/ProductProvider";
 import { AdminProviser } from "./context/AdminContext";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <ButtonProvider>
-      <ProductProvider>
-        <AdminProviser>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </AdminProviser>
-      </ProductProvider>
-    </ButtonProvider>
-  </AuthProvider>
+  <HelmetProvider>
+    <AuthProvider>
+      <ButtonProvider>
+        <ProductProvider>
+          <AdminProviser>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </AdminProviser>
+        </ProductProvider>
+      </ButtonProvider>
+    </AuthProvider>
+  </HelmetProvider>
 );

@@ -4,9 +4,7 @@
 }
 
 .body {
-  /* background: url(../../../../public/images/backHome.jpg); */
   background-repeat: no-repeat;
-  /* background-color: rgba(255, 166, 0, 0.352); */
   background-position: center;
   background-size: cover;
   backdrop-filter: blur(0.5px);
@@ -14,14 +12,13 @@
   height: 100vh;
   position: absolute;
   z-index: -100000;
-  background-image: url(../../../assets/fond-2.png);
+  background-image: url(../../assets/png/fond-2.png);
 }
 
 .flou {
   width: 100%;
   height: 100vh;
   position: absolute;
-  /* background-color: red; */
   z-index: -1;
 }
 
@@ -29,17 +26,15 @@
   height: 15vh;
   width: 100%;
   display: flex;
-  /* padding: 5vw; */
   align-items: center;
   background-color: #ffffff3a;
-  /* background-color: #06001a40; */
   backdrop-filter: blur(3px);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
 }
 
 .logo__home img {
   margin-left: 5vw;
-  width: 15rem;
+  // width: 15rem;
 }
 
 .body__home__page {
@@ -47,17 +42,16 @@
   justify-content: center;
   align-items: center;
   height: 75vh;
+  margin-top: 10vh;
 }
 
 .intro {
   width: 80vw;
   height: 60vh;
-  /* border: 1px solid green; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  /* align-items: start; */
 }
 
 .intro h1.intro__h1 {
@@ -75,6 +69,7 @@
   text-align: center;
   width: 50vw;
   animation: fadeInUp 1.5s ease;
+  font-weight: 600;
 }
 
 .button__intro {
@@ -103,7 +98,6 @@
   color: black;
   background-color: #fff;
   box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #fff;
-  /* border: 2px solid #06001a; */
 }
 
 .button__intro .start:hover {
@@ -114,17 +108,6 @@
 .button__intro .start:active {
   transform: scale(0.9);
 }
-
-/* @keyframes fade-up {
-    0% {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  } */
 
 /* ----------------ANIMATION ---------------- */
 
@@ -143,22 +126,19 @@
 
 @keyframes float {
 	0% {
-		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
 		transform: translatey(0px);
 	}
 	50% {
-		/* box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2); */
 		transform: translatey(-20px);
 	}
 	100% {
-		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
 		transform: translatey(0px);
 	}
 }
 
 @media only screen and (max-width: 1024px) {
   .body {
-    background-image: url(../../../assets/fond-5.png);
+    background-image: url(../../assets/png/fond-5.png);
   }
   .intro .intro__p {
     width: 80vw;
@@ -189,7 +169,7 @@
     backdrop-filter: blur(0px);
   }
   .body {
-    background-image: url(../../../assets/fond-2.png);
+    background-image: url(../../assets/png/fond-2.png);
     backdrop-filter: blur(0.5px);
   }
 }
