@@ -1,5 +1,5 @@
 import "./Footer.css";
-import LogoEuro from "../../../assets/Logo_aluhd.png";
+import LogoEuro from "../../../assets/png/Logo_aluhd.png";
 
 const Footer = () => {
   window.addEventListener("scroll", function () {
@@ -23,7 +23,13 @@ const Footer = () => {
           <div className="row contact-main" data-aos="fade-up">
             <div className="col-full">
               <div className="logo__foot">
-                <img className="m-auto mb-5" src={LogoEuro} alt="Logo" />
+                <img
+                  className="m-auto mb-5"
+                  src={LogoEuro}
+                  alt="Logo Europ'Alu Madagascar"
+                  title="Logo Europ'Alu Madagascar"
+                  loading="eager"
+                />
               </div>
               <div className="d__flex">
                 <div className="contact">
@@ -55,17 +61,17 @@ const Footer = () => {
 
               <ul className="contact-social">
                 <li>
-                  <a>
+                  <a href="https://www.facebook.com/europalumadagascar">
                     <i className="fa fa-facebook float_up mr-7"></i>
                   </a>
                 </li>
                 <li>
-                  <a>
+                  <a href="https://twitter.com/alu_europ">
                     <i className="fa fa-twitter float_up mr-5"></i>
                   </a>
                 </li>
                 <li>
-                  <a>
+                  <a href="https://www.linkedin.com/company/europalu-madagascar">
                     <i className="fa fa-linkedin float_up"></i>
                   </a>
                 </li>

@@ -8,8 +8,6 @@
  section#produit {
     position: relative !important;
     z-index: 2 !important;
-    /* margin-bottom: 100vh; */
-    /* background-color: #fff; */
 }
 
 footer {
@@ -19,16 +17,13 @@ footer {
     z-index: -1;
     margin-top: 10rem;
     min-height: 90vh;
-    /* height: 100vh; */
     max-width: 100vw;
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: rgba(255, 255, 255, 0.6);
-    /* background-color: #5e3080; */
     background-color: #06001a;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    /* position: fixed; */
     bottom: 0;
     z-index: 1;
 }
@@ -38,9 +33,7 @@ footer a {
 }
 
 footer .logo__foot img {
-    /* padding-top: 10rem; */
     width: 25vw;
-    /* padding-top: 12rem !important; */
 }
 
 footer .contact {
@@ -78,7 +71,6 @@ footer .contact ul li {
     bottom: 50px;
     right: 50px;
     z-index: 700;
-    /* display: none; */
     opacity: 0;
     pointer-events: none;
     transition: all .5s ease;
@@ -101,7 +93,6 @@ footer .contact ul li {
     border-radius: 5px;
     background-color: var(--orange);
     box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.3);
-    /* background-color: #000000; */
     color: #888;
     text-align: center;
     text-transform: uppercase;
@@ -123,7 +114,6 @@ footer .contact ul li {
     padding-bottom: 2rem;
     margin-top: 2rem;
     background-color: #06001a1d;
-    /* background-color: #5e3080; */
     color: rgba(255, 255, 255, 0.6);
     text-align: center;
     position: relative;
