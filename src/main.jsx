@@ -9,6 +9,7 @@ import { ButtonProvider } from "./context/ButtonProvider";
 import { ProductProvider } from "./context/ProductProvider";
 import { AdminProviser } from "./context/AdminContext";
 import { HelmetProvider } from "react-helmet-async";
+import { PageProvider } from "./context/PageProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
@@ -16,9 +17,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ButtonProvider>
         <ProductProvider>
           <AdminProviser>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
+            <PageProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </PageProvider>
           </AdminProviser>
         </ProductProvider>
       </ButtonProvider>
