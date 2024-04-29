@@ -45,7 +45,7 @@
     color: white;
 }
 
-.header-nav h3 {
+.header-nav h1 {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -60,12 +60,11 @@
     position: relative;
 }
 
-.header-nav h3::after {
+.header-nav h1::after {
     content: '';
     display: block;
     height: 1px;
     width: 100px;
-    /* background-color: #793ea5; */
     position: absolute;
     background-color: var(--orange);
     top: 50%;
@@ -77,7 +76,7 @@
 }
 
 .header-nav__content,
-.header-nav h3 {
+.header-nav h1 {
     left: 100px;
     opacity: 0;
     visibility: hidden;
@@ -187,7 +186,7 @@
 }
 
 .menu-is-open .header-nav .header-nav__content,
-.menu-is-open .header-nav h3 {
+.menu-is-open .header-nav h1 {
     opacity: 1;
     visibility: visible;
     -webkit-transition-property: all;
@@ -294,31 +293,16 @@ header .header {
     align-items: center;
     background: var(--orange);
     border: none;
-    /* border-top-right-radius: 10px; */
     border-top-left-radius: 10px;
-    /* border-bottom-left-radius: 10px; */
     border-bottom-right-radius: 10px;
     box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.836);
     transform: scale(0);
     pointer-events: none;
 }
 
-/* .userOption {
-    transform: scale(0);
-    pointer-events: none;
-    transition: .3s ease;
-    position: absolute;
-    right: 10px;
-    top: 20px;
-} */
 .profile {
     top: 120px;
 }
-
-/* .userOption.showed {
-    transform: scale(1);
-    pointer-events: all;
-} */
 
 .profile.showed,
 .logout.showed {
@@ -339,7 +323,6 @@ header .header {
 
 .logout p,
 .profile p {
-    /* color: var(--orange); */
     color: #fff;
     font-size: 1.2rem;
     font-weight: 700;
@@ -389,7 +372,7 @@ header .header {
 }
 
 @media (max-width: 1024px) {
-    .header-nav h3::after {
+    .header-nav h1::after {
         display: none;
     }
 }

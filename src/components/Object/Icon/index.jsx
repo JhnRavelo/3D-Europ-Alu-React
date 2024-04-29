@@ -1,32 +1,34 @@
 import { Html } from "@react-three/drei";
-import useButtonContext from "../../../hooks/useButtonContext";
 import { useNavigate } from "react-router-dom";
+import usePage from "../../../hooks/usePage";
 
 function Icon() {
-  const { data } = useButtonContext();
+  const {pages} = usePage()
   const navigate = useNavigate();
 
   const handleClick = (icon) => {
-    navigate(`/pageProd/${icon.ID_page}`);
+    const link = icon.page.toLowerCase().split(" ").join("-")
+    navigate(`/produits/${link}`);
   };
 
   return (
     <>
-      {data?.length > 0 &&
-        data.map((icon, index) => {
+      {pages?.length > 0 &&
+        pages.map((icon, index) => {
           const position = icon.position.split(",");
           const x = parseFloat(position[0]),
             y = parseFloat(position[1]),
             z = parseFloat(position[2]);
+          const alt = icon?.ID_page != 7 ? `menuiserie aluminium ${icon?.page}` : icon?.page
           return (
             <Html key={index} position={[x, y, z]}>
               <div
-                className="divi"
+                className="icon-container"
                 onClick={() => {
                   handleClick(icon);
                 }}
               >
-                <img src={icon.icon} alt={icon.page} className="imgi" />
+                <img src={icon.icon} alt={alt} width="32px" height="32px" title={alt} className="icon" />
               </div>
             </Html>
           );

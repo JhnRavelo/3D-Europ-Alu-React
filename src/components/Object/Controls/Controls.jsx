@@ -2,12 +2,12 @@ import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { imgAnimation } from "../../../lib/utils/imgAnimation";
-import useButtonContext from "../../../hooks/useButtonContext";
 import { useState } from "react";
+import usePage from "../../../hooks/usePage";
 
 const Controls = () => {
   const controlsRef = useRef();
-  const { data } = useButtonContext();
+  const {pages} = usePage()
   const [maxDistance, setMaxDistance] = useState(10);
   const [maxDistanceDisplay, setMaxDistanceDisplay] = useState(7);
   const [minDistanceDispaly, setMinDistanceDisplay] = useState(5);
@@ -27,8 +27,8 @@ const Controls = () => {
       setMinDistanceDisplay(5);
     }
 
-    if (data?.length > 0) {
-      data.map((item, index) => {
+    if (pages?.length > 0) {
+      pages.map((item, index) => {
         imgAnimation(
           item.minXAngle,
           item.maxXAngle,

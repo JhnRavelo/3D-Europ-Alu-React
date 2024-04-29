@@ -6,13 +6,26 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { io } from "socket.io-client";
 import useButtonContext from "./hooks/useButtonContext";
+import defaultAxios from "./api/axios";
+import usePage from "./hooks/usePage";
+
+const server = import.meta.env.VITE_SERVER_PATH;
 
 function App() {
   const { setSocket } = useButtonContext();
+  const { setPages } = usePage();
 
   useEffect(() => {
-    const socket = io("/");
+    const socket = io(server);
     setSocket(socket);
+    (async () => {
+      try {
+        const fetchPages = await defaultAxios.get("/page");
+        setPages(fetchPages.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
   return (
     <>
