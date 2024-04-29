@@ -11,10 +11,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <link rel="canonical" href="http://localhost:5173/" />
         <title>Accueil - {"Europ'Alu Madagascar"}</title>
-        <meta name="description" content="Depuis 2005, Europ'Alu s'est imposée comme La référence de Madagascar en termes de menuiseries aluminium et d'habillage de façade." />
-        
+        <meta
+          name="description"
+          content="Depuis 2005, Europ'Alu s'est imposée comme La référence de Madagascar en termes de menuiseries aluminium et d'habillage de façade."
+        />
+        <link rel="canonical" href="/" />
       </Helmet>
       <div id="home__page">
         <div className="body"></div>
@@ -23,9 +25,11 @@ const Home = () => {
           <div className="logo__home">
             <img
               src={logoEuro}
-              alt="logo Europ'Alu Madagascar"
-              width="15rem"
+              alt="logo d'Europ'Alu Madagascar"
+              width="240px"
               height="auto"
+              title="logo d'Europ'Alu Madagascar"
+              loading="eager"
             />
           </div>
         </header>
@@ -40,7 +44,7 @@ const Home = () => {
               aux normes européennes.
             </p>
             <div className="button button__intro">
-              <Link to="/pageProd">
+              <Link to="/modèle-3D">
                 <div className="start">Commencer</div>
               </Link>
               <div
