@@ -1,8 +1,8 @@
 import gsap from "gsap"
 
 const imgAnimate = (index, opacity, pointerEvents, delay) => {
-    const imgLabel = [...document.querySelectorAll('.imgi')]
-    const divLabel = [...document.querySelectorAll('.divi')]
+    const imgLabel = [...document.querySelectorAll('.icon')]
+    const divLabel = [...document.querySelectorAll('.icon-container')]
 
     gsap.to(imgLabel[index], {
         opacity,

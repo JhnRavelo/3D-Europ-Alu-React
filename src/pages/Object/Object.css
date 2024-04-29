@@ -1,95 +1,30 @@
-  
-  .container3D {
-    width: 100vw;
-    height: 100vh;
-    background-color: #E86222;
-    display: block;
-    position: fixed;
+.container3D {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e86222;
+  display: block;
+  position: fixed;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1c2b39;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 0 0 black;
+  animation: pulse 1.5s infinite;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.icon {
+  opacity: 0;
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.01);
   }
-  
-  .div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #E86222;
-    border-radius: 50%;
-    padding: 8px;
-    box-shadow: 0 0 0 #E86222;
-    animation: pulse 1.5s infinite;
-    pointer-events: none;
-    overflow: hidden;
-    opacity: 0;
-  
-  }
-  
-  .akor {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #1c2b39;
-    border-radius: 50%;
-    padding: 15px;
-    box-shadow: 0 0 0 black;
-    animation: pulse 1.5s infinite;
-    pointer-events: none;
-    opacity: 0;
-  }
-  
-  .imgAkor {
-    width: 2.5rem;
-    height: 2.5rem;
-    opacity: 0;
-  }
-  
-  .divi {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #1c2b39;
-    border-radius: 50%;
-    padding: 8px;
-    box-shadow: 0 0 0 black;
-    animation: pulse 1.5s infinite;
-    pointer-events: none;
-    opacity: 0
-  }
-  
-  .div.none {
-    display: none;
-  }
-  
-  .img.none {
-    opacity: 0;
-    width: 2rem;
-    height: 2rem;
-  }
-  .imgi {
-    width: 2rem;
-    height: 2rem;
-    opacity: 0;
-  }
-  .img {
-    width: 3rem;
-    height: 3rem;
-    transition: 0.6s;
-  }
-  
-  .img.scale {
-    width: 3rem;
-    height: 3rem;
-    transition: 0.6s;
-  }
-  
-  .img.grand {
-    width: 4rem;
-    height: 4rem;
-    transition: 0.6s; 
-  }
-  
-  @keyframes pulse {
-    to {
-      box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.01);
-    }
-  }
-  
-   
+}
