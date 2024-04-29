@@ -4,27 +4,25 @@ import propTypes from "prop-types";
 import { useEffect } from "react";
 import Template from "../Template/Template";
 import Habillage from "../Habillage/Habillage";
-import { useParams } from "react-router-dom";
 import defaultAxios from "../../../api/axios";
-import useProductContext from "../../../hooks/useProductContext";
+import useProduct from "../../../hooks/useProduct";
+import useExtractPageId from "../../../hooks/useExtractPageId";
 
 const Products = () => {
-  const { dataFetch, setDataFetch } = useProductContext();
-  const { id } = useParams();
-
+  const { products, setProducts } = useProduct();
+  const id = useExtractPageId();
   useEffect(() => {
-    fetchData();
+    (async () => {
+      if (id) {
+        try {
+          const res = await defaultAxios.get(`/product/getProduct/${id}`);
+          setProducts(res.data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    })();
   }, [id]);
-
-  const fetchData = async () => {
-    try {
-      const res = await defaultAxios.get(`/product/getProduct/${id}`);
-
-      setDataFetch(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
@@ -32,15 +30,15 @@ const Products = () => {
         {id != 7 ? (
           <Template
             id={id}
-            products={dataFetch}
-            productslenght={Object.keys(dataFetch).length}
+            products={products}
+            productslenght={products?.length}
             title={id}
           />
         ) : (
           <Habillage
             id={id}
-            products={dataFetch}
-            productslenght={Object.keys(dataFetch).length}
+            products={products}
+            productslenght={products?.length}
             title={id}
           />
         )}

@@ -12,9 +12,9 @@ import { addTraker } from "../../../lib/service/Trakers";
 import useAuth from "../../../hooks/useAuth";
 import useButtonContext from "../../../hooks/useButtonContext";
 import defaultAxios from "../../../api/axios";
-import useProductContext from "../../../hooks/useProductContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useProduct from "../../../hooks/useProduct";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
@@ -26,7 +26,7 @@ const SignupStepFinal = () => {
   const checkboxRef = useRef([]);
   const [productSelected, setproductSelected] = useState(selectedProduct);
   const { setAuth, auth } = useAuth();
-  const { dataFetch } = useProductContext();
+  const { products } = useProduct();
   const errors = formContext[0];
   const location = useLocation();
   const navigate = useNavigate();
@@ -116,7 +116,7 @@ const SignupStepFinal = () => {
       if (res?.data?.success && location.pathname == "/") {
         showForm();
         toast.success("Votre compte a bien été créé.");
-        navigate("/pageProd");
+        navigate("/modèle-3D");
       }
 
       if (track?.success && location.pathname != "/") {
@@ -145,9 +145,9 @@ const SignupStepFinal = () => {
           <p id="phone">{phone}</p>
         </div>
       </div>
-      {dataFetch && location.pathname.includes("page") && (
+      {products && location.pathname.includes("produits") && (
         <div className="menu-deroulant">
-          <label>Produits qui vous Intérèssent :</label>
+          <label>Produits qui vous Intéressent :</label>
 
           <div className="container">
             <div
@@ -165,7 +165,7 @@ const SignupStepFinal = () => {
             </div>
 
             <ul className="list-items">
-              {dataFetch.map((product, index) => {
+              {products.map((product, index) => {
                 return (
                   <Fragment key={index}>
                     <label className="item" ref={addtoRefsCheck}>
