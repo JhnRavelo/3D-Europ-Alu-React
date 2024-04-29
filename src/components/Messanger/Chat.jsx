@@ -35,7 +35,7 @@ const Chat = () => {
           {location.pathname.includes("commercial") && (
             <FontAwesomeIcon className="burger" icon={faBars} />
           )}
-          {location.pathname.includes("pageProd/profile") && (
+          {location.pathname.includes("profile") && (
             <FontAwesomeIcon className="chevronChat" icon={faChevronLeft} />
           )}
         </button>

@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Chemins from "../../routers/Chemins";
-import Grids from "./Grids/Grids";
-import Header from "./Header/Header";
-import ScrollToTop from "./ScrollToTop/ScrollToTop";
-import Footer from "./Footer/Footer";
-import FormField from "../Pages/Form/Form";
+import Grids from "../../components/Layout/Grids/Grids";
+import Header from "../../components/Header/Header";
+import ScrollToTop from "../../components/Layout/ScrollToTop/ScrollToTop";
+import Footer from "../../components/Layout/Footer/Footer";
+import FormField from "../../components/Pages/Form/Form";
 import useButtonContext from "../../hooks/useButtonContext";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import defaultAxios from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
+import ProductRouter from "../../routers/ProductRouter";
 
 const Layout = () => {
   const {
@@ -26,13 +24,11 @@ const Layout = () => {
     socket,
     onMessage,
     setOnMessage,
-    setData,
     dataPage,
     setNotif,
   } = useButtonContext();
   const { auth } = useAuth();
   const axiosPrivate = useAxiosPrivate();
-  const location = useLocation();
 
   useEffect(() => {
     if (socket) {
@@ -57,8 +53,6 @@ const Layout = () => {
 
   const fetchData = async () => {
     try {
-      const data = await defaultAxios.get("/page");
-      setData(data.data);
       if (auth?.name) {
         const page = await axiosPrivate.get("/traker");
         setDataPage(page.data);
@@ -83,10 +77,9 @@ const Layout = () => {
       <ScrollToTop />
       <div className="corps">
         <Header />
-        {location.pathname != "/pageProd" && <Grids />}
-        <Chemins />
-        {!location.pathname.includes("profile") &&
-          location.pathname != "/pageProd" && <Footer />}
+        <Grids />
+        <ProductRouter />
+        <Footer />
       </div>
       {show && <FormField />}
     </>

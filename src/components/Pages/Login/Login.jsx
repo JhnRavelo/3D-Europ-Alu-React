@@ -70,7 +70,7 @@ const Login = () => {
           if (role == prime[0]) {
             navigate("/admin/");
           } else if (role == prime[2] && location.pathname == "/") {
-            navigate("/pageProd");
+            navigate("/profile");
           } else if (role == prime[1]) {
             navigate("/commercial/");
           }
