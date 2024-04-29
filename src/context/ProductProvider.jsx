@@ -1,23 +1,22 @@
-import { createContext, useState } from "react"
-import propTypes from 'prop-types'
- 
-const ProductContext = createContext()
+import { createContext, useState } from "react";
+import propTypes from "prop-types";
 
-const ProductProvider = ({children})=>{
-    const [dataFetch, setDataFetch] = useState([])
+const ProductContext = createContext();
 
-    return (
-        <ProductContext.Provider value={{dataFetch, setDataFetch}}>
-            {children}
-        </ProductContext.Provider>
-    )
+const ProductProvider = ({ children }) => {
+  const [products, setProducts] = useState([]);
 
-}
+  return (
+    <ProductContext.Provider value={{ products, setProducts }}>
+      {children}
+    </ProductContext.Provider>
+  );
+};
 
 ProductProvider.propTypes = {
-    children: propTypes.any
-}
+  children: propTypes.any,
+};
 
-export {ProductProvider}
+export { ProductProvider };
 
-export default ProductContext
+export default ProductContext;
