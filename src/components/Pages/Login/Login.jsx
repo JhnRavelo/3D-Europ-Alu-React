@@ -9,6 +9,7 @@ import useAuth from "../../../hooks/useAuth";
 import useButtonContext from "../../../hooks/useButtonContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import useSocket from "../../../hooks/useSocket";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
@@ -20,12 +21,13 @@ const Login = () => {
   const location = useLocation();
   const { setAuth } = useAuth();
   const formContext = useContext(FormContext);
-  const { showForm, socket } = useButtonContext();
+  const { showForm } = useButtonContext();
   const btnLoginRef = useRef();
   const { loginMail, loginPassword } = formContext[1];
   const errors = formContext[0];
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname;
+  const {socket} = useSocket()
 
   useEffect(() => {
     const btnLogin = btnLoginRef.current;

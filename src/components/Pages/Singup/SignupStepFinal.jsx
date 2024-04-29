@@ -15,11 +15,13 @@ import defaultAxios from "../../../api/axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useProduct from "../../../hooks/useProduct";
+import useSocket from "../../../hooks/useSocket";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
 const SignupStepFinal = () => {
-  const { selectedProduct, showForm, socket } = useButtonContext();
+  const { selectedProduct, showForm } = useButtonContext();
+  const { socket } = useSocket();
   const formContext = useContext(FormContext);
   const btnListRef = useRef();
   const btnSubmitRef = useRef();
@@ -30,7 +32,6 @@ const SignupStepFinal = () => {
   const errors = formContext[0];
   const location = useLocation();
   const navigate = useNavigate();
-  const [registerError, setRegisterError] = useState(null);
 
   checkboxRef.current = [];
   const { name, email, phone, checked } = formContext[1];
@@ -82,20 +83,12 @@ const SignupStepFinal = () => {
       if (!auth?.name) {
         res = await defaultAxios.post("/auth", formContext[1]);
         if (res.data.success) {
-          setAuth({
-            role: res.data.role,
-            accessToken: res.data.accessToken,
-            name: res.data.name,
-            email: res.data.email,
-            phone: res.data.phone,
-            avatar: res.data.avatar,
-            id: res.data.id,
-          });
+          setAuth(res.data.user);
           if (checked[0] !== "") {
             track = await addTraker(formContext[1]);
           }
         } else {
-          setRegisterError(res.data.message);
+          toast.error(res.data.message);
         }
       } else {
         if (checked[0] !== "") {
@@ -119,7 +112,7 @@ const SignupStepFinal = () => {
         navigate("/modèle-3D");
       }
 
-      if (track?.success && location.pathname != "/") {
+      if (track?.success && !res.data?.message && location.pathname != "/") {
         showForm();
         toast.success("Votre produit a bien été ajouté");
       }
@@ -148,7 +141,6 @@ const SignupStepFinal = () => {
       {products && location.pathname.includes("produits") && (
         <div className="menu-deroulant">
           <label>Produits qui vous Intéressent :</label>
-
           <div className="container">
             <div
               className="select-btn"
@@ -216,7 +208,6 @@ const SignupStepFinal = () => {
         name="checkbox"
         className="errorNotChecked"
       />
-      {registerError && <p className="errorNotChecked">{registerError}</p>}
     </>
   );
 };

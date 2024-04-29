@@ -22,7 +22,6 @@ const ButtonProvider = ({ children }) => {
   const [onMessage, setOnMessage] = useState(null);
   const [search, setSearch] = useState(false);
   const [notif, setNotif] = useState([]);
-  const [socket, setSocket] = useState(null);
 
   const showForm = () => {
     if (show === false) {
@@ -85,8 +84,6 @@ const ButtonProvider = ({ children }) => {
         setData,
         notif,
         setNotif,
-        socket,
-        setSocket,
       }}
     >
       {children}

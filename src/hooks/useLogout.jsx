@@ -3,6 +3,7 @@ import useAxiosPrivate from "./useAxiosPrivate";
 import useButtonContext from "./useButtonContext";
 import useAuth from "./useAuth";
 import { toast } from "react-toastify";
+import useSocket from "./useSocket";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
@@ -11,12 +12,12 @@ const useLogout = () => {
     setDataPage,
     setSelectedProduct,
     setCommercialChat,
-    socket,
     setMessages,
     setReceiver,
     setSender,
     setShow,
   } = useButtonContext();
+  const { socket } = useSocket();
   const navigate = useNavigate();
   const { setAuth } = useAuth();
   const axiosPrivate = useAxiosPrivate();

@@ -5,14 +5,14 @@ import AppRouter from "./routers/AppRouter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { io } from "socket.io-client";
-import useButtonContext from "./hooks/useButtonContext";
 import defaultAxios from "./api/axios";
 import usePage from "./hooks/usePage";
+import useSocket from "./hooks/useSocket";
 
 const server = import.meta.env.VITE_SERVER_PATH;
 
 function App() {
-  const { setSocket } = useButtonContext();
+  const { setSocket } = useSocket();
   const { setPages } = usePage();
 
   useEffect(() => {

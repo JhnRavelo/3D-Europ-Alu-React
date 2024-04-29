@@ -5,6 +5,7 @@ import Home from "../../components/Messanger/Home";
 import useButtonContext from "../../hooks/useButtonContext";
 import { useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import useSocket from "../../hooks/useSocket";
 
 const CommePage = () => {
   const {
@@ -17,7 +18,6 @@ const CommePage = () => {
     sendMessage,
     setLastMessage,
     commercialChat,
-    socket,
     onMessage,
     setOnMessage,
     onAvatar,
@@ -26,6 +26,7 @@ const CommePage = () => {
     setNotif,
   } = useButtonContext();
   const axiosPrivate = useAxiosPrivate();
+  const { socket } = useSocket();
 
   useEffect(() => {
     if (commercialChat?.ID_user && socket) {

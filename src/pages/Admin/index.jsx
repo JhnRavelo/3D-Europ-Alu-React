@@ -7,7 +7,7 @@ import "./index.scss";
 import { useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useAdminContext from "../../hooks/useAdminContext";
-import useButtonContext from "../../hooks/useButtonContext";
+import useSocket from "../../hooks/useSocket";
 
 const Admin = () => {
   const privateAxios = useAxiosPrivate();
@@ -31,7 +31,7 @@ const Admin = () => {
     onInterested,
     setOnInterested,
   } = useAdminContext();
-  const { socket } = useButtonContext();
+  const { socket } = useSocket();
 
   useEffect(() => {
     fetchData();
