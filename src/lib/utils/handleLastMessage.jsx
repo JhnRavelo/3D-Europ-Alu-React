@@ -1,15 +1,19 @@
 const handleLastMessage = (commercials, lastMessage, setLastMessageDisplay) => {
-    var userLastMessage, 
+  var userLastMessage,
     displayMessages = new Array();
-    commercials.map((item) => {
-      userLastMessage = lastMessage.find(
-        (m) => item.ID_user == m.receiver || item.ID_user == m.sender
+  commercials.map((item) => {
+    userLastMessage = lastMessage.find(
+      (m) => item.ID_user == m.receiver || item.ID_user == m.sender
+    );
+    if (userLastMessage && userLastMessage?.text) {
+      displayMessages.push(
+        userLastMessage.text.length > 30
+          ? userLastMessage.text.slice(0, 30) + "..."
+          : userLastMessage.text
       );
-      if (userLastMessage?.text) {
-        displayMessages.push(userLastMessage?.text);
-      }
-    });
-    setLastMessageDisplay(displayMessages);
-  };
+    }
+  });
+  setLastMessageDisplay(displayMessages);
+};
 
-  export default handleLastMessage
+export default handleLastMessage;
