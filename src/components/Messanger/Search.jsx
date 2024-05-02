@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import useButtonContext from "../../hooks/useButtonContext";
+import useMessage from "../../hooks/useMessage";
 
 const Search = () => {
-  const [username, setUsername] = useState();
-  const { commercials, setCommercials, search, setSearch } = useButtonContext();
+  const { chatters, setChatterSearch, chatterSearch } = useMessage();
+  const [search, setSearch] = useState();
 
   return (
     <div className="search">
@@ -15,28 +15,25 @@ const Search = () => {
             type="text"
             placeholder="Rechercher client"
             onChange={(e) => {
-              setUsername(e.target.value);
-              const filteredItems = commercials.filter((item) =>
-                item.name.toLowerCase().includes(e.target.value.toLowerCase())
+              setSearch(e.target.value);
+              const filteredItems = chatters.filter((chatter) =>
+                chatter.name
+                  .toLowerCase()
+                  .includes(e.target.value.toLowerCase())
               );
-              setCommercials(filteredItems);
-             
+              setChatterSearch(filteredItems);
+
               if (e.target.value == "") {
-               
-                if (search) {
-                  setSearch(false);
-                } else {
-                  setSearch(true);
-                }
+                setChatterSearch(chatters);
               }
             }}
-            value={username}
+            value={search}
           />
           <div className="iconRecherche">
             <FontAwesomeIcon icon={faSearch} />
           </div>
         </div>
-        {commercials.length == 0 && (
+        {chatterSearch.length == 0 && (
           <span className="errorMessage">Client introuvable !!</span>
         )}
       </div>

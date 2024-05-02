@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from "react";
 import propTypes from "prop-types";
-import useButtonContext from "../../hooks/useButtonContext";
+import useAuth from "../../hooks/useAuth";
 
 const monthNames = [
   "Jan",
@@ -19,9 +20,9 @@ const monthNames = [
 
 const Message = ({ message }) => {
   const ref = useRef();
-  const { dataPage } = useButtonContext();
   const [Now, setNow] = useState(new Date());
   const [dispalyDate, setDisplayDate] = useState("");
+  const { auth } = useAuth();
 
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -76,9 +77,7 @@ const Message = ({ message }) => {
     <>
       <div
         ref={ref}
-        className={`message ${
-          message?.send?.ID_user === dataPage?.userRead[0]?.ID_user && "owner"
-        } `}
+        className={`message ${message?.send?.ID_user === auth?.id && "owner"} `}
       >
         <div className="messageInfo">
           <img src={message?.send?.avatar} alt="sary" />

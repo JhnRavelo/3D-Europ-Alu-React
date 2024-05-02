@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-import useButtonContext from "../../hooks/useButtonContext";
 import Message from "./Message";
 import { useState } from "react";
+import useMessage from "../../hooks/useMessage";
 
 const Messages = () => {
-  const { messages, onMessage } = useButtonContext();
+  const { messages, sendMessage } = useMessage();
   const [m, setM] = useState([]);
 
   useEffect(() => {
     if (messages) {
       setM(messages);
     }
-  }, [messages, onMessage]);
+  }, [messages, sendMessage]);
 
   return (
     <div className="messages">

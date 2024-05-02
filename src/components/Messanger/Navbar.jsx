@@ -1,17 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
-import useButtonContext from "../../hooks/useButtonContext";
 import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import useLogout from "../../hooks/useLogout";
+import useAuth from "../../hooks/useAuth";
+import useMessage from "../../hooks/useMessage";
 
 const Navbar = () => {
   const notifRef = useRef();
-  const { dataPage, notif, commercialChat} = useButtonContext();
+  const { notifs, chatter } = useMessage();
   const [notifCount, setNotifCount] = useState(0);
-  const logout = useLogout()
+  const { auth } = useAuth();
+  const logout = useLogout();
   const handleOpenMenu = () => {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("visible");
@@ -22,18 +24,18 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (notif?.length > 0) {
-      setNotifCount(notif.length);
-    }else{
-      setNotifCount(0)
+    if (notifs?.length > 0) {
+      setNotifCount(notifs.length);
+    } else {
+      setNotifCount(0);
     }
-  }, [notif, commercialChat]);
+  }, [notifs, chatter]);
 
   return (
     <div className="navbar">
       <div className="user">
-        <img src={dataPage?.userRead[0]?.avatar} alt="photos" />
-        <span>{dataPage?.userRead[0]?.name}</span>
+        <img src={auth?.avatar} alt="photos" />
+        <span>{auth?.name}</span>
       </div>
       <button className="x" onClick={handleOpenMenu}>
         <FontAwesomeIcon
@@ -57,8 +59,8 @@ const Navbar = () => {
           icon={faXmark}
         />
         <div className="messNotif">
-          {notif?.length > 0 &&
-            notif.map((item, index) => (
+          {notifs?.length > 0 &&
+            notifs.map((item, index) => (
               <span key={index}>
                 {item.send.name} a envoyé {item.count}{" "}
                 {item.count > 0 ? "messages" : "message"}
@@ -66,7 +68,7 @@ const Navbar = () => {
             ))}
         </div>
       </div>
-      <button className="deconnexion" onClick={()=>logout()}>
+      <button className="deconnexion" onClick={() => logout()}>
         <FontAwesomeIcon
           icon={faSignOutAlt}
           flip

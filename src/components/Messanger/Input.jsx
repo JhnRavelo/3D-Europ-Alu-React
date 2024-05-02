@@ -1,11 +1,12 @@
-import Img from "./img/img.png";
-import Send from "./img/envoyer-le-message.png";
+import Img from "../../assets/png/img.png";
+import Send from "../../assets/png/envoyer-le-message.png";
 import { Field, Form, Formik } from "formik";
 import { validationMessage } from "../../lib/utils/validationSchema";
-import useButtonContext from "../../hooks/useButtonContext";
 import propTypes from "prop-types";
 import defaultAxios from "../../api/axios";
 import useSocket from "../../hooks/useSocket";
+import useAuth from "../../hooks/useAuth";
+import useMessage from "../../hooks/useMessage";
 
 const initialValues = {
   message: "",
@@ -13,41 +14,27 @@ const initialValues = {
 };
 
 const Input = () => {
-  const {
-    commercialChat,
-    dataPage,
-    setSender,
-    setReceiver,
-    setsendMessage,
-    sendMessage,
-  } = useButtonContext();
   const { socket } = useSocket();
+  const { auth } = useAuth();
+  const { chatter, setSendMessage } = useMessage();
 
   const handleSendMessage = async (values, errors, setField) => {
-    if (!errors.message && commercialChat?.ID_user && values.message != "") {
+    if (!errors.message && chatter?.ID_user && values.message != "") {
       try {
         const formData = new FormData();
         formData.append("text", values.message);
-        if (values?.file) {
-          formData.append("file", values.file);
-        }
-        formData.append("sender", dataPage.userRead[0].ID_user);
-        setSender(dataPage.userRead[0].ID_user);
-        formData.append("receiver", commercialChat.ID_user);
-        setReceiver(commercialChat.ID_user);
+        formData.append("file", values?.file ? values.file : null);
+        formData.append("sender", auth?.id);
+        formData.append("receiver", chatter.ID_user);
         await defaultAxios.post("/message", formData);
         socket.emit("sendMessage", {
           text: values.message,
-          receiver: commercialChat.ID_user,
-          sender: dataPage.userRead[0].ID_user,
+          receiver: chatter.ID_user,
+          sender: auth?.id,
         });
         setField("file", null);
         setField("message", "");
-        if (sendMessage == false) {
-          setsendMessage(true);
-        } else {
-          setsendMessage(false);
-        }
+        setSendMessage((prev) => !prev);
       } catch (error) {
         console.log(error);
       }

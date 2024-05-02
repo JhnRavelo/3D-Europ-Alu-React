@@ -4,37 +4,34 @@
 
 $darkColor: #2f2d52;
 
-$gris: #202C33;
+$gris: #202c33;
 
-$gris1: #111B21;
+$gris1: #111b21;
 
-$grisInput: #202C33;
+$grisInput: #202c33;
 
-$vert: #00A884;
+$vert: #00a884;
 
-$shadow1 : transparent;
+$shadow1: transparent;
 
 $sideshadow: rgba(0, 0, 0, 1) 0px 4px 10px;
-// $shadow1 :5px 5px 20px #000000,
-// -5px -5px 20px #4a4a4a;
 
-// $shadow1 :10px 10px 30px #252525,
-// -10px -10px 30px #a6a6a6;
-
-$shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px 0px;
+$shadow2:
+    rgba(14, 30, 37, 1) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 1) 0px 2px 16px 0px;
 
 @keyframes shake {
     0% {
-      margin-left: 0rem;
+        margin-left: 0rem;
     }
     25% {
-      margin-left: 0.5rem;
+        margin-left: 0.5rem;
     }
     75% {
-      margin-left: -0.5rem;
+        margin-left: -0.5rem;
     }
     100% {
-      margin-left: 0rem;
+        margin-left: 0rem;
     }
 }
 
@@ -44,12 +41,12 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
     }
 }
 
-@mixin resp1024{
+@mixin resp1024 {
     @media screen and (max-width: 1024px) {
         @content;
     }
 }
-@mixin resp870{
+@mixin resp870 {
     @media screen and (max-width: 870px) {
         @content;
     }
@@ -60,22 +57,22 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
         @content;
     }
 }
-@mixin resp610{
+@mixin resp610 {
     @media screen and (max-width: 610px) {
         @content;
     }
 }
-@mixin resp520{
+@mixin resp520 {
     @media screen and (max-width: 520px) {
         @content;
     }
 }
-@mixin resp440{
+@mixin resp440 {
     @media screen and (max-width: 440px) {
         @content;
     }
 }
-@mixin resp410{
+@mixin resp410 {
     @media screen and (max-width: 410px) {
         @content;
     }
@@ -87,15 +84,12 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
     }
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
 }
-
 
 // --------------- HOME PAGE -------------
 .chatOverlay {
@@ -106,23 +100,16 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
 }
 
 .homeChat {
-    background-image: url(../../components/Messanger/img/backxhat.png);
+    background-image: url(../../assets/png/backxhat.png);
     background-position: top;
-    // background-size: cover;
     background-repeat: repeat-x;
-    // backdrop-filter: blur(1px);
-    // background-color: #a7bcff;
-    // background-color: azure;
-    // background-color: #F3F6FF;
-    padding:10px;
+    padding: 10px;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     @include resp440 {
-        // padding: 20px 0px 5px 5px;
     }
-
 
     .container {
         width: 100%;
@@ -130,48 +117,38 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
         display: flex;
         padding: 0;
 
-
         .sidebar {
             flex: 1;
-            transition: all .3s ease-in-out;
+            transition: all 0.3s ease-in-out;
             max-width: 30%;
             margin-right: 20px;
             border-radius: 30px;
-            // background-color: #3e3c61;
             background: $gris1;
             box-shadow: $sideshadow;
-            // box-shadow:  10px 10px 30px #cfd1d9,
-            //  -10px -10px 30px #ffffff;
             position: relative;
             &.visible {
-
                 @include resp870 {
-                    // display: block !important;
                     height: 93vh;
                     transform: scale(1);
                     pointer-events: all;
                     box-shadow: $sideshadow;
                 }
             }
-             @include resp870 {
+            @include resp870 {
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                 position: absolute;
+                position: absolute;
                 top: 20;
                 right: 0;
                 height: 90vh;
                 min-width: 300px;
                 z-index: 2;
-                // display: none;
                 transform: scale(0);
                 pointer-events: none;
             }
 
-
             .navbar {
                 border-radius: 30px;
                 background: $gris;
-                // box-shadow:  10px 10px 30px #cfd1d9,
-                //  -10px -10px 30px #ffffff;
                 display: flex;
                 border-radius: 30px;
                 align-items: center;
@@ -189,16 +166,12 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 font-weight: 300 !important;
                 color: #fff;
             }
-            // .logo {
-            //     font-weight: bold;
-            // }
             .x {
-                // background-color: #ddddf7;
                 background: $gris;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                box-shadow: rgba(0, 0, 0, .5) 0px 1px 5px;
+                box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px;
                 display: none;
                 border-radius: 50%;
                 width: 40px;
@@ -216,7 +189,7 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 img {
                     width: 20px;
                     height: 20px;
-                }               
+                }
             }
 
             .user {
@@ -231,39 +204,36 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                     border-radius: 50%;
                     object-fit: cover;
                 }
-
             }
         }
 
         .notication {
             position: relative;
             z-index: 10000;
-            // right: -40px;
             width: 40px;
             height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: .1s ease;
+            transition: 0.1s ease;
             &:active {
-                transform: scale(.9);
+                transform: scale(0.9);
             }
             @include resp870 {
-                right: 75px;      
+                right: 75px;
             }
 
             .bell {
                 color: #fff;
                 font-size: 25px;
                 &:active {
-                    transform: scale(.9);
+                    transform: scale(0.9);
                 }
-                
             }
-            
+
             span {
-                box-shadow: rgba(0, 0, 0, .5) 0px 0px 5px;
+                box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
                 width: 17px;
                 height: 17px;
                 border-radius: 50%;
@@ -293,8 +263,8 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
             box-shadow: $sideshadow;
             background: $gris1;
             opacity: 0;
-            transition: .2s ease;
-            pointer-events: none;            
+            transition: 0.2s ease;
+            pointer-events: none;
             &.visible {
                 opacity: 1;
                 transform: translateX(45%) scale(1);
@@ -313,18 +283,17 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 border-radius: 50px;
                 padding: 5px;
                 cursor: pointer;
-                transition: .1s ease;
+                transition: 0.1s ease;
                 &:active {
-                    transform: scale(.9);
+                    transform: scale(0.9);
                 }
-            
             }
 
             .messNotif {
                 overflow-y: scroll;
                 height: 90px;
                 text-align: center;
-                padding:4px;
+                padding: 4px;
                 padding-top: 2px;
 
                 span {
@@ -335,29 +304,26 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                     box-shadow: $sideshadow;
                     margin-bottom: 5px;
                     cursor: pointer;
-                    transition: .1s ease;
+                    transition: 0.1s ease;
                     &:hover {
                         background-color: $gris;
                         color: #fff;
                     }
                     &:active {
-                        transform: scale(.95);
+                        transform: scale(0.95);
                     }
                 }
             }
         }
 
         button.deconnexion {
-
             @include resp1024 {
                 position: absolute;
                 bottom: 20px;
                 left: 20px;
             }
-            
         }
         button {
-            // background-color: orangered;
             background-color: rgb(238, 8, 8);
             color: #fff;
             font-size: 10px;
@@ -366,16 +332,15 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
             padding: 8px 8px;
             font-size: 13px;
             font-weight: 900;
-            transition: .3s ease;
-            cursor: pointer ;
-            box-shadow: rgba(0, 0, 0, 0.30) 0px 3px 8px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
             &:hover {
                 transform: scale(1.05);
             }
             &:active {
-                transform: scale(.9);
+                transform: scale(0.9);
             }
-
         }
         .search {
             span.errorMessage {
@@ -384,20 +349,20 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 color: red;
                 animation: shake 0.2s ease-in-out 0s 2;
             }
-            
+
             .searchForm {
                 width: 100%;
-                border-bottom: 2px solid #202C33;
+                border-bottom: 2px solid #202c33;
                 padding: 20px;
-                .input{
+                .input {
                     border-radius: 30px;
-                    background: #202C33;
+                    background: #202c33;
                     width: 100%;
                     padding: 10px;
                     border-radius: 20px;
                     display: flex;
                     input {
-                        background: #202C33;
+                        background: #202c33;
                         color: #fff;
                         border: none;
                         outline: none;
@@ -411,27 +376,23 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         color: #fff;
                         padding: 8px;
                         border-radius: 50%;
-                        transition: .3s ease;
+                        transition: 0.3s ease;
                         background-color: $gris1;
                         cursor: pointer;
                         &:hover {
                             transform: scale(1.05);
                         }
                         &:active {
-                            transform: scale(.9);
+                            transform: scale(0.9);
                         }
                         img {
                             width: 20px;
                             height: 20px;
-                            // padding: 5px;
-                            // border-radius: 50%;
                             cursor: pointer;
-                            
                         }
                     }
                 }
             }
-
         }
 
         .chats {
@@ -442,9 +403,8 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
             }
             @include resp870 {
                 height: 58%;
-
             }
-            
+
             .userChat {
                 position: relative;
                 padding: 10px;
@@ -452,11 +412,11 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 align-items: center;
                 gap: 10px;
                 color: #fff;
-                border-bottom: 1px solid #202C33;
+                border-bottom: 1px solid #202c33;
                 cursor: pointer;
-                transition: all .2s ease;
+                transition: all 0.2s ease;
                 &:hover {
-                    background-color: #202C33;
+                    background-color: #202c33;
                     color: #000;
                 }
                 img {
@@ -465,21 +425,20 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                     border-radius: 50%;
                     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
                 }
-    
+
                 .userChatInfo {
                     max-width: 160px;
                     min-width: 100px;
                     overflow: hidden;
                     margin-left: 10px;
-    
+
                     span {
                         font-size: 18px;
                         font-weight: 500;
                         display: flex;
                         justify-content: flex-start;
-                        
                     }
-                    
+
                     p {
                         font-size: 14px;
                         color: rgb(177, 177, 177);
@@ -489,7 +448,7 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         &.newMessage {
                             color: #fff;
                             font-weight: 900;
-                            letter-spacing: .5px;
+                            letter-spacing: 0.5px;
                         }
                     }
                 }
@@ -516,7 +475,6 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
         }
 
         .chat {
-
             flex: 2;
 
             .chatInfo {
@@ -531,13 +489,10 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 display: flex;
                 gap: 10px;
                 align-items: center;
-                // justify-content: space-between;
-                // padding: 10px;
                 color: black;
                 font-weight: 500;
                 font-size: 20px;
                 @include tablet {
-                    // height: 50px;
                     padding-bottom: 10px;
                 }
 
@@ -547,14 +502,13 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                     width: 53px;
                     border-radius: 50%;
                     object-fit: cover;
-                    padding:2px;
+                    padding: 2px;
                     border: 1px solid green;
                 }
 
                 span {
                     color: #fff;
                     text-transform: capitalize;
-                    
                 }
 
                 .menuIcon {
@@ -563,7 +517,6 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                     top: 25px;
                     padding: 0px 4px 0px 4px;
                     background: none !important;
-                    // box-shadow: none;
                     display: none;
                     z-index: 1;
                     @include resp610 {
@@ -576,7 +529,7 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         display: block;
                         top: 17px;
                     }
-                    
+
                     .burger {
                         border-radius: 0px !important;
                         width: 35px;
@@ -586,7 +539,6 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         border: none;
                         box-shadow: none;
                     }
-
                 }
             }
 
@@ -602,7 +554,6 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
 
             .messages {
                 padding: 20px;
-                // background-color: #F3F6FF;
                 height: calc(100% - 150px);
                 overflow-y: scroll;
                 @include tablet {
@@ -617,7 +568,6 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 &:-webkit-scrollbar-track {
                     background-color: transparent; /* Couleur de la piste de défilement */
                 }
-                // overflow: hidden;
 
                 .message {
                     display: flex;
@@ -636,7 +586,6 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         flex-direction: column;
                         color: gray;
                         font-weight: 300;
-                        // width: 100px;
                         align-items: center;
                         justify-content: flex-end;
                         text-align: center;
@@ -646,7 +595,7 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         @include resp440 {
                             width: 30px;
                         }
-                        
+
                         img {
                             width: 50px;
                             box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px;
@@ -657,14 +606,11 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                             @include tablet {
                                 width: 30px;
                                 height: 30px;
-                                
                             }
                             @include resp440 {
                                 width: 25px;
                                 height: 25px;
-    
                             }
-                            
                         }
 
                         span {
@@ -679,7 +625,7 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                             left: 50%;
                             font-weight: 500;
                             transform: translate(-50%);
-    
+
                             @include resp440 {
                                 font-size: 10px;
                             }
@@ -699,30 +645,25 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                             margin-bottom: 5px;
                             color: #fff;
                             box-shadow: $shadow2;
-
-                            // box-shadow:  10px 10px 30px #cfd1d9,
-                            // -10px -10px 30px #ffffff;
                             border-radius: 20px 20px 20px 0px;
                             max-width: max-content !important;
                             font-weight: 300;
                             font-size: 18px;
-                            letter-spacing: .5px;
+                            letter-spacing: 0.5px;
                             @include resp610 {
                                 max-width: 400px !important;
-                                
                             }
                             @include resp520 {
                                 max-width: 300px !important;
                             }
-
                         }
 
                         img {
-                            width: 50%;                            
+                            width: 50%;
                             @include tablet {
                                 width: 70%;
                             }
-                            @include resp610{
+                            @include resp610 {
                                 width: 100%;
                             }
                         }
@@ -746,11 +687,8 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
             .input {
                 border-radius: 30px;
                 position: relative;
-                // background-color: #3e3c61;
                 background: $gris1;
                 box-shadow: $sideshadow;
-                // box-shadow:  10px 10px 30px #cfd1d9,
-                //  -10px -10px 30px #ffffff;
                 height: 75px;
                 padding: 10px;
                 padding-left: 20px;
@@ -758,19 +696,17 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                // position: relative;
-                // z-index: 10;
                 @include resp410 {
                     width: 98%;
                 }
-                
+
                 input {
                     width: 80%;
                     border: none;
                     outline: none;
                     background: $gris1;
                     color: #fff;
-                    font-size: 18px;                 
+                    font-size: 18px;
                     @include resp520 {
                         width: 70%;
                     }
@@ -803,18 +739,16 @@ $shadow2 : rgba(14, 30, 37, 1) 0px 2px 4px 0px, rgba(14, 30, 37, 1) 0px 2px 16px
                         justify-content: center;
                         cursor: pointer;
                         padding-left: 15px;
-                        transition: .3s ease;
-                        
+                        transition: 0.3s ease;
+
                         &:hover {
                             transform: scale(1.1);
                         }
                         &:active {
-                            transform: scale(.9);
+                            transform: scale(0.9);
                         }
                     }
-
                 }
-
             }
         }
     }
