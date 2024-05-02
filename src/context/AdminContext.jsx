@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 
 const AdminContext = createContext();
 
-const AdminProviser = ({ children }) => {
+const AdminProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [top, setTop] = useState([]);
   const [nbUser, SetNbUser] = useState(null);
@@ -19,13 +19,7 @@ const AdminProviser = ({ children }) => {
     return year;
   });
   const [years, setYears] = useState([]);
-  const [log, setLog] = useState({
-    unReadLogNb: [],
-    userCreatedByYear: [],
-    productInterestedByYear: [],
-    listProductInterestedByYear: [],
-    listByYear: [],
-  });
+  const [log, setLog] = useState({});
   const [connect, setConnect] = useState(null);
   const [logout, setLogout] = useState(null);
   const [onInterested, setOnInterested] = useState(null);
@@ -76,10 +70,10 @@ const AdminProviser = ({ children }) => {
   );
 };
 
-AdminProviser.propTypes = {
+AdminProvider.propTypes = {
   children: propTypes.any,
 };
 
-export { AdminProviser };
+export { AdminProvider };
 
 export default AdminContext;
