@@ -7,22 +7,31 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthProvider";
 import { ButtonProvider } from "./context/ButtonProvider";
 import { ProductProvider } from "./context/ProductProvider";
-import { AdminProviser } from "./context/AdminContext";
+import { AdminProvider } from "./context/AdminContext";
 import { HelmetProvider } from "react-helmet-async";
 import { PageProvider } from "./context/PageProvider.jsx";
+import { SocketProvider } from "./context/SocketProvider.jsx";
+import { ProfilProvider } from "./context/ProfilContext.jsx";
+import { MessageProvider } from "./context/MessageProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
     <AuthProvider>
       <ButtonProvider>
         <ProductProvider>
-          <AdminProviser>
+          <AdminProvider>
             <PageProvider>
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
+              <SocketProvider>
+                <ProfilProvider>
+                  <MessageProvider>
+                    <BrowserRouter>
+                      <App />
+                    </BrowserRouter>
+                  </MessageProvider>
+                </ProfilProvider>
+              </SocketProvider>
             </PageProvider>
-          </AdminProviser>
+          </AdminProvider>
         </ProductProvider>
       </ButtonProvider>
     </AuthProvider>
