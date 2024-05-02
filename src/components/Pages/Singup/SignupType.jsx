@@ -1,6 +1,6 @@
 import "./SignupType.scss";
-import particular from "../../../assets/particular.png";
-import entreprise from "../../../assets/entreprise.png";
+import particular from "../../../assets/png/particular.png";
+import entreprise from "../../../assets/png/entreprise.png";
 import { useContext, useState } from "react";
 import { ErrorMessage, Field} from "formik";
 import FormContext from "../Form/FormContext";
@@ -28,7 +28,6 @@ const SignupType = () => {
             name="typeUser"
             value="Entreprise"
             id="entreprise"
-            // checked={choixUser === "Entreprise"}
           />
           <img src={entreprise} alt="logoentre" />
           <span>Entreprise</span>

@@ -1,7 +1,6 @@
 import "./ModalDelete.css";
-import Trash from "../../../assets/poubelle.png";
+import Trash from "../../../assets/png/poubelle.png";
 import propTypes from "prop-types";
-// import defaultAxios from "../../../api/axios";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 
 const ModalDelete = ({
