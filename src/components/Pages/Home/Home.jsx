@@ -14,7 +14,7 @@ const Home = () => {
       const page = pages.find((page) => page.ID_page == id);
       setPage(page);
     }
-  }, [id && pages]);
+  }, [id, pages]);
 
   return (
     <>

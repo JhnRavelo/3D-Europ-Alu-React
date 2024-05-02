@@ -27,7 +27,7 @@ const Login = () => {
   const errors = formContext[0];
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname;
-  const {socket} = useSocket()
+  const { socket } = useSocket();
 
   useEffect(() => {
     const btnLogin = btnLoginRef.current;
@@ -50,22 +50,12 @@ const Login = () => {
     const body = { loginMail: loginMail, loginPassword: loginPassword };
     loginMailRef.current = loginMail;
     loginPasswordRef.current = loginPassword;
-
     try {
       const res = await defaultAxios.post("/auth/login", body);
 
       if (res.data.success) {
-        let role = res.data.role;
-        let accessToken = res.data.accessToken;
-        setAuth({
-          role,
-          accessToken,
-          name: res.data.name,
-          email: res.data.email,
-          phone: res.data.phone,
-          avatar: res.data.avatar,
-          id: res.data.id,
-        });
+        let role = res.data.user.role;
+        setAuth(res.data.user);
         if (from) {
           navigate(from, { replace: true });
         } else {
@@ -78,25 +68,20 @@ const Login = () => {
           }
         }
         showForm();
-
         socket.emit("joinRoom", {
           room: prime[0],
         });
-
         socket.emit("connectUser", {
           loginMail: loginMail,
           room: prime[0],
         });
-
         toast.success("Vous êtes connecté.");
       } else {
         setLoginError(res.data.message);
       }
     } catch (error) {
-      if (error) {
-        console.log(error);
-        toast.error("Connexion impossible");
-      }
+      console.log(error);
+      toast.error("Connexion impossible");
     }
   };
 

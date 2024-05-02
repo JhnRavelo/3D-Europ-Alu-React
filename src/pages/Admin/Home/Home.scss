@@ -8,10 +8,10 @@
   grid-auto-rows: minmax(180px, auto);
   grid-auto-flow: dense;
 
-  @include xl{
+  @include xl {
     grid-template-columns: repeat(3, 1fr);
   }
-  @include lg{
+  @include lg {
     grid-template-columns: repeat(2, 1fr);
   }
   @include md {
@@ -34,28 +34,11 @@
     grid-row: span 3;
   }
 
-  
-  // .box2 {
-  //   animation: tonga 1s ease;
-  //   animation-delay: .02s;
-  // }
-  
-  // .box3 {
-  //   animation-delay: 2s;
-  //   animation: tonga .05s ease;
-  // }
-  
-  // .box5 {
-  //   animation: tonga 1s ease;
-  // }
-
   .box4 {
     grid-column: span 1;
     grid-row: span 3;
-    // animation: tonga 1s ease;
   }
   .box7 {
-    // animation: tonga 1s ease;
     grid-column: span 2;
     grid-row: span 2;
 

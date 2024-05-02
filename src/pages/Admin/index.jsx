@@ -34,7 +34,34 @@ const Admin = () => {
   const { socket } = useSocket();
 
   useEffect(() => {
-    fetchData();
+    (async () => {
+      try {
+        const order = await privateAxios.get("/traker/all");
+        setOrder(order.data);
+        const user = await privateAxios.get("/auth/getUsers");
+        setUser(user.data);
+        const commercial = await privateAxios.get("/auth/getCommercials");
+        setCommercial(commercial.data);
+        const resTop = await privateAxios.post("/traker/top", { year: year });
+        setTop(resTop.data);
+        const nbrUser = await privateAxios.post("/auth/nbr", { year: year });
+        SetNbUser(nbrUser.data);
+        const nbrProd = await privateAxios.post("/traker/nbrProd", {
+          year: year,
+        });
+        SetNbProd(nbrProd.data);
+        setYears(nbrProd.data.years);
+        if (notifOpen == false) {
+          const log = await privateAxios.post("/log", { year: year });
+          setLog(log.data);
+        }
+        if (notifOpen == true) {
+          await privateAxios.get("/log");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, [open, deleteOpen, year, notifOpen, connect, logout, onInterested]);
 
   useEffect(() => {
@@ -50,37 +77,6 @@ const Admin = () => {
       });
     }
   }, [socket]);
-
-  const fetchData = async () => {
-    try {
-      const order = await privateAxios.get("/traker/all");
-      setOrder(order.data);
-      const user = await privateAxios.get("/auth/getUsers");
-      setUser(user.data);
-      const commercial = await privateAxios.get("/auth/getCommercials");
-      setCommercial(commercial.data);
-      const resTop = await privateAxios.post("/traker/top", { year: year });
-      setTop(resTop.data);
-      const nbrUser = await privateAxios.post("/auth/nbr", { year: year });
-      SetNbUser(nbrUser.data);
-      const nbrProd = await privateAxios.post("/traker/nbrProd", {
-        year: year,
-      });
-
-      SetNbProd(nbrProd.data);
-      setYears(nbrProd.data.getYear);
-
-      if (notifOpen == false) {
-        const log = await privateAxios.post("/log", { year: year });
-        setLog(log.data);
-      }
-      if (notifOpen == true) {
-        await privateAxios.get("/log");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className="main">

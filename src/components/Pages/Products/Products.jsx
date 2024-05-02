@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "./Product.css";
-import propTypes from "prop-types";
 import { useEffect } from "react";
 import Template from "../Template/Template";
 import Habillage from "../Habillage/Habillage";
@@ -25,29 +24,14 @@ const Products = () => {
   }, [id]);
 
   return (
-    <>
-      <section id="produit">
-        {id != 7 ? (
-          <Template
-            id={id}
-            products={products}
-            productslenght={products?.length}
-            title={id}
-          />
-        ) : (
-          <Habillage
-            id={id}
-            products={products}
-            productslenght={products?.length}
-            title={id}
-          />
-        )}
-      </section>
-    </>
+    <section id="produit">
+      {id != 7 ? (
+        <Template id={id} products={products} />
+      ) : (
+        <Habillage id={id} products={products} />
+      )}
+    </section>
   );
 };
 
-Products.propTypes = {
-  index: propTypes.number,
-};
 export default Products;

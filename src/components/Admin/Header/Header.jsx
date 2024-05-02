@@ -17,20 +17,20 @@ const Header = () => {
   const { auth } = useAuth();
   const selectDate = useRef();
   const chevron = useRef();
-  const notication = useRef();
+  const notifRef = useRef();
   const [notif, setNotif] = useState(0);
   const [notifCompte, setNotifCompte] = useState(0);
   const [notifProduct, setNotifProduct] = useState(0);
   const [compteDate, setCompteDate] = useState("");
   const [productDate, setProductDate] = useState("");
 
-  const handleVisibleSelecteYear = () => {
+  const handleVisibleSelectYear = () => {
     selectDate.current.classList.toggle("visible");
     chevron.current.classList.toggle("up");
   };
 
-  const handleShowNotication = () => {
-    notication.current.classList.toggle("showed");
+  const handleShowNotification = () => {
+    notifRef.current.classList.toggle("showed");
     setNotif(0);
     if (notifOpen == true) {
       setNotifOpen(false);
@@ -44,24 +44,25 @@ const Header = () => {
     selectDate.current.classList.toggle("visible");
     chevron.current.classList.toggle("up");
   };
+
   useEffect(() => {
-    if (log.unReadLogNb[0]?.count) {
-      setNotif(log.unReadLogNb[0].count);
+    if (log?.unReadLogNb) {
+      setNotif(log?.unReadLogNb[0].count);
     } else {
       setNotif(0);
     }
-    if (log.productInterestedByYear[0]?.count) {
-      setNotifProduct(log.productInterestedByYear[0]?.count);
+    if (log?.productInterestedByYear) {
+      setNotifProduct(log?.productInterestedByYear[0]?.count);
     } else {
       setNotifProduct(0);
     }
-    if (log.userCreatedByYear[0]?.count) {
-      setNotifCompte(log.userCreatedByYear[0]?.count);
+    if (log?.userCreatedByYear) {
+      setNotifCompte(log?.userCreatedByYear[0]?.count);
     } else {
       setNotifCompte(0);
     }
-    if (log.listProductInterestedByYear.length !== 0) {
-      log.listProductInterestedByYear.map((item) => {
+    if (log?.listProductInterestedByYear) {
+      log?.listProductInterestedByYear.map((item) => {
         if (item.user) {
           setCompteDate(item.date);
         } else {
@@ -85,13 +86,12 @@ const Header = () => {
         pathname.includes("/admin/log")) && (
         <div className="date">
           <div className="selected__date">
-            <h2 onClick={handleVisibleSelecteYear}>Année {year}</h2>
-
+            <h2 onClick={handleVisibleSelectYear}>Année {year}</h2>
             <FontAwesomeIcon
               ref={chevron}
               className="chevron"
               icon={faChevronDown}
-              onClick={handleVisibleSelecteYear}
+              onClick={handleVisibleSelectYear}
             />
           </div>
           <div ref={selectDate} className="setect__date">
@@ -115,9 +115,9 @@ const Header = () => {
         </div>
       )}
       <div className="icons">
-        <div ref={notication} className="log">
+        <div ref={notifRef} className="log">
           <Link to="/admin/log">
-            <div className="journal" onClick={handleShowNotication}>
+            <div className="journal" onClick={handleShowNotification}>
               <div>
                 <h2>{"Nouveaux comptes crées"}</h2>
                 <span> {notifCompte} </span>
@@ -126,7 +126,7 @@ const Header = () => {
             </div>
           </Link>
           <Link to="/admin/log">
-            <div className="journal" onClick={handleShowNotication}>
+            <div className="journal" onClick={handleShowNotification}>
               <div>
                 <h2>{"Derniers produits intéressés"}</h2>
                 <span> {notifProduct} </span>
@@ -135,7 +135,7 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        <div className="notification" onClick={handleShowNotication}>
+        <div className="notification" onClick={handleShowNotification}>
           {notif == 0 ? (
             <FontAwesomeIcon icon={faBell} className="bellIcon" />
           ) : (

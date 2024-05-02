@@ -2,23 +2,10 @@
     height: auto;
 }
 
-.fenetre {
-    margin-top: 6rem;
-    height: auto;
-}
-
 .fenetre__coulissante .presentation {
     display: flex;
-    /* flex-direction: row-reverse; */
     width: 100%;
     margin-bottom: 5rem;
-}
-
-.fenetre .presentation {
-    width: 100%;
-    display: flex;
-    padding-bottom: 5rem;
-    position: relative;
 }
 
 .img__pres {
@@ -30,11 +17,6 @@
 .fenetre__coulissante img {
     display: flex;
     width: 50%;
-    max-height: 500px;
-}
-
-.fenetre img {
-    width: 80%;
     max-height: 500px;
 }
 
