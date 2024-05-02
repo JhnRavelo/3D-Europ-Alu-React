@@ -2,71 +2,68 @@
 import "./CommePage.scss";
 import "../../components/Messanger/style.scss";
 import Home from "../../components/Messanger/Home";
-import useButtonContext from "../../hooks/useButtonContext";
 import { useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useSocket from "../../hooks/useSocket";
+import useAuth from "../../hooks/useAuth";
+import useMessage from "../../hooks/useMessage";
 
 const CommePage = () => {
   const {
-    show,
-    setDataPage,
-    setCommercials,
+    setNotifs,
+    setLastMessages,
     setMessages,
-    sender,
-    receiver,
+    setChatters,
+    chatters,
+    chatter,
+    setSendMessage,
     sendMessage,
-    setLastMessage,
-    commercialChat,
-    onMessage,
-    setOnMessage,
-    onAvatar,
-    search,
-    dataPage,
-    setNotif,
-  } = useButtonContext();
+    setChatterSearch,
+  } = useMessage();
   const axiosPrivate = useAxiosPrivate();
   const { socket } = useSocket();
+  const { auth } = useAuth();
 
   useEffect(() => {
-    if (commercialChat?.ID_user && socket) {
-      socket.emit("joinRoom", { room: commercialChat.ID_user });
+    if (chatters.length > 0 && socket && auth?.id) {
+      chatters.map((chatter) =>
+        socket.emit("joinRoom", { room: chatter.ID_user })
+      );
     }
-    if (dataPage?.userRead[0]?.ID_user && socket) {
-      socket.emit("joinRoom", { room: dataPage?.userRead[0].ID_user });
+    if (auth && socket) {
+      socket.emit("joinRoom", { room: auth.id });
     }
-  }, [commercialChat, socket, dataPage]);
+  }, [chatters, socket, auth]);
 
   useEffect(() => {
     if (socket) {
-      socket.on("receiveMessage", (data) => {
-        setOnMessage(data);
+      socket.on("receiveMessage", () => {
+        setSendMessage((prev) => !prev);
       });
     }
   }, [socket]);
 
   useEffect(() => {
-    fetchData();
-  }, [show, sender, receiver, sendMessage, onMessage, onAvatar, search]);
-
-  const fetchData = async () => {
-    try {
-      const page = await axiosPrivate.get("/traker");
-      setDataPage(page.data);
-      const lastmessage = await axiosPrivate.get("/message/getlast");
-      setLastMessage(lastmessage.data);
-      const user = await axiosPrivate.get("/message/getUsers");
-      setCommercials(user.data);
-      if (receiver) {
-        const message = await axiosPrivate.post("/message/get", { receiver });
-        setMessages(message.data);
+    (async () => {
+      try {
+        const fetchLastmessages = await axiosPrivate.get("/message/getlast");
+        setLastMessages(fetchLastmessages.data);
+        const fetchUsers = await axiosPrivate.get("/message/getUsers");
+        setChatters(fetchUsers.data);
+        setChatterSearch(fetchUsers.data);
+        if (chatter?.ID_user) {
+          const fetchMessages = await axiosPrivate.post("/message/get", {
+            receiver: chatter?.ID_user,
+          });
+          setMessages(fetchMessages.data);
+        }
+        const fetchNotifs = await axiosPrivate.get("/message/getNotif");
+        setNotifs(fetchNotifs.data);
+      } catch (error) {
+        console.log(error);
       }
-      const notif = await axiosPrivate.get("/message/getNotif");
-      setNotif(notif.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    })();
+  }, [sendMessage, chatter]);
 
   return <Home />;
 };

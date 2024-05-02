@@ -2,16 +2,16 @@
 
 @keyframes shake {
     0% {
-      margin-left: 0rem;
+        margin-left: 0rem;
     }
     25% {
-      margin-left: 0.5rem;
+        margin-left: 0.5rem;
     }
     75% {
-      margin-left: -0.5rem;
+        margin-left: -0.5rem;
     }
     100% {
-      margin-left: 0rem;
+        margin-left: 0rem;
     }
 }
 
@@ -21,13 +21,13 @@
     }
 }
 
-@mixin resp1024{
+@mixin resp1024 {
     @media screen and (max-width: 1024px) {
         @content;
     }
 }
 
-@mixin resp870{
+@mixin resp870 {
     @media screen and (max-width: 870px) {
         @content;
     }
@@ -38,24 +38,24 @@
         @content;
     }
 }
-@mixin resp610{
+@mixin resp610 {
     @media screen and (max-width: 610px) {
         @content;
     }
 }
-@mixin resp520{
+@mixin resp520 {
     @media screen and (max-width: 520px) {
         @content;
     }
 }
 
-@mixin resp440{
+@mixin resp440 {
     @media screen and (max-width: 410px) {
         @content;
     }
 }
 
-@mixin resp410{
+@mixin resp410 {
     @media screen and (max-width: 410px) {
         @content;
     }
@@ -69,7 +69,6 @@
 
 .card__box {
     width: 70%;
-    /* height: 80vh; */
     @include resp1024 {
         width: 98%;
     }
@@ -78,19 +77,17 @@
     }
 }
 
-
-
 .chatUser {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px, rgba(0, 0, 0, 0.5) 0px 3px 6px;
+    box-shadow:
+        rgba(0, 0, 0, 0.3) 0px 3px 6px,
+        rgba(0, 0, 0, 0.5) 0px 3px 6px;
     border-radius: 35px;
     overflow: hidden;
-    background: url(../../components/Messanger/img/backxhat.png);
-    // background-position: center;
+    background: url(../../assets/png/backxhat.png);
     background-repeat: repeat-x;
-    animation: tonga .6s ease;
+    animation: tonga 0.6s ease;
     position: relative;
     overflow: hidden;
-    // overflow: hidden;
 
     .chatOverlay {
         border-radius: 30px;
@@ -102,7 +99,7 @@
 
     .sidebar {
         background: $gris1;
-        box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 0 20px 20px 0px;
         width: 30%;
         position: absolute;
@@ -110,8 +107,7 @@
         right: 0;
         top: 0;
         height: 80vh;
-        // overflow: hidden;
-        transition: .2s ease;
+        transition: 0.2s ease;
         overflow-y: scroll;
         transform: translateX(20px);
         opacity: 0;
@@ -125,17 +121,13 @@
         @include resp1024 {
             width: 50%;
         }
-        // overflow: hidden;
 
         .listeComm {
             height: 65vh;
             overflow-y: scroll;
-            
+
             .chats {
-
-                
                 .userChat {
-
                     position: relative;
                     padding: 10px;
                     display: flex;
@@ -144,7 +136,7 @@
                     color: #fff;
                     border-bottom: 1px solid $gris;
                     cursor: pointer;
-                    transition: all .2s ease;
+                    transition: all 0.2s ease;
                     &:hover {
                         background-color: $gris;
                     }
@@ -156,11 +148,11 @@
                         border-radius: 50%;
                         object-fit: cover;
                     }
-        
+
                     .userChatInfo {
                         max-width: 160px;
                         overflow: hidden;
-        
+
                         span {
                             font-size: 18px;
                             font-weight: 500;
@@ -168,7 +160,7 @@
                             display: flex;
                             justify-content: flex-start;
                         }
-        
+
                         p {
                             font-size: 14px;
                             color: rgb(177, 177, 177);
@@ -204,19 +196,16 @@
                     }
                 }
             }
-
         }
 
         .navbar {
-            box-shadow: rgba(0,0,0,0.14) 0px 3px 8px;
-            // border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
             display: flex;
             align-items: center;
             height: 75px;
             padding: 10px;
             justify-content: space-between;
             color: #fff;
-
 
             span {
                 display: flex;
@@ -233,19 +222,17 @@
                 align-items: center;
                 border: none;
                 background: transparent;
-                // box-shadow: rgba(0, 0, 0, .5) 0px 1px 5px;
-                // border-radius: 50%;
                 width: 40px;
                 height: 40px;
                 right: 20px;
                 position: absolute;
-                cursor: pointer;                
-                transition: .3s ease;
+                cursor: pointer;
+                transition: 0.3s ease;
                 &:hover {
                     transform: scale(1.05);
                 }
                 &:active {
-                    transform: scale(.9);
+                    transform: scale(0.9);
                 }
 
                 .chevronChat {
@@ -257,22 +244,19 @@
                     border-radius: 50%;
                     background: $gris;
                 }
-                
+
                 img {
                     width: 25px;
                     background: none;
                     height: 25px;
-                }               
+                }
             }
         }
-
     }
 
     .chat {
-        // flex: 2;
         overflow: hidden;
-        // background: #f8f8f9;
-        box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 30px;
         width: 100%;
         height: 80vh;
@@ -283,26 +267,22 @@
 
         .chatInfo {
             display: none;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            box-shadow:
+                rgba(0, 0, 0, 0.16) 0px 3px 6px,
+                rgba(0, 0, 0, 0.23) 0px 3px 6px;
             border-radius: 30px;
             margin-bottom: 1px;
             padding: 20px;
             height: 75px;
             background: $gris;
-            // background-color: #F3F6FF;
-            // background: #f8f8f978;
-            // background: transparent;
             backdrop-filter: blur(20px);
-            display: flex; 
+            display: flex;
             gap: 10px;
             align-items: center;
-            // justify-content: space-between;
-            // padding: 10px;
             color: #fff;
             font-weight: 500;
             font-size: 20px;
             @include tablet {
-                // height: 50px;
                 padding-bottom: 15px;
             }
 
@@ -314,7 +294,7 @@
                 border-radius: 50%;
                 background: $gris1;
             }
-    
+
             img {
                 box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
                 background-color: #ddddf7;
@@ -322,61 +302,55 @@
                 width: 50px;
                 border-radius: 50%;
                 object-fit: cover;
-                padding:2px;
+                padding: 2px;
                 border: 1px solid green;
             }
 
             img.chevron {
                 background: none;
             }
-    
+
             .menuIcon {
                 position: absolute;
                 right: 30px;
                 top: 18px;
-                // padding: 0px 6px 0px 6px;
                 padding: 5px;
                 background: none !important;
                 border: none;
-                // border-radius: 10px;
-                // box-shadow: rgba(0, 0, 0, .5) 0px 1px 5px;
                 z-index: 1;
                 cursor: pointer;
-                transition: .3s ease;
+                transition: 0.3s ease;
                 &:hover {
                     transform: scale(1.05);
                 }
                 &:active {
-                    transform: scale(.9);
+                    transform: scale(0.9);
                 }
                 @include tablet {
                     top: 13px;
                 }
 
-                
                 img.chevron {
                     border-radius: 0px !important;
                     width: 35px;
                     padding-top: 2px;
                     height: 35px;
                 }
-    
             }
         }
-    
+
         .chatIcons {
             display: flex;
             gap: 10px;
-    
+
             img {
                 height: 24px;
                 cursor: pointer;
             }
         }
-    
+
         .messages {
             padding: 20px;
-            // background-color: #F3F6FF;
             height: calc(100% - 150px);
             overflow-y: scroll;
             @include tablet {
@@ -391,7 +365,6 @@
             &:-webkit-scrollbar-track {
                 background-color: transparent; /* Couleur de la piste de défilement */
             }
-            // overflow: hidden;
 
             .message {
                 display: flex;
@@ -410,7 +383,6 @@
                     flex-direction: column;
                     color: gray;
                     font-weight: 300;
-                    // width: 100px;
                     align-items: center;
                     justify-content: flex-end;
                     text-align: center;
@@ -420,7 +392,7 @@
                     @include resp440 {
                         width: 30px;
                     }
-                    
+
                     img {
                         width: 50px;
                         box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px;
@@ -431,14 +403,11 @@
                         @include tablet {
                             width: 30px;
                             height: 30px;
-                            
                         }
                         @include resp440 {
                             width: 25px;
                             height: 25px;
-
                         }
-                        
                     }
 
                     span {
@@ -473,30 +442,25 @@
                         margin-bottom: 5px;
                         color: #fff;
                         box-shadow: $shadow2;
-
-                        // box-shadow:  10px 10px 30px #cfd1d9,
-                        // -10px -10px 30px #ffffff;
                         border-radius: 20px 20px 20px 0px;
                         max-width: max-content !important;
                         font-weight: 300;
                         font-size: 18px;
-                        letter-spacing: .5px;
+                        letter-spacing: 0.5px;
                         @include resp610 {
                             max-width: 400px !important;
-                            
                         }
                         @include resp520 {
                             max-width: 300px !important;
                         }
-
                     }
 
                     img {
-                        width: 50%;                            
+                        width: 50%;
                         @include tablet {
                             width: 70%;
                         }
-                        @include resp610{
+                        @include resp610 {
                             width: 100%;
                         }
                     }
@@ -519,11 +483,8 @@
         .input {
             border-radius: 30px;
             position: relative;
-            // background-color: #3e3c61;
             background: $gris1;
             box-shadow: $sideshadow;
-            // box-shadow:  10px 10px 30px #cfd1d9,
-            //  -10px -10px 30px #ffffff;
             height: 75px;
             padding: 10px;
             padding-left: 20px;
@@ -531,19 +492,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            // position: relative;
-            // z-index: 10;
             @include resp410 {
                 width: 98%;
             }
-            
+
             input {
                 width: 80%;
                 border: none;
                 outline: none;
                 background: $gris1;
                 color: #fff;
-                font-size: 18px;                 
+                font-size: 18px;
                 @include resp520 {
                     width: 70%;
                 }
@@ -577,18 +536,16 @@
                     justify-content: center;
                     cursor: pointer;
                     padding-left: 15px;
-                    transition: .3s ease;
-                    
+                    transition: 0.3s ease;
+
                     &:hover {
                         transform: scale(1.1);
                     }
                     &:active {
-                        transform: scale(.9);
+                        transform: scale(0.9);
                     }
                 }
-
             }
-
         }
     }
 }

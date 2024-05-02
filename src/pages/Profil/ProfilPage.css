@@ -18,12 +18,8 @@
 
 .profile__page {
     width: 100%;
-    /* height: 100vh; */
     top: 7rem;
     position: absolute;
-    /* padding-top: 15vh; */
-    /* background-color: #fff; */
-    /* background: url(../../components/Messanger/img/backxhat.png); */
     background-repeat: repeat;
     display: flex;
     justify-content: space-around;
@@ -31,7 +27,6 @@
 
 .card__box {
     width: 70%;
-    /* height: 80vh; */
 }
  
 
@@ -46,7 +41,6 @@
     }
 
     .wrapper {
-        /* margin-top: 1rem; */
         margin-bottom: 2rem;
     }
 }
