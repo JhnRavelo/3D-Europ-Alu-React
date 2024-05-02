@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import useRefresh from "../../hooks/useRefresh";
 import useAuth from "../../hooks/useAuth";
 import { Outlet } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const PersistantLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +26,7 @@ const PersistantLogin = () => {
     return () => (isMounted = false);
   }, []);
 
-  return <>{isLoading ? <p>Loading...</p> : <Outlet />}</>;
+  return <>{isLoading ? <Loading /> : <Outlet />}</>;
 };
 
 export default PersistantLogin;
