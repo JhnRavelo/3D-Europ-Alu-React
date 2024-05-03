@@ -3,36 +3,62 @@ import "./Home.css";
 import { useEffect, useState } from "react";
 import useExtractPageId from "../../../hooks/useExtractPageId";
 import usePage from "../../../hooks/usePage";
+import { Helmet } from "react-helmet-async";
+import useProduct from "../../../hooks/useProduct";
+import { useParams } from "react-router-dom";
 
 const Home = () => {
   const [page, setPage] = useState({});
+  const [allProducts, setAllProducts] = useState("");
+  const [title, setTitle] = useState("");
   const id = useExtractPageId();
   const { pages } = usePage();
+  const { products } = useProduct();
+  const { link } = useParams();
 
   useEffect(() => {
-    if (id && pages) {
+    if (id && pages && products) {
       const page = pages.find((page) => page.ID_page == id);
       setPage(page);
+      const allProducts = products.map((product) => product.title);
+      setAllProducts(allProducts.join(", "));
+      const title =
+        id == 5 || id == 6 || id == 10 || id == 11
+          ? "Menuiserie aluminium " + page?.page
+          : id == 7
+          ? "Habillages Façades"
+          : page?.page;
+      setTitle(title);
     }
-  }, [id, pages]);
+  }, [id, pages, products]);
 
   return (
     <>
+      <Helmet>
+        <title>{page?.page + " - Europ'Alu Madagascar"}</title>
+        <meta
+          name="description"
+          content={
+            id != 7
+              ? "Menuiserie Aluminium pour " + page?.page + " comme: " + allProducts
+              : "Habillages Façades comme: " + allProducts
+          }
+        />
+        <link rel="canonical" href={`/produits/${link}`} />
+      </Helmet>
       <section id="home" style={{ backgroundImage: `url(${page?.home})` }}>
         <div className="overlay"></div>
         <div className="demi-overlay"></div>
         <div className="gradient-overlay"></div>
-
         <div className="home-content-table">
           <div className="home-content-tablecell">
             <div className="row">
               <div className="col-twelve">
-                <h3 className="animate-intro">{page?.page}</h3>
-                <h1 className="animate-intro">
+                <h1 className="animate-intro">{title}</h1>
+                <h2 className="animate-intro">
                   Architecture Moderne <br />
                   et Innovante
-                </h1>
-
+                </h2>
                 <div className="more animate-intro">
                   <a className="smoothscroll button stroke" href="#produit">
                     Nos produits
@@ -42,7 +68,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         <div className="scrolldown">
           <a href="#produit" className="scroll-icon smoothscroll">
             Défiler

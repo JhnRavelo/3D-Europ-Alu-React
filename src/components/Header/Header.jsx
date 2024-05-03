@@ -98,7 +98,6 @@ const Header = () => {
               height="auto"
             />
           </div>
-
           <div className="login__logout" ref={userRef}>
             <div className="deco">
               <div className="use__icon" onClick={showOption}>
@@ -124,29 +123,25 @@ const Header = () => {
               </div>
             </div>
           </div>
-
           <a id="header-menu-trigger" onClick={onOpenMenu}>
             <i className="fa fa-bars burger header-menu-icon"></i>
           </a>
         </div>
-
         <nav className="header-nav">
           <a className="header-nav__close" title="close" onClick={onOpenMenu}>
             <span></span>
           </a>
-
-          <h1>Naviguer vers</h1>
-
+          <h2>Naviguer vers</h2>
           <div className="header-nav__content">
             <ul className="header-nav__list">
               <li>
                 <NavLink to="/">
-                  <h2>Accueil</h2>
+                  <h3>Accueil</h3>
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/modèle-3D">
-                  <h2>Modèle 3D</h2>
+                  <h3>Modèle 3D</h3>
                 </NavLink>
               </li>
               <li>
@@ -155,7 +150,7 @@ const Header = () => {
                   href="https://www.calameo.com/read/007599869b24efb474be2"
                   rel="noreferrer"
                 >
-                  <h2>Catalogue</h2>
+                  <h3>Catalogue</h3>
                 </a>
               </li>
               {pages?.length > 0 &&
@@ -164,7 +159,7 @@ const Header = () => {
                   return (
                     <li key={index}>
                       <NavLink to={`/produits/${link}`}>
-                        <h2>{page.page}</h2>
+                        <h3>{page.page}</h3>
                       </NavLink>
                     </li>
                   );
