@@ -18,19 +18,21 @@ const monthNames = [
   "Dec",
 ];
 
-const Message = ({ message }) => {
+const Message = ({ message, start }) => {
   const ref = useRef();
   const [Now, setNow] = useState(new Date());
   const [dispalyDate, setDisplayDate] = useState("");
   const { auth } = useAuth();
 
   useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
-  }, [message]);
+    if (start == 10) {
+      ref.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [message, start]);
 
   useEffect(() => {
     handleDate();
-  }, [Now]);
+  }, [Now, message]);
 
   useEffect(() => {
     setInterval(() => {
@@ -39,6 +41,7 @@ const Message = ({ message }) => {
   }, []);
 
   const handleDate = () => {
+    console.log("DATE", message?.date)
     const date = message?.date.split("-");
     const hour = message?.time.split(":");
     var intervalHour, interDay;
@@ -94,6 +97,7 @@ const Message = ({ message }) => {
 
 Message.propTypes = {
   message: propTypes.any,
+  start: propTypes.number,
 };
 
 export default Message;

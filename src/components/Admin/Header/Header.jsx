@@ -94,7 +94,7 @@ const Header = () => {
               onClick={handleVisibleSelectYear}
             />
           </div>
-          <div ref={selectDate} className="setect__date">
+          <div ref={selectDate} className="select__date">
             <Formik initialValues={{ year: year }}>
               {({ values }) => (
                 <Form>
