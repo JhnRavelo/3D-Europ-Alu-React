@@ -52,7 +52,11 @@ const UserProfileCard = ({ setScreen }) => {
           <div className="gauche">
             <div className="img-area">
               <div className="inner-area">
-                <img src={imgProfile} alt="avatar" />
+                <img
+                  src={imgProfile}
+                  alt="avatar du compte profil"
+                  loading="eager"
+                />
               </div>
               <div
                 className="changeImg"
@@ -69,7 +73,12 @@ const UserProfileCard = ({ setScreen }) => {
                   return (
                     <Fragment key={index}>
                       <a>
-                        <img onClick={handleClick} src={avatar} alt="avatar" />
+                        <img
+                          onClick={handleClick}
+                          src={avatar}
+                          alt={"image profil à choisir " + avatar}
+                          loading="eager"
+                        />
                       </a>
                     </Fragment>
                   );

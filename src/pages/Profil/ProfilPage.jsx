@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import "./ProfilPage.css";
 import "./ProfilPage.scss";
 import { useState } from "react";
 import UserProfileCard from "../../components/Profils/UserProfileCard/UserProfileCard";
@@ -17,6 +16,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useMessage from "../../hooks/useMessage";
 import Header from "../../components/Header/Header";
+import { Helmet } from "react-helmet-async";
 
 const ProfilPage = () => {
   const [chatOrCart, setChatOrCart] = useState("vide");
@@ -100,6 +100,18 @@ const ProfilPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Profils - {"Europ'Alu Madagascar"}</title>
+        <meta
+          name="description"
+          content={
+            "Page du compte profil de " +
+            auth?.name +
+            "où il/elle pourra voir ses produits et contacter un commercial"
+          }
+        />
+        <link rel="canonical" href="/profile" />
+      </Helmet>
       <Header />
       <div className="profile__page" style={{ animation: "tonga .6s ease" }}>
         <div className="profile__box">

@@ -9,11 +9,16 @@ const slides = [pub1, pub2, pub3];
 const Pub = () => {
   return (
     <div className="pub">
-     <Caroussel autoslide={true}> 
+      <Caroussel autoslide={true}>
         {slides.map((s, index) => (
-          <img src={s} key={index}/>
+          <img
+            src={s}
+            key={index}
+            loading="eager"
+            alt={"image publicité de nos produits " + index}
+          />
         ))}
-      </Caroussel> 
+      </Caroussel>
     </div>
   );
 };
