@@ -33,7 +33,7 @@
 
 .header-nav a {
     text-decoration: none;
-    font-size: .9rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
     color: rgb(172, 171, 171) !important;
     transition: 0.6s;
@@ -47,7 +47,7 @@
 
 .header-nav h2 {
     display: inline-block;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 12px;
     line-height: 1.25;
@@ -61,7 +61,7 @@
 }
 
 .header-nav h2::after {
-    content: '';
+    content: "";
     display: block;
     height: 1px;
     width: 100px;
@@ -90,7 +90,7 @@
 }
 
 .header-nav__list {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 2.8rem;
     line-height: 1.286;
@@ -116,6 +116,10 @@
 
 .header-nav__list .current a::before {
     color: #793ea5;
+}
+
+.header-nav__list h3 {
+    font-size: 1.3rem;
 }
 
 .header-nav__social li {
@@ -152,7 +156,7 @@
 
 .header-nav__close span::before,
 .header-nav__close span::after {
-    content: '';
+    content: "";
     display: block;
     height: 2px;
     width: 30px;
@@ -202,7 +206,6 @@
 
 /* -------------- Navigation --------------- */
 
-
 header {
     width: 100%;
     height: auto;
@@ -239,11 +242,10 @@ header .header {
     pointer-events: none;
 }
 
-.login__logout.connected{
+.login__logout.connected {
     pointer-events: all;
     opacity: 1;
 }
-
 
 .deco {
     display: block;
@@ -259,7 +261,7 @@ header .header {
     transition: all 0.3s ease;
 }
 .use__icon {
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     width: 30px;
 }
 
@@ -278,7 +280,8 @@ header .header {
     font-size: 5vh;
 }
 
-.logout, .profile {
+.logout,
+.profile {
     display: block;
     position: fixed;
     right: 130px;
@@ -334,7 +337,7 @@ header .header {
     right: 25px;
     top: 25px;
     width: 5vh;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
     animation: animate-bars 3s ease infinite;
 }
@@ -385,7 +388,7 @@ header .header {
 
     .logout {
         top: 80px;
-        right: 175px; 
+        right: 175px;
     }
 }
 
@@ -397,7 +400,7 @@ header .header {
 
 @media only screen and (max-width: 700px) {
     .header-nav__list a {
-        font-size: .8rem !important;
+        font-size: 0.8rem !important;
     }
 }
 
@@ -415,7 +418,6 @@ header .header {
     .header-nav__list li {
         padding: 12px;
     }
-
 }
 
 @media (max-width: 300px) {
@@ -426,7 +428,6 @@ header .header {
     .header-nav__list li {
         padding: 10px;
     }
-
 }
 
 @media (max-width: 400px) {
@@ -440,6 +441,6 @@ header .header {
     }
 
     .header-nav__list a {
-        font-size: .6rem !important;
+        font-size: 0.6rem !important;
     }
 }
