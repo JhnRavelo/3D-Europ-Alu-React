@@ -21,7 +21,7 @@ const Home = () => {
       <div id="home__page">
         <div className="body"></div>
         <div className="flou"></div>
-        <header className="header__home__page">
+        <div className="header__home__page">
           <div className="logo__home">
             <img
               src={logoEuro}
@@ -32,8 +32,8 @@ const Home = () => {
               loading="eager"
             />
           </div>
-        </header>
-        <main className="body__home__page">
+        </div>
+        <div className="body__home__page">
           <section className="intro" id="historique">
             <h1 className="intro__h1">
               Innovation Continue <span>.</span>
@@ -57,7 +57,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-        </main>
+        </div>
         {show && <Form />}
       </div>
     </>
