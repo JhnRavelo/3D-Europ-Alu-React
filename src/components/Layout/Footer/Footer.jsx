@@ -9,9 +9,6 @@ const Footer = () => {
     }
   });
 
-  const texthaut = "Europ' Alu 2018 ALL RIGHTS";
-  const textbas = "RESERVED BY Ankasitrahina";
-
   return (
     <>
       <footer id="foot">
@@ -19,7 +16,6 @@ const Footer = () => {
           <div className="grid-overlay">
             <div></div>
           </div>
-
           <div className="row contact-main" data-aos="fade-up">
             <div className="col-full">
               <div className="logo__foot">
@@ -29,6 +25,8 @@ const Footer = () => {
                   alt="Logo Europ'Alu Madagascar"
                   title="Logo Europ'Alu Madagascar"
                   loading="eager"
+                  width={"25vw"}
+                  height={"auto"}
                 />
               </div>
               <div className="d__flex">
@@ -53,25 +51,33 @@ const Footer = () => {
                     <a href="mailto:#0">europ-alu@europ-alu.com</a>
                   </p>
                   <p className="contact-address">
-                    {texthaut} <br />
-                    {textbas}
+                    {"Europ' Alu 2018 ALL RIGHTS"} <br />
+                    {"RESERVED BY Ankasitrahina"}
                   </p>
                 </div>
               </div>
-
               <ul className="contact-social">
                 <li>
-                  <a href="https://www.facebook.com/europalumadagascar">
+                  <a
+                    href="https://www.facebook.com/europalumadagascar"
+                    title="Facebook Europ'Alu Madagascar"
+                  >
                     <i className="fa fa-facebook float_up mr-7"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/alu_europ">
+                  <a
+                    href="https://twitter.com/alu_europ"
+                    title="Twitter Europ'Alu Madagascar"
+                  >
                     <i className="fa fa-twitter float_up mr-5"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/europalu-madagascar">
+                  <a
+                    href="https://www.linkedin.com/company/europalu-madagascar"
+                    title="LinkedIn Europ'Alu Madagascar"
+                  >
                     <i className="fa fa-linkedin float_up"></i>
                   </a>
                 </li>
@@ -79,7 +85,6 @@ const Footer = () => {
             </div>
           </div>
         </section>
-
         <div id="go-top">
           <a title="Back to Top" href="#">
             <i className="fa fa-long-arrow-up" aria-hidden="true"></i>

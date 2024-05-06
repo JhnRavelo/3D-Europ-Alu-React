@@ -25,12 +25,14 @@ const Habillage = ({ products, id }) => {
                   className="image_parallaxe"
                   src={product.png}
                   alt={product.title}
+                  title={product.title}
+                  loading="eager"
                 />
               </div>
               <div className="description">
                 <div className="desc_box">
                   <div className="button_intrested_start">
-                    <h1 className="title">{product.title}</h1>
+                    <h3 className="title">{product.title}</h3>
                     <p className="short__desc">{product.description}</p>
                     <Button />
                   </div>
@@ -45,6 +47,7 @@ const Habillage = ({ products, id }) => {
             <Gallery
               gallery={product.gallery.split(",")}
               indexCategory={index}
+              title={product.title}
             />
             {products.length > index + 1 && <Separation />}
           </Fragment>

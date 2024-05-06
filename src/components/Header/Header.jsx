@@ -81,7 +81,6 @@ const Header = () => {
   const handleLogOut = async () => {
     userRef.current.classList.remove("connected");
     logout();
-    navigate("/");
   };
 
   return (
@@ -90,12 +89,14 @@ const Header = () => {
         <div className="header">
           <div className="header-logo">
             <img
+              onClick={() => navigate("/")}
               className="logo-header"
               src={Logo}
               alt="Logo Europ'Alu Madagascar"
               title="Logo Europ'Alu Madagascar"
               width="240px"
               height="auto"
+              loading="eager"
             />
           </div>
           <div className="login__logout" ref={userRef}>

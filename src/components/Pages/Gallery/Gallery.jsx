@@ -5,7 +5,7 @@ import "../../../assets/css/jquery.fancybox.css";
 import "../../../assets/js/jquery.fancybox.min.js";
 import useExtractPageId from "../../../hooks/useExtractPageId.jsx";
 
-const Gallery = ({ gallery, indexCategory }) => {
+const Gallery = ({ gallery, indexCategory, title }) => {
   const galleryRef = useRef();
   const id = useExtractPageId();
   useEffect(() => {
@@ -21,10 +21,19 @@ const Gallery = ({ gallery, indexCategory }) => {
           <div className="row portfolio-content">
             <div id="folio-wrap" className="bricks-wrapper">
               {gallery.map((url, index) => {
+                const imgAlt =
+                  "Produits " + title + " sur un bâtiment exemple " + index;
                 return (
                   <div key={index} className="brick folio-item">
                     <a data-fancybox={`gallery${indexCategory}`} href={url}>
-                      <img src={url} alt="gallery" />
+                      <img
+                        src={url}
+                        alt={imgAlt}
+                        title={imgAlt}
+                        width={"95%"}
+                        height={"100%"}
+                        loading="eager"
+                      />
                     </a>
                   </div>
                 );
@@ -40,6 +49,7 @@ const Gallery = ({ gallery, indexCategory }) => {
 Gallery.propTypes = {
   indexCategory: propTypes.number,
   gallery: propTypes.any,
+  title: propTypes.string,
 };
 
 export default Gallery;

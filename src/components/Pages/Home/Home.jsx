@@ -40,8 +40,13 @@ const Home = () => {
           name="description"
           content={
             id != 7
-              ? "Menuiserie Aluminium pour " + page?.page + " comme: " + allProducts
-              : "Habillages Façades comme: " + allProducts
+              ? (
+                  "Menuiserie Aluminium pour " +
+                  page?.page +
+                  " comme: " +
+                  allProducts
+                ).slice(0, 170)
+              : ("Habillages Façades comme: " + allProducts).slice(0, 170)
           }
         />
         <link rel="canonical" href={`/produits/${link}`} />
