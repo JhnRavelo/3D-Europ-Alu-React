@@ -1,36 +1,41 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import SimpleParallax from "simple-parallax-js";
 
-const useParallax = (products, imgClass, id) => {
+const useParallax = (products, imgClass) => {
+  const { link } = useParams();
   useEffect(() => {
-    if (products && products?.length > 0 && id && imgClass) {
+    if (products && products?.length > 0 && link && imgClass) {
       const images = document.querySelectorAll("." + imgClass);
-      const imagesRef = [...images]
-      if (imagesRef && imagesRef.length == products.length) {
-        for (let i = 0; i < imagesRef.length; i++) {
+      const imgRefs = [...images];
+      if (imgRefs && products?.length == imgRefs.length) {
+        for (let i = 0; i < imgRefs.length; i++) {
           if (
-            !imagesRef[i].className.includes("simple-parallax-initialized") &&
-            id != 7
+            !imgRefs[i].className.includes("simple-parallax-initialized") &&
+            !link.includes("habillage") &&
+            !products.find((product) => product.title.includes("Panneau"))
           ) {
-            console.log("PARALLAX");
-            new SimpleParallax(imagesRef[i], {
+            new SimpleParallax(imgRefs[i], {
               overflow: true,
               orientation: "up",
               scale: 1.8,
             });
           } else if (
-            !imagesRef[i].className.includes("simple-parallax-initialized") &&
-            id == 7
+            !imgRefs[i]?.parentNode?.className.includes(
+              "simple-parallax-initialized"
+            ) &&
+            !imgRefs[i].className.includes("simple-parallax-initialized") &&
+            link.includes("habillage") &&
+            products.find((product) => product.title.includes("Panneau"))
           ) {
-            console.log("HABIL PARALLAX");
-            new SimpleParallax(imagesRef[i], {
+            new SimpleParallax(imgRefs[i], {
               scale: 1.5,
             });
           }
         }
       }
     }
-  }, [products, imgClass, id]);
+  }, [products, imgClass, link]);
 };
 
 export default useParallax;
