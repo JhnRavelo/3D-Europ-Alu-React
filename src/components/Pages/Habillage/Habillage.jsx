@@ -1,5 +1,4 @@
 import "./Habillage.css";
-import { Fragment } from "react";
 import Button from "../Button/Button";
 import Gallery from "../Gallery/Gallery";
 import propTypes from "prop-types";
@@ -12,7 +11,7 @@ const Habillage = ({ products, id }) => {
     <>
       <div className="panneau_composite">
         {products.map((product, index) => (
-          <Fragment key={index}>
+          <section id={product.title} key={index}>
             <div
               className={
                 index % 2 != 0
@@ -50,7 +49,7 @@ const Habillage = ({ products, id }) => {
               title={product.title}
             />
             {products.length > index + 1 && <Separation />}
-          </Fragment>
+          </section>
         ))}
       </div>
     </>

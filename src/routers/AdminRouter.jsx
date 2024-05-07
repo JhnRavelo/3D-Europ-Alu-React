@@ -8,7 +8,7 @@ import Commercials from "../pages/Admin/Commercials/Commercials";
 import Profile from "../pages/Admin/Profile/Profile";
 import PrivateRoutes from "../components/Private/PrivateRoutes";
 import Log from "../pages/Admin/Log/Log";
-import Product from "../pages/Admin/Product/Product"
+import Product from "../pages/Admin/Product/Product";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 

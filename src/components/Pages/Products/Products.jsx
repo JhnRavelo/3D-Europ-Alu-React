@@ -24,7 +24,7 @@ const Products = () => {
   }, [id]);
 
   return (
-    <section id="produit">
+    <section id="produits">
       {id != 7 ? (
         <Template id={id} products={products} />
       ) : (

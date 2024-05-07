@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Button from "../Button/Button";
 import Gallery from "../Gallery/Gallery";
 import Separation from "../Separation/Separation";
@@ -14,7 +13,7 @@ const Template = ({ products, id }) => {
           products.map((product, index) => {
             const title = "Menuiserie aluminium " + product.title;
             return (
-              <Fragment key={index}>
+              <section id={product.title} key={index}>
                 <div className="fenetre__coulissante">
                   <div
                     className={
@@ -45,7 +44,7 @@ const Template = ({ products, id }) => {
                   />
                 </div>
                 {products.length > index + 1 && <Separation />}
-              </Fragment>
+              </section>
             );
           })}
       </div>

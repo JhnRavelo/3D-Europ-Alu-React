@@ -81,7 +81,8 @@ const Header = () => {
         <img src={logoEuro} alt="logo" />
         <span>{"Europ'Alu"}</span>
       </div>
-      {(pathname == "/admin/" ||
+      {(pathname == "/admin" ||
+        pathname == "/admin/" ||
         pathname.includes("/admin/product/") ||
         pathname.includes("/admin/log")) && (
         <div className="date">
