@@ -41,7 +41,7 @@ const Message = ({ message, start }) => {
   }, []);
 
   const handleDate = () => {
-    console.log("DATE", message?.date)
+    console.log("DATE", message?.date);
     const date = message?.date.split("-");
     const hour = message?.time.split(":");
     var intervalHour, interDay;
@@ -83,12 +83,27 @@ const Message = ({ message, start }) => {
         className={`message ${message?.send?.ID_user === auth?.id && "owner"} `}
       >
         <div className="messageInfo">
-          <img src={message?.send?.avatar} alt="sary" />
+          <img
+            src={message?.send?.avatar}
+            alt={
+              "photo de profil de" + message?.send?.ID_user === auth?.id
+                ? " de l'émetteur"
+                : "du récepteur"
+            }
+            title={
+              "photo de profil de" + message?.send?.ID_user === auth?.id
+                ? " de l'émetteur"
+                : "du récepteur"
+            }
+            loading="eager"
+          />
           <span>{dispalyDate}</span>
         </div>
         <div className="messageContent">
           <p>{message?.text}</p>
-          {message?.img && <img src={message?.img} alt="sary" />}
+          {message?.img && (
+            <img src={message?.img} alt="image rattaché au message" />
+          )}
         </div>
       </div>
     </>

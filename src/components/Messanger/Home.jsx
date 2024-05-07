@@ -5,12 +5,12 @@ const Home = () => {
   return (
     <>
       <div className="chatOverlay"></div>
-      <div className="homeChat">
+      <main className="homeChat">
         <div className="container">
           <Sidebar />
           <Chat />
         </div>
-      </div>
+      </main>
     </>
   );
 };

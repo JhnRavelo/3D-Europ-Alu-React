@@ -17,10 +17,17 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
+    <section id="message" className="chat">
       <div className="chatInfo">
         {chatter?.avatar && (
-          <img src={chatter?.avatar} alt="image du compte profil" />
+          <img
+            src={chatter?.avatar}
+            alt="image du compte profil client"
+            title="image du compte profil client"
+            loading="eager"
+            height={"53px"}
+            width={"53px"}
+          />
         )}
         <span>{chatter?.name}</span>
         <button className="menuIcon" onClick={handleOpenMenu}>
@@ -34,7 +41,7 @@ const Chat = () => {
       </div>
       <Messages />
       <Input />
-    </div>
+    </section>
   );
 };
 

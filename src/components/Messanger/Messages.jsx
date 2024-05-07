@@ -6,7 +6,7 @@ import "./messages.scss";
 import { useParams } from "react-router-dom";
 
 const Messages = () => {
-  const { messages, sendMessage } = useMessage();
+  const { messages, sendMessage, chatter } = useMessage();
   const [m, setM] = useState([]);
   const [startIndex, setStartIndex] = useState(10);
   const { link } = useParams();
@@ -26,7 +26,7 @@ const Messages = () => {
 
   useEffect(() => {
     setStartIndex(10);
-  }, [link]);
+  }, [link, chatter]);
 
   return (
     <>
@@ -34,12 +34,12 @@ const Messages = () => {
         {m.length > 0 && (
           <>
             {m.length != messages.length && (
-              <button
+              <p
                 className="btn-plus-messages"
                 onClick={() => setStartIndex((prev) => prev + 10)}
               >
                 Messages plus anciens
-              </button>
+              </p>
             )}
             {m.map((item, index) => (
               <Message message={item} key={index} start={startIndex} />

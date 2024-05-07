@@ -32,9 +32,16 @@ const Navbar = () => {
   }, [notifs, chatter]);
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="user">
-        <img src={auth?.avatar} alt="photos" />
+        <img
+          src={auth?.avatar}
+          alt={"photos de profil " + auth?.name}
+          loading="eager"
+          title={"photos de profil " + auth?.name}
+          width={"50px"}
+          height={"50px"}
+        />
         <span>{auth?.name}</span>
       </div>
       <button className="x" onClick={handleOpenMenu}>
@@ -76,7 +83,7 @@ const Navbar = () => {
         />
         Déconnexion
       </button>
-    </div>
+    </nav>
   );
 };
 

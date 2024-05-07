@@ -69,7 +69,14 @@ const Input = () => {
                 }}
               />
               <label htmlFor="file">
-                <img src={Img} alt="" />
+                <img
+                  src={Img}
+                  alt="image de gallery"
+                  title="image de gallery"
+                  loading="eager"
+                  height={"26px"}
+                  width={"auto"}
+                />
               </label>
               <button
                 type="button"
@@ -77,7 +84,14 @@ const Input = () => {
                   handleSendMessage(values, errors, setFieldValue);
                 }}
               >
-                <img src={Send} alt="" />
+                <img
+                  src={Send}
+                  alt="image de flèche"
+                  title="image de flèche"
+                  loading="eager"
+                  height={"26px"}
+                  width={"auto"}
+                />
               </button>
             </div>
           </div>

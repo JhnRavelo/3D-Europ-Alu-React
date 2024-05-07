@@ -7,6 +7,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useSocket from "../../hooks/useSocket";
 import useAuth from "../../hooks/useAuth";
 import useMessage from "../../hooks/useMessage";
+import { Helmet } from "react-helmet-async";
 
 const CommePage = () => {
   const {
@@ -65,7 +66,23 @@ const CommePage = () => {
     })();
   }, [sendMessage, chatter]);
 
-  return <Home />;
+  return (
+    <>
+      <Helmet>
+        <title>Commercial - {"Europ'Alu Madagascar"}</title>
+        <meta
+          name="description"
+          content={
+            "Page du compte commercial de " +
+            auth?.name +
+            "où il/elle pourra répondre au messages des clients."
+          }
+        />
+        <link rel="canonical" href="/commercial" />
+      </Helmet>
+      <Home />;
+    </>
+  );
 };
 
 export default CommePage;

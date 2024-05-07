@@ -28,7 +28,7 @@ const Chats = () => {
   }, [lastMessages, chatters, sendMessage, notifs, chatter]);
 
   return (
-    <div className="chats">
+    <section id="chats" className="chats">
       {chatterSearch.length > 0 &&
         chatterSearch.map((item, index) => (
           <div
@@ -38,7 +38,14 @@ const Chats = () => {
             }}
           >
             <div className="userChat">
-              <img src={item?.avatar} alt="" />
+              <img
+                src={item?.avatar}
+                alt={"photo de profil " + item?.name}
+                title={"photo de profil " + item?.name}
+                loading="eager"
+                width={"50px"}
+                height={"50px"}
+              />
               <div className="userChatInfo">
                 <span>{item?.name}</span>
                 <p className={classNewMessage[index]}>
@@ -54,7 +61,7 @@ const Chats = () => {
             </div>
           </div>
         ))}
-    </div>
+    </section>
   );
 };
 
