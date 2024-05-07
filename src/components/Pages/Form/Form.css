@@ -2,10 +2,10 @@
 
 /* ------------ active form ----------- */
 
-
-/* ----------------- page farany form -------------------- */
+/* ----------------- page final form -------------------- */
 
 /* ---------------- pre-info ---------------- */
+
 .pre-info {
   width: 95%;
   min-height: 4rem;
@@ -47,18 +47,15 @@
   padding-bottom: 16px;
 }
 
-
 /* ---------------- pre-info ---------------- */
 
 
-/* ------------ Menu deroulant ------------ */
+/* ------------ Menu déroulant ------------ */
 
 .menu-deroulant {
   width: 100%;
   padding: 10px;
 }
-
-
 
 .vscomp-toggle-button {
   border-radius: 5px;
@@ -76,7 +73,7 @@
   width: 100%;
 }
 
-/* =========================== VAOVA0 CKECK ========================= */
+/* =========================== NOUVEAU CHECK ========================= */
 
 .menu-deroulant .container {
   max-width: 100%;
@@ -86,8 +83,6 @@
   background: transparent;
   position: relative;
 }
-
-
 .select-btn{
   display: flex;
   height: 40px;
@@ -100,7 +95,6 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .select-btn .btn-text{
-  /* height: 40px; */
   width: 100%;
   font-size: 17px;
   font-weight: 400;
@@ -132,13 +126,11 @@
   padding: 14px;
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  /* display: none; */
   opacity: 0;
   pointer-events: none;
   transition: all .3s ease;
 }
 .select-btn.open ~ .list-items{
-  /* display: block; */
   opacity: 1;
   pointer-events: all;
 
@@ -186,34 +178,28 @@
   transform: scale(1);
 }
 
-/* =========================== VAOVA0 CKECK ========================= */
+/* =========================== NOUVEAU CHECK ========================= */
 
-
-/* ------------ Menu deroulant ------------ */
-
+/* ------------ Menu déroulant ------------ */
 
 /* ---------------check-------------- */
 
 .check {
   margin: 10px;
 }
-
 .check label {
   font-weight: 600;
   color: #06001a;
-
 }
 
 /* ---------------check-------------- */
 
+/* ----------------- page final form -------------------- */
 
-
-/* ----------------- page farany form -------------------- */
 .next-prev-form {
   display: flex;
   justify-content: space-between;
   margin: 10px;
-
 }
 
 .next-prev-form button {
@@ -272,7 +258,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* background: rgba(0, 0, 0, 0.3); */
   transition: 0.2s;
 }
 
@@ -389,12 +374,10 @@
   background: url(../../../assets/png/Logo_Euro.png);
   background-position: center;
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto;
-  cursor: pointer;
 }
-
 
 .title__form {
   text-align: center;
@@ -416,7 +399,6 @@
   border: 1px solid red;
   border: none;
   outline: none;
-
   background: none;
   font-size: 18px;
   color: #555;
@@ -493,7 +475,6 @@
   color: #06001a;
   cursor: pointer;
 }
-
 
 #form .login-form {
   display: none;
@@ -595,10 +576,6 @@ p.errorNotChecked.error{
 }
 
 /* ================ RESPONSIVE =============== */
-
-
-
-
 
 /* ============== FORM ================ */
 
