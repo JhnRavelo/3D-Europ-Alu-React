@@ -2,18 +2,21 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SimpleParallax from "simple-parallax-js";
 
-const useParallax = (products, imgClass) => {
+const useParallax = (products, imgClass, id) => {
   const { link } = useParams();
   useEffect(() => {
     if (products && products?.length > 0 && link && imgClass) {
       const images = document.querySelectorAll("." + imgClass);
       const imgRefs = [...images];
-      if (imgRefs && products?.length == imgRefs.length) {
+      if (
+        imgRefs &&
+        products?.length == imgRefs.length &&
+        products.find((product) => product.pageId == id)
+      ) {
         for (let i = 0; i < imgRefs.length; i++) {
           if (
             !imgRefs[i].className.includes("simple-parallax-initialized") &&
-            !link.includes("habillage") &&
-            !products.find((product) => product.title.includes("Panneau"))
+            !link.includes("habillage")
           ) {
             new SimpleParallax(imgRefs[i], {
               overflow: true,
@@ -25,8 +28,7 @@ const useParallax = (products, imgClass) => {
               "simple-parallax-initialized"
             ) &&
             !imgRefs[i].className.includes("simple-parallax-initialized") &&
-            link.includes("habillage") &&
-            products.find((product) => product.title.includes("Panneau"))
+            link.includes("habillage")
           ) {
             new SimpleParallax(imgRefs[i], {
               scale: 1.5,
@@ -35,7 +37,7 @@ const useParallax = (products, imgClass) => {
         }
       }
     }
-  }, [products, imgClass, link]);
+  }, [products, imgClass, link, id]);
 };
 
 export default useParallax;
