@@ -43,14 +43,12 @@ const Chats = () => {
                 alt={"photo de profil " + item?.name}
                 title={"photo de profil " + item?.name}
                 loading="eager"
-                width={"50px"}
-                height={"50px"}
               />
               <div className="userChatInfo">
                 <span>{item?.name}</span>
-                <p className={classNewMessage[index]}>
+                <div className={classNewMessage[index]}>
                   {lastMessageDisplay?.length > 0 && lastMessageDisplay[index]}
-                </p>
+                </div>
               </div>
               {countMessage[index] > 0 && (
                 <span className="notif newMessage">

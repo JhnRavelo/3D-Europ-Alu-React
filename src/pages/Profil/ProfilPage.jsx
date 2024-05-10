@@ -149,15 +149,17 @@ const ProfilPage = () => {
                         }}
                       >
                         <div className="userChat">
-                          <img
-                            src={item?.avatar}
-                            alt={"image du profil commerciale" + item?.name}
-                          />
+                          <div className="image-com">
+                            <img
+                              src={item?.avatar}
+                              alt={"image du profil commerciale " + item?.name}
+                            />
+                          </div>
                           <div className="userChatInfo">
                             <span>{item?.name}</span>
-                            <p className={classNewMessage[index]}>
+                            <div className={classNewMessage[index]}>
                               {lastMessageDisplay[index]}
-                            </p>
+                            </div>
                           </div>
                           {countMessage[index] > 0 && (
                             <span className="notif newMessage">

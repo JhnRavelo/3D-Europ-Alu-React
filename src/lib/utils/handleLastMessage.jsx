@@ -6,11 +6,7 @@ const handleLastMessage = (commercials, lastMessage, setLastMessageDisplay) => {
       (m) => item.ID_user == m.receiver || item.ID_user == m.sender
     );
     if (userLastMessage && userLastMessage?.text) {
-      displayMessages.push(
-        userLastMessage.text.length > 30
-          ? userLastMessage.text.slice(0, 30) + "..."
-          : userLastMessage.text
-      );
+      displayMessages.push(userLastMessage.text);
     }
   });
   setLastMessageDisplay(displayMessages);
