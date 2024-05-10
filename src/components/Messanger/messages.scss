@@ -1,3 +1,5 @@
+@import "./style.scss";
+
 .btn-plus-messages {
     border-width: 1px;
     border-radius: 10px;
@@ -14,4 +16,8 @@
     padding: 5px 10px 5px 10px;
     background: #182229;
     cursor: pointer;
+    @include mobile {
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
 }

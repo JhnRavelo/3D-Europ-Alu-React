@@ -436,15 +436,19 @@ $shadow2:
                         font-size: 18px;
                         font-weight: 500;
                         display: flex;
+                        text-overflow: ellipsis;
                         justify-content: flex-start;
                     }
 
-                    p {
+                    div {
                         font-size: 14px;
                         color: rgb(177, 177, 177);
-                        display: flex;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        width: 95%;
+                        height: 1.2em;
                         white-space: nowrap;
-                        justify-content: flex-start;
+                        // justify-content: flex-start;
                         &.newMessage {
                             color: #fff;
                             font-weight: 900;
