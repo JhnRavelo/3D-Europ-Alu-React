@@ -1,55 +1,45 @@
 /* ================ Gallery ============== */
 
 #portfolio {
-    background: transparent;
-    min-height: 300px;
-    position: relative;
-    padding: 0;
+  background: transparent;
+  min-height: 300px;
+  position: relative;
+  padding: 0;
 }
 
-#portfolio img {
-    padding: 1.5px;
-    box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.3);
-    width: 95%;
-    height: 100%;
-    margin: 0.5rem;
+.gallery img {
+  padding: 1.5px;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.3);
+  width: 95%;
+  height: 100%;
+  margin: 0.5rem;
 }
 
 #portfolio .intro-wrap {
-    padding: 15rem 0 21rem;
-    background: #111111;
+  padding: 15rem 0 21rem;
+  background: #111111;
 }
 #portfolio .section-intro h3 {
-    color: rgba(242, 242, 242, 0.5);
+  color: rgba(242, 242, 242, 0.5);
 }
 #portfolio .section-intro h1 {
-    color: #ffffff;
+  color: #ffffff;
 }
 #portfolio .section-intro .lead {
-    color: rgba(242, 242, 242, 0.4);
+  color: rgba(242, 242, 242, 0.4);
 }
 
-#portfolio .bricks-wrapper:before,
-#portfolio .bricks-wrapper:after {
-    content: '';
-    display: table;
-}
-#portfolio .bricks-wrapper:after {
-    clear: both;
-}
-#portfolio .bricks-wrapper .brick {
-    float: left;
-    width: 50%;
-    padding: 0;
-    margin: 0;
+.grid-container {
+    columns: 2 250px;
+    gap: 15px;
 }
 
 /* ================ Gallery ============== */
 
 @media (max-width: 650px) {
-    #portfolio .bricks-wrapper .brick {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
+  #portfolio .bricks-wrapper .brick {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 }

@@ -19,7 +19,7 @@ const Gallery = ({ gallery, indexCategory, title }) => {
       <div className="gallery" ref={galleryRef}>
         <section id="portfolio">
           <div className="row portfolio-content">
-            <div id="folio-wrap" className="bricks-wrapper">
+            <div id="folio-wrap" className="bricks-wrapper grid-container">
               {gallery.map((url, index) => {
                 const imgAlt =
                   "Produits " + title + " sur un bâtiment exemple " + index;
@@ -30,8 +30,6 @@ const Gallery = ({ gallery, indexCategory, title }) => {
                         src={url}
                         alt={imgAlt}
                         title={imgAlt}
-                        width={"95%"}
-                        height={"100%"}
                         loading="eager"
                       />
                     </a>
