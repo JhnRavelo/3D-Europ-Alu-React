@@ -87,8 +87,18 @@ const SignupStepFinal = () => {
           if (checked[0] !== "") {
             track = await addTraker(formContext[1]);
           }
+          if (location.pathname != "/") {
+            showForm();
+            toast.success("Votre compte a bien été crée.");
+          }
+          if (location.pathname == "/") {
+            showForm();
+            toast.success("Votre compte a bien été crée.");
+            navigate("/modèle-3D");
+          }
         } else {
           toast.error(res.data.message);
+          return;
         }
       } else {
         if (checked[0] !== "") {
@@ -102,22 +112,12 @@ const SignupStepFinal = () => {
         room: prime[0],
       });
 
-      if (res?.data?.success && location.pathname != "/") {
-        showForm();
-        toast.success("Votre compte a bien été créé.");
-      }
-      if (res?.data?.success && location.pathname == "/") {
-        showForm();
-        toast.success("Votre compte a bien été créé.");
-        navigate("/modèle-3D");
-      }
-
-      if (track?.success && !res.data?.message && location.pathname != "/") {
+      if (track?.success && location.pathname != "/") {
         showForm();
         toast.success("Votre produit a bien été ajouté");
       }
     } catch (error) {
-      toast.error("Erreur du server");
+      toast.error("Erreur du serveur");
       console.log(error);
     }
   };

@@ -16,6 +16,6 @@
     "type": "text",
     "name": "phone",
     "inputMode": "numeric",
-    "placeholder": "Numéro de téléphone)"
+    "placeholder": "Numéro de téléphone"
   }
 ]

@@ -163,7 +163,7 @@ const SignupTemplate = () => {
               type="button"
               onClick={() => setIndex((prevIndex) => prevIndex - 1)}
             >
-              Précédant
+              Précédent
             </button>
 
             <button ref={nextBtnRef} type="button" onClick={handleClickNext}>
