@@ -29,11 +29,19 @@ const Chat = () => {
             width={"53px"}
           />
         )}
-        <span className={chatter?.name ? "" : "active"}>
-          {chatter?.name ? chatter.name : "Choisissez un commercial"}
-          {chatter?.name ? null : (
+        <span
+          className={
+            !chatter?.name && location.pathname.includes("profil")
+              ? "active"
+              : ""
+          }
+        >
+          {!chatter?.name && location.pathname.includes("profil")
+            ? "Choisissez un commercial"
+            : chatter?.name}
+          {!chatter?.name && location.pathname.includes("profil") ? (
             <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-          )}
+          ) : null}
         </span>
         <button className="menuIcon" onClick={handleOpenMenu}>
           {location.pathname.includes("commercial") && (
