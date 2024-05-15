@@ -50,6 +50,13 @@ const Home = () => {
           }
         />
         <link rel="canonical" href={`/produits/${link}`} />
+        <meta
+          name="keywords"
+          content={
+            "europ'alu, menuiserie aluminium, habillage façade, produit aluminium, europ'alu 3D, " +
+            allProducts
+          }
+        />
       </Helmet>
       <section id="home" style={{ backgroundImage: `url(${page?.home})` }}>
         <div className="overlay"></div>
