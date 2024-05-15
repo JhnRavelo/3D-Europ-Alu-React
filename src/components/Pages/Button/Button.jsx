@@ -8,7 +8,7 @@ const Button = () => {
 
   const handleClick = async () => {  
     showForm();
-    setSelectedProduct(btnRef.current.parentElement.querySelector("h1").textContent);
+    setSelectedProduct(btnRef.current.parentElement.querySelector("h3").textContent);
   };
 
   return (

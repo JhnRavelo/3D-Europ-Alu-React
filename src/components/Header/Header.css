@@ -437,9 +437,12 @@ header .header {
     }
 
     .header-nav__list li {
+        font-size: 1rem;
         padding: 5px;
     }
-
+    .header-nav__list {
+        line-height: 2;
+    }
     .header-nav__list a {
         font-size: 0.6rem !important;
     }

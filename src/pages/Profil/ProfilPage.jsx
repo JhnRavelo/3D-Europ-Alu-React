@@ -107,7 +107,7 @@ const ProfilPage = () => {
           content={
             "Page du compte profil de " +
             auth?.name +
-            "où il/elle pourra voir ses produits et contacter un commercial."
+            " où il/elle pourra voir ses produits et contacter un commercial."
           }
         />
         <link rel="canonical" href="/profile" />
