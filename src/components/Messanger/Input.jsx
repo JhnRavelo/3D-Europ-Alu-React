@@ -42,62 +42,69 @@ const Input = () => {
   };
 
   return (
-    <Formik initialValues={initialValues} validationSchema={validationMessage}>
-      {({ values, setFieldValue, errors }) => (
-        <Form>
-          <div className="input">
-            <Field
-              autoComplete="off"
-              name="message"
-              type="text"
-              placeholder="Envoyer un message ..."
-              onKeyDown={(e) => {
-                e.code === "Enter" &&
-                  handleSendMessage(values, errors, setFieldValue);
-              }}
-            />
-            <div className="send">
-              <input
-                type="file"
-                style={{ display: "none" }}
-                id="file"
-                accept="image/png, .svg, .jpeg, .jpg, .webp"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFieldValue("file", e.target.files[0]);
-                  }
-                }}
-              />
-              <label htmlFor="file">
-                <img
-                  src={Img}
-                  alt="image de gallery"
-                  title="image de gallery"
-                  loading="eager"
-                  height={"26px"}
-                  width={"auto"}
+    <>
+      {chatter?.ID_user && (
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationMessage}
+        >
+          {({ values, setFieldValue, errors }) => (
+            <Form>
+              <div className="input">
+                <Field
+                  autoComplete="off"
+                  name="message"
+                  type="text"
+                  placeholder="Envoyer un message ..."
+                  onKeyDown={(e) => {
+                    e.code === "Enter" &&
+                      handleSendMessage(values, errors, setFieldValue);
+                  }}
                 />
-              </label>
-              <button
-                type="button"
-                onClick={() => {
-                  handleSendMessage(values, errors, setFieldValue);
-                }}
-              >
-                <img
-                  src={Send}
-                  alt="image de flèche"
-                  title="image de flèche"
-                  loading="eager"
-                  height={"26px"}
-                  width={"auto"}
-                />
-              </button>
-            </div>
-          </div>
-        </Form>
+                <div className="send">
+                  <input
+                    type="file"
+                    style={{ display: "none" }}
+                    id="file"
+                    accept="image/png, .svg, .jpeg, .jpg, .webp"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFieldValue("file", e.target.files[0]);
+                      }
+                    }}
+                  />
+                  <label htmlFor="file">
+                    <img
+                      src={Img}
+                      alt="image de gallery"
+                      title="image de gallery"
+                      loading="eager"
+                      height={"26px"}
+                      width={"auto"}
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleSendMessage(values, errors, setFieldValue);
+                    }}
+                  >
+                    <img
+                      src={Send}
+                      alt="image de flèche"
+                      title="image de flèche"
+                      loading="eager"
+                      height={"26px"}
+                      width={"auto"}
+                    />
+                  </button>
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
       )}
-    </Formik>
+    </>
   );
 };
 

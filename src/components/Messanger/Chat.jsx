@@ -29,7 +29,12 @@ const Chat = () => {
             width={"53px"}
           />
         )}
-        <span>{chatter?.name}</span>
+        <span className={chatter?.name ? "" : "active"}>
+          {chatter?.name ? chatter.name : "Choisissez un commercial"}
+          {chatter?.name ? null : (
+            <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+          )}
+        </span>
         <button className="menuIcon" onClick={handleOpenMenu}>
           {location.pathname.includes("commercial") && (
             <FontAwesomeIcon className="burger" icon={faBars} />
