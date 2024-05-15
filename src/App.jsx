@@ -9,14 +9,12 @@ import defaultAxios from "./api/axios";
 import usePage from "./hooks/usePage";
 import useSocket from "./hooks/useSocket";
 
-const server = import.meta.env.VITE_SERVER_PATH;
-
 function App() {
   const { setSocket } = useSocket();
   const { setPages } = usePage();
 
   useEffect(() => {
-    const socket = io(server);
+    const socket = io("/");
     setSocket(socket);
     (async () => {
       try {
