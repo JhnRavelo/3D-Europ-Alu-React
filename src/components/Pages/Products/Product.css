@@ -146,6 +146,10 @@
         display: flex;
         flex-direction: column;
     }
+
+    .button_intrested_start .short__desc {
+        text-align: center;
+      } 
 }
 
 @media (max-width: 650px) {

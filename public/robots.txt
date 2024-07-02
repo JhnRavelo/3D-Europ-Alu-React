@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /admin
+Disallow: /commercial
+Disallow: /profile
+Allow: /
+Allow: /mod%C3%A8le-3D
+Allow: /produits
+Allow: /produits/fen%C3%AAtres
+Allow: /produits/portes
+Allow: /produits/habillages
+Allow: /produits/am%C3%A9nagement-int%C3%A9rieur
+Allow: /produits/am%C3%A9nagement-ext%C3%A9rieur
+Allow: /produits/baies
+Allow: /produits/garde-corps
+Allow: /produits/fermeture-ext%C3%A9rieur

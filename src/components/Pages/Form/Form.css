@@ -541,12 +541,8 @@ p.errorNotChecked.error{
     font-size: 14px;
   }
 
-  #form p.already_compt {
-    font-size: 22px;
-  } 
-
-  #form p.already_compt a {
-    font-size: 18px;
+  #form p {
+    font-size: 14px;
   }
 
 }

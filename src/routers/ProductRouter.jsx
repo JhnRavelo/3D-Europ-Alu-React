@@ -4,7 +4,7 @@ import Page from "../pages/Page/Products/Page";
 const ProductRouter = () => {
   return (
     <Routes>
-      <Route path="/:link" element={<Page />} />
+      <Route index path="/:link" element={<Page />} />
     </Routes>
   );
 };

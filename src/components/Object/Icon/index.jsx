@@ -28,7 +28,7 @@ function Icon() {
                   handleClick(icon);
                 }}
               >
-                <img src={icon.icon} alt={alt} width="32px" height="32px" title={alt} className="icon" />
+                <img src={icon.icon} alt={alt} title={alt} className="icon" />
               </div>
             </Html>
           );

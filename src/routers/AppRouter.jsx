@@ -17,15 +17,15 @@ const AppRouter = () => {
         <Route element={<PrivateRoutes prime={prime[1]} />}>
           <Route path="/commercial/" element={<CommePage />} />
         </Route>
-        <Route path="/" element={<Home />} />
-        <Route path="/produits/*" element={<Layout />} />
+        <Route index path="/" element={<Home />} />
+        <Route index path="/produits/*" element={<Layout />} />
         <Route element={<PrivateRoutes prime={prime[0]} />}>
           <Route path="/admin/*" element={<Admin />} />
         </Route>
         <Route element={<PrivateRoutes prime={prime[2]} />}>
           <Route path="/profile" element={<ProfilPage />} />
         </Route>
-        <Route path="/modèle-3D" element={<Object/>} />
+        <Route index path="/modèle-3D" element={<Object/>} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

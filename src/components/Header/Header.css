@@ -443,7 +443,7 @@ header .header {
     .header-nav__list {
         line-height: 2;
     }
-    .header-nav__list a {
-        font-size: 0.6rem !important;
+    .header-nav__list h3 {
+        font-size: 0.9rem;
     }
 }
