@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types"
-
+import PropTypes from "prop-types";
 
 const Caroussel = ({
   children: slides,
@@ -37,10 +36,10 @@ const Caroussel = ({
       </div>
       <div className="buttonChevron">
         <button onClick={prev}>
-          <FontAwesomeIcon className="chevron" icon={faChevronLeft} fade/>
+          <FontAwesomeIcon className="chevron" icon={faChevronLeft} fade />
         </button>
         <button onClick={next}>
-          <FontAwesomeIcon className="chevron" icon={faChevronRight} fade/>
+          <FontAwesomeIcon className="chevron" icon={faChevronRight} fade />
         </button>
       </div>
 
@@ -65,7 +64,7 @@ const Caroussel = ({
 };
 
 Caroussel.propTypes = {
-  children: PropTypes.node, 
+  children: PropTypes.node,
   autoslide: PropTypes.any,
   autoSlideInterval: PropTypes.any,
 };
