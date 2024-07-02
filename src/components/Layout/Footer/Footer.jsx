@@ -33,26 +33,51 @@ const Footer = () => {
                 <div className="contact">
                   <ul>
                     <li>
-                      <pre>Andraharo : 034 03 11 786</pre>
+                      <a href="tel: 0340311786">
+                        <pre>Andraharo : 034 03 11 786</pre>
+                      </a>
                     </li>
                     <li>
-                      <pre>Tamatave : 034 56 64 786</pre>
+                      <a href="tel: 0380902786">
+                        <pre>Ankorondrano : 038 09 02 786</pre>
+                      </a>
                     </li>
                     <li>
-                      <pre>Majunga : 034 07 80 786</pre>
+                      <a href="tel: 0345664786">
+                        <pre>Tamatave : 034 56 64 786</pre>
+                      </a>
                     </li>
                     <li>
-                      <pre>Nosy Be : 034 11 80 786</pre>
+                      <a href="tel: 0341420786">
+                        <pre>Diego : 034 14 20 786</pre>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tel: 0340780786">
+                        <pre>Majunga : 034 07 80 786</pre>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tel: 0341180786">
+                        <pre>Nosy Be : 034 11 80 786</pre>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tel: 0345664786">
+                        <pre>Tuléar : 034 56 64 786</pre>
+                      </a>
                     </li>
                   </ul>
                 </div>
                 <div className="droite">
                   <p className="contact-email">
-                    <a href="mailto:#0">europ-alu@europ-alu.com</a>
+                    <a href="mailto:europ-alu@europ-alu.com">
+                      europ-alu@europ-alu.com
+                    </a>
                   </p>
                   <p className="contact-address">
-                    {"Europ' Alu 2018 ALL RIGHTS"} <br />
-                    {"RESERVED BY Ankasitrahina"}
+                    {"Europ' Alu 2024 ALL RIGHTS"} <br />
+                    {"RESERVED BY RAZAFINDRANORO Cedrico Elsior Arinony"}
                   </p>
                 </div>
               </div>
