@@ -16,7 +16,7 @@ const Home = () => {
           name="description"
           content="Depuis 2005, Europ'Alu s'est imposée comme La référence de Madagascar en termes de menuiseries aluminium et d'habillage de façade."
         />
-        <link rel="canonical" href="/" />
+        <link rel="canonical" href="https://3d.europ-alu.com" />
       </Helmet>
       <div id="home__page">
         <div className="body"></div>

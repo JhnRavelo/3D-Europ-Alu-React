@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import usePage from "../../../hooks/usePage";
 
 function Icon() {
-  const {pages} = usePage()
+  const { pages } = usePage();
   const navigate = useNavigate();
 
   const handleClick = (icon) => {
-    const link = icon.page.toLowerCase().split(" ").join("-")
+    const link = icon.page.toLowerCase().split(" ").join("-");
     navigate(`/produits/${link}`);
   };
 
@@ -19,7 +19,10 @@ function Icon() {
           const x = parseFloat(position[0]),
             y = parseFloat(position[1]),
             z = parseFloat(position[2]);
-          const alt = icon?.ID_page != 7 ? `menuiserie aluminium ${icon?.page}` : icon?.page
+          const alt =
+            icon?.ID_page != 7
+              ? `menuiserie aluminium ${icon?.page}`
+              : icon?.page;
           return (
             <Html key={index} position={[x, y, z]}>
               <div

@@ -12,7 +12,7 @@ const Object = () => {
           name="description"
           content="Modèle 3D d'un bâtiment avec les menuiseries aluminium : Fenêtre, Porte, Garde Corps, Baie,... et Habillages Façades"
         />
-        <link rel="canonical" href="/modèle-3D" />
+        <link rel="canonical" href="https://3d.europ-alu.com/modèle-3D" />
       </Helmet>
       <Header />
       <div className="container3D">

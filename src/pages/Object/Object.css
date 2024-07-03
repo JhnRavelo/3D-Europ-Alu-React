@@ -17,6 +17,7 @@
   animation: pulse 1.5s infinite;
   pointer-events: none;
   opacity: 0;
+  cursor: pointer;
 }
 
 .icon {

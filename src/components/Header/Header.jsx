@@ -1,13 +1,12 @@
 import "./Header.css";
 import Logo from "../../assets/png/Logo_aluhd.png";
 import { useEffect, useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../../hooks/useAuth";
 import usePage from "../../hooks/usePage";
 import useLogout from "../../hooks/useLogout";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { auth } = useAuth();
@@ -129,9 +128,9 @@ const Header = () => {
           </a>
         </div>
         <nav className="header-nav">
-          <a className="header-nav__close" title="close" onClick={onOpenMenu}>
+          <div className="header-nav__close" title="close" onClick={onOpenMenu}>
             <span></span>
-          </a>
+          </div>
           <h2>Naviguer vers</h2>
           <div className="header-nav__content">
             <ul className="header-nav__list">

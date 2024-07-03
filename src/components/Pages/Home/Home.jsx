@@ -49,7 +49,7 @@ const Home = () => {
               : ("Habillages Façades comme: " + allProducts).slice(0, 170)
           }
         />
-        <link rel="canonical" href={`/produits/${link}`} />
+        <link rel="canonical" href={`https://3d.europ-alu.com/produits/${link}`} />
         <meta
           name="keywords"
           content={
