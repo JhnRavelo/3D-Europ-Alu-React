@@ -3,10 +3,9 @@ import Button from "../Button/Button";
 import Gallery from "../Gallery/Gallery";
 import propTypes from "prop-types";
 import Separation from "../Separation/Separation";
-import useParallax from "../../../hooks/useParallax";
+import SimpleParallax from "simple-parallax-js";
 
-const Habillage = ({ products, id }) => {
-  useParallax(products, "image_parallaxe", id);
+const Habillage = ({ products }) => {
   return (
     <>
       <div className="panneau_composite">
@@ -20,13 +19,15 @@ const Habillage = ({ products, id }) => {
               }
             >
               <div className="pres">
-                <img
-                  className="image_parallaxe"
-                  src={product.png}
-                  alt={product.title}
-                  title={product.title}
-                  loading="eager"
-                />
+                <SimpleParallax overflow={false} scale={1.5}>
+                  <img
+                    className="image_parallaxe"
+                    src={product.png}
+                    alt={product.title}
+                    title={product.title}
+                    loading="eager"
+                  />
+                </SimpleParallax>
               </div>
               <div className="description">
                 <div className="desc_box">

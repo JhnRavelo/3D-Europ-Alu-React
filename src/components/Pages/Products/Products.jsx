@@ -6,9 +6,11 @@ import Habillage from "../Habillage/Habillage";
 import defaultAxios from "../../../api/axios";
 import useProduct from "../../../hooks/useProduct";
 import useExtractPageId from "../../../hooks/useExtractPageId";
+import { useLocation } from "react-router-dom";
 
 const Products = () => {
   const { products, setProducts } = useProduct();
+  const location = useLocation();
   const id = useExtractPageId();
   useEffect(() => {
     (async () => {
@@ -23,12 +25,28 @@ const Products = () => {
     })();
   }, [id]);
 
+  useEffect(() => {
+    const hash = location.hash;
+    const timeoutId = setTimeout(() => {
+      if (hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [location]);
+
   return (
     <section id="produits">
       {id != 7 ? (
-        <Template id={id} products={products} />
+        <Template products={products} />
       ) : (
-        <Habillage id={id} products={products} />
+        <Habillage products={products} />
       )}
     </section>
   );

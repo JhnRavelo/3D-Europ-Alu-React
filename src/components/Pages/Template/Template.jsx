@@ -1,11 +1,10 @@
+import SimpleParallax from "simple-parallax-js";
 import Button from "../Button/Button";
 import Gallery from "../Gallery/Gallery";
 import Separation from "../Separation/Separation";
 import propTypes from "prop-types";
-import useParallax from "../../../hooks/useParallax";
 
-const Template = ({ products, id }) => {
-  useParallax(products, "float_right", id);
+const Template = ({ products }) => {
   return (
     <div className="container">
       <div className="row">
@@ -13,7 +12,10 @@ const Template = ({ products, id }) => {
           products.map((product, index) => {
             const title = "Menuiserie aluminium " + product.title;
             return (
-              <section id={product.title} key={index}>
+              <section
+                id={product.title.trim().split(" ").join("-")}
+                key={index}
+              >
                 <div className="fenetre__coulissante">
                   <div
                     className={
@@ -21,13 +23,19 @@ const Template = ({ products, id }) => {
                     }
                   >
                     <div className="img__pres">
-                      <img
-                        className="float_right"
-                        src={product.png}
-                        alt={title}
-                        title={title}
-                        loading="eager"
-                      />
+                      <SimpleParallax
+                        overflow={true}
+                        orientation="up"
+                        scale={1.8}
+                      >
+                        <img
+                          className="float_right"
+                          src={product.png}
+                          alt={title}
+                          title={title}
+                          loading="eager"
+                        />
+                      </SimpleParallax>
                     </div>
                     <div className="desc">
                       <div className="button_intrested_start">
