@@ -1,9 +1,8 @@
 .wrapper .img-area,
-.social-icons a{
+.social-icons a {
     background-color: rgba(255,255,255,0.13);
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    /* border: 2px solid rgba(255,255,255,0.1); */
     box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
 }
 
@@ -14,9 +13,8 @@
     text-align: center;
 }
 
-.wrapper{
+.wrapper {
     background: #f8f8f9;
-    /* box-shadow: rgba(0,0,0,0.24) 0px 3px 8px; */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     position: relative;
     width: 25vw;
@@ -29,7 +27,7 @@
     height: 80vh;
 } 
 
-.wrapper .img-area{                    
+.wrapper .img-area {                    
     height: 150px;
     width: 150px;
     border-radius: 50%;
@@ -67,41 +65,40 @@
     color: var(--orange);
 }
 
-.img-area .inner-area{
+.img-area .inner-area {
     height: calc(100% - 25px);
     width: calc(100% - 25px);
     border-radius: 50%;
 }
 
-.inner-area img{
+.inner-area img {
     height: 100%;
     width: 100%;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.wrapper .name{                        
+.wrapper .name {                        
     font-size: 23px;
     font-weight: 700;
-    /* color: #06001a; */
     color: var(--orange);
     margin: 10px 0 5px 0;
 }
 
-.wrapper .firstname{
+.wrapper .firstname {
     color: #06001a;
     padding: 5px;
     font-weight: 600;
     font-size: 17px;
 }
-.wrapper .email{
+.wrapper .email {
     color: #06001a;
     padding: 3px;
     font-weight: 600;
     font-size: 17px;
     text-decoration: underline;
 }
-.wrapper .number{
+.wrapper .number {
     color: #06001a;
     font-weight: 600;
     font-size: 17px;
@@ -109,7 +106,7 @@
 
 }
 
-.wrapper .social-icons{
+.wrapper .social-icons {
     margin: 15px 0 25px 0;
 }
 
@@ -150,7 +147,7 @@
     transition: all .3s ease;
 }
 
-.social-icons img:hover{
+.social-icons img:hover {
     transform: scale(1.1);
 }
 
@@ -158,7 +155,7 @@
     transform: scale(1);
 }
 
-.wrapper .icon:hover::before{
+.wrapper .icon:hover::before {
     content: "";
     position: absolute;
     top: 0;
@@ -172,7 +169,6 @@
 }
 
 .buttons button:active {
-    /* color: #06001a; */
     transform: scale(.9);
     background: #ecf0f3 !important;
     box-shadow: inset -3px -3px 7px #ffffff,
@@ -181,14 +177,14 @@
 }
 
 
-.buttons button:hover{
+.buttons button:hover {
     background: #06001a;
     transform: scale(1.02);
     transition: .2s ease;
 }  
 
 
-.wrapper .buttons{
+.wrapper .buttons {
     display: flex;
     width: 100%;
     gap: 20px;
@@ -196,7 +192,7 @@
 
 }
 
-.buttons button{
+.buttons button {
     position: relative;
     width: 100%;
     border: none;
@@ -214,7 +210,7 @@
 
 }
 
-.social-icons a i{
+.social-icons a i {
     position: relative;
     z-index: 3;
     margin-top: 3px;
@@ -243,30 +239,22 @@
     .profile__page {
         top: 0rem;
     }
-    /* .profile__page {
-        padding-top: 15vh;
-    } */
-
     .wrapper{
         height: 300px;
         width: 95vw;
         justify-content: space-between;
         flex-direction: row;
     }
-    
     .wrapper .buttons{
         width: 25%;
         justify-content: space-between;
     }
-
     .wrapper .buttons button{
         width: 100%;
     }
-
     .gauche {
         width: 50%;
     }
-    
     .social-icons {
         top: 50px;
         left: 320px;
@@ -278,7 +266,6 @@
         top: 50px;
         left: 280px;
     }
-    
 }
 
 
@@ -287,7 +274,6 @@
         top: 162px;
         left: 10%;
     }
-
     .wrapper .buttons{
         width: 35%;
         justify-content: space-between;
@@ -299,7 +285,6 @@
         top: 162px;
         left: 5%;
     }
-    
 }
 @media (max-width: 395px) {
     .social-icons {
@@ -317,12 +302,10 @@
         flex-direction: column;
         height: 55vh;
     }
-
     .buttons {
         display: flex;
         flex-direction: row;
     }
-
     .wrapper .buttons{
         width: 100%;
         margin-top: 0;

@@ -76,8 +76,8 @@ const Footer = () => {
                     </a>
                   </p>
                   <p className="contact-address">
-                    {"Europ' Alu 2024 ALL RIGHTS"} <br />
-                    {"RESERVED BY RAZAFINDRANORO Cedrico Elsior Arinony"}
+                    {"Europ'Alu 2024 ALL RIGHTS"} <br />
+                    {"RESERVED BY Équipe Marketing Europ'Alu"}
                   </p>
                 </div>
               </div>

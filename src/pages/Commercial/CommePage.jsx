@@ -80,7 +80,7 @@ const CommePage = () => {
         />
         <link rel="canonical" href="/commercial" />
       </Helmet>
-      <Home />;
+      <Home />
     </>
   );
 };
