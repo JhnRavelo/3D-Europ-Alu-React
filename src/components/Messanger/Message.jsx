@@ -41,7 +41,6 @@ const Message = ({ message, start }) => {
   }, []);
 
   const handleDate = () => {
-    console.log("DATE", message?.date);
     const date = message?.date.split("-");
     const hour = message?.time.split(":");
     var intervalHour, interDay;

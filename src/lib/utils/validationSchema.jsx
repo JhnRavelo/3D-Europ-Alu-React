@@ -4,8 +4,7 @@ const phoneRegEx =
   /^((\+\d{1,3}(-|)?\(?\d\)?(-|)?\d{1,3})|(\(?\d{2,3}\)?))(-|)?(\d{3,4})(-|)?(\d{4})((x|ext)\d{1,5}){0,1}(?=\d{1,10}$)/;
 
 const validate = Yup.object({
-  name: Yup.string()
-    .required("Vous devez mettre votre nom"),
+  name: Yup.string().required("Vous devez mettre votre nom"),
   email: Yup.string()
     .required("Vous devez mettre votre adresse email")
     .email(`l'adresse email est invalide`),
@@ -65,7 +64,10 @@ const validationPage = Yup.object({
   icon: Yup.mixed().required("Icône est requis"),
   position: Yup.string()
     .required("Position requis")
-    .matches(/^(-?\d+(\.\d+)?,-?\d+(\.\d+)?,-?\d+(\.\d+)?)$/, "Doit être de forme x,y,z"),
+    .matches(
+      /^(-?\d+(\.\d+)?,-?\d+(\.\d+)?,-?\d+(\.\d+)?)$/,
+      "Doit être de forme x,y,z"
+    ),
   minYAngle: Yup.string()
     .required("Requis")
     .matches(/^-?\d+(\.\d+)?$/, "Doit être un nombre, peut être décimal"),
@@ -94,6 +96,8 @@ const validationProduct = Yup.object({
 
 const validationMessage = Yup.object({
   message: Yup.string().required("Requis"),
-})
+  img: Yup.mixed().required("Requis"),
+  file: Yup.mixed().required("Requis"),
+});
 
 export { validate, validationPage, validationProduct, validationMessage };

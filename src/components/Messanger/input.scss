@@ -1,0 +1,51 @@
+.input {
+  .send {
+    .button-send {
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+      margin: 0px 10px;
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+    .plus-svg {
+      cursor: pointer;
+      padding: 0px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: center;
+
+      &.rotated {
+        background-color: rgb(95, 95, 95);
+        animation: turn 1s ease forwards;
+      }
+
+      &.return {
+        animation: return 1s ease forwards;
+      }
+
+      svg {
+        color: rgb(156, 160, 162);
+      }
+    }
+  }
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes return {
+  from {
+    transform: rotate(135deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
