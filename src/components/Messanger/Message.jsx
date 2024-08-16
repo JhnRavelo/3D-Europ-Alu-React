@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import propTypes from "prop-types";
 import useAuth from "../../hooks/useAuth";
 import pdf from "../../assets/png/pdf.png";
@@ -7,6 +7,7 @@ import excel from "../../assets/png/feuilles.png";
 import standard from "../../assets/png/fichier.png";
 import doc from "../../assets/png/doc.png";
 import DownloadSVG from "../../assets/svg/DownloadSVG";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const monthNames = [
   "Jan",
@@ -28,6 +29,7 @@ const Message = ({ message, start }) => {
   const [Now, setNow] = useState(new Date());
   const [dispalyDate, setDisplayDate] = useState("");
   const { auth } = useAuth();
+  const axiosPrivate = useAxiosPrivate();
 
   useEffect(() => {
     if (start == 10) {
@@ -80,6 +82,26 @@ const Message = ({ message, start }) => {
     }
   };
 
+  const handleDownload = async (file, name) => {
+    try {
+      const res = await axiosPrivate.post(
+        "/message/download",
+        { file },
+        {
+          responseType: "blob",
+        }
+      );
+      const url = window.URL.createObjectURL(new Blob([res.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", name);
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {message?.text || message?.img || message?.file ? (
@@ -112,13 +134,20 @@ const Message = ({ message, start }) => {
             )}
             {message?.img &&
               message.img.split(",").map((img, index) => (
-                <Fragment key={index}>
-                  <img
-                    src={img}
-                    alt="image rattaché au message"
-                    className="message-background"
+                <div className="message-background img-container" key={index}>
+                  <img src={img} alt="image rattaché au message" />
+                  <DownloadSVG
+                    width="60"
+                    height="60"
+                    onClick={() =>
+                      handleDownload(
+                        img,
+                        img.split("/")[img.split("/").length - 1]
+                      )
+                    }
+                    className="message-download-svg"
                   />
-                </Fragment>
+                </div>
               ))}
             {message?.file &&
               message.file.split(",").map((file, index) => {
@@ -147,7 +176,11 @@ const Message = ({ message, start }) => {
                           </span>
                         </div>
                       </div>
-                      <DownloadSVG width="50" height="50" />
+                      <DownloadSVG
+                        width="50"
+                        height="50"
+                        onClick={() => handleDownload(file, name)}
+                      />
                     </div>
                   </div>
                 );
