@@ -1,4 +1,3 @@
-// import Img from "../../assets/png/img.png";
 import Send from "../../assets/png/envoyer-le-message.png";
 import { Field, Form, Formik } from "formik";
 import { validationMessage } from "../../lib/utils/validationSchema";

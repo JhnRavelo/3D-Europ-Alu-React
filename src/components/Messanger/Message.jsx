@@ -1,7 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import propTypes from "prop-types";
 import useAuth from "../../hooks/useAuth";
+import pdf from "../../assets/png/pdf.png";
+import excel from "../../assets/png/feuilles.png";
+import standard from "../../assets/png/fichier.png";
+import doc from "../../assets/png/doc.png";
+import DownloadSVG from "../../assets/svg/DownloadSVG";
 
 const monthNames = [
   "Jan",
@@ -37,7 +42,7 @@ const Message = ({ message, start }) => {
   useEffect(() => {
     setInterval(() => {
       setNow(new Date());
-    }, 10 * 60 * 60 * 1000);
+    }, 60 * 60 * 1000);
   }, []);
 
   const handleDate = () => {
@@ -77,34 +82,79 @@ const Message = ({ message, start }) => {
 
   return (
     <>
-      <div
-        ref={ref}
-        className={`message ${message?.send?.ID_user === auth?.id && "owner"} `}
-      >
-        <div className="messageInfo">
-          <img
-            src={message?.send?.avatar}
-            alt={
-              "photo de profil de" + message?.send?.ID_user === auth?.id
-                ? " de l'émetteur"
-                : "du récepteur"
-            }
-            title={
-              "photo de profil de" + message?.send?.ID_user === auth?.id
-                ? " de l'émetteur"
-                : "du récepteur"
-            }
-            loading="eager"
-          />
-          <span>{dispalyDate}</span>
+      {message?.text || message?.img || message?.file ? (
+        <div
+          ref={ref}
+          className={`message ${
+            message?.send?.ID_user === auth?.id && "owner"
+          } `}
+        >
+          <div className="messageInfo">
+            <img
+              src={message?.send?.avatar}
+              alt={
+                "photo de profil de" + message?.send?.ID_user === auth?.id
+                  ? " de l'émetteur"
+                  : "du récepteur"
+              }
+              title={
+                "photo de profil de" + message?.send?.ID_user === auth?.id
+                  ? " de l'émetteur"
+                  : "du récepteur"
+              }
+              loading="eager"
+            />
+            <span>{dispalyDate}</span>
+          </div>
+          <div className="messageContent">
+            {message?.text && (
+              <p className="message-background">{message.text}</p>
+            )}
+            {message?.img &&
+              message.img.split(",").map((img, index) => (
+                <Fragment key={index}>
+                  <img
+                    src={img}
+                    alt="image rattaché au message"
+                    className="message-background"
+                  />
+                </Fragment>
+              ))}
+            {message?.file &&
+              message.file.split(",").map((file, index) => {
+                const ext = file.split(".")[file.split(".").length - 1];
+                const name = file.split("/")[file.split("/").length - 1];
+                return (
+                  <div key={index} className="message-background">
+                    <div className="message-file-container">
+                      <div className="message-icon-container">
+                        <img
+                          src={
+                            ext == "pdf"
+                              ? pdf
+                              : ext == "doc" || ext == "docx"
+                              ? doc
+                              : ext == "xlsx" || ext == "xls"
+                              ? excel
+                              : standard
+                          }
+                          alt="icon document"
+                        />
+                        <div className="message-name-container">
+                          <span>{name}</span>
+                          <span className="message-file-extension">
+                            {ext.toUpperCase()}
+                          </span>
+                        </div>
+                      </div>
+                      <DownloadSVG width="50" height="50" />
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
         </div>
-        <div className="messageContent">
-          <p>{message?.text}</p>
-          {message?.img && (
-            <img src={message?.img} alt="image rattaché au message" />
-          )}
-        </div>
-      </div>
+      ) : null}
     </>
   );
 };

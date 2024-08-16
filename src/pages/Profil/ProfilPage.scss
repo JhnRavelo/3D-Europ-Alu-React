@@ -207,7 +207,7 @@
           }
 
           .userChatInfo {
-            width: 80%;;
+            width: 80%;
             overflow: hidden;
 
             span {
@@ -509,18 +509,13 @@
         .messageContent {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 5px;
           max-width: 60% !important;
           p {
             max-width: 500px !important;
             overflow-wrap: break-word;
-            background-color: var(--orange);
-            padding: 15px 25px;
             margin-bottom: 5px;
             color: #fff;
-            box-shadow: $shadow2;
-            border-radius: 20px 20px 20px 0px;
-            max-width: max-content !important;
             font-weight: 300;
             font-size: 18px;
             letter-spacing: 0.5px;
@@ -532,8 +527,61 @@
             }
           }
 
+          .messageImgContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+          }
+
+          .message-background {
+            box-shadow: $shadow2;
+            border-radius: 20px 20px 20px 0px;
+            max-width: max-content !important;
+            background-color: var(--orange);
+            padding: 15px 25px;
+
+            .message-file-container {
+              display: flex;
+              justify-content: space-between;
+              padding: 15px;
+              background-color: #26282a;
+              border-radius: 15px;
+              width: 350px;
+              align-items: center;
+
+              .message-icon-container {
+                display: flex;
+                img {
+                  width: 70px;
+                }
+                .message-name-container {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 15px;
+                }
+              }
+
+              span {
+                overflow-wrap: break-word;
+                max-width: 180px !important;
+                color: #dae3da;
+              }
+
+              svg {
+                color: #cacaca;
+                cursor: pointer;
+                transition: 0.25s ease;
+
+                &:active {
+                  transform: scale(1.02);
+                }
+              }
+            }
+          }
+
           img {
             width: 50%;
+            padding: 10px !important;
             @include tablet {
               width: 70%;
             }
@@ -549,10 +597,10 @@
           .messageContent {
             align-items: flex-end;
           }
-          p {
-            background-color: $gris;
-            color: #ffffff;
+
+          .message-background {
             border-radius: 20px 20px 0px 20px;
+            background-color: $gris;
           }
         }
       }
