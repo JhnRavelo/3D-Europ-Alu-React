@@ -57,7 +57,7 @@ const Message = ({ message, start }) => {
     const dayNow = Now.getDate();
     if (date[0] == YearNow && date[1] == monthNow && date[2] == dayNow) {
       intervalHour = hourNow - hour[0];
-      if (intervalHour == 0) {
+      if (intervalHour <= 0) {
         setDisplayDate("a moment ago");
       } else {
         setDisplayDate(`${intervalHour} hour ago`);
