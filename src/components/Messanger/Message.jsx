@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import propTypes from "prop-types";
 import useAuth from "../../hooks/useAuth";
 import pdf from "../../assets/png/pdf.png";
@@ -8,6 +8,7 @@ import standard from "../../assets/png/fichier.png";
 import doc from "../../assets/png/doc.png";
 import DownloadSVG from "../../assets/svg/DownloadSVG";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import Delete from "./Delete/Delete";
 
 const monthNames = [
   "Jan",
@@ -108,8 +109,8 @@ const Message = ({ message, start }) => {
         <div
           ref={ref}
           className={`message ${
-            message?.send?.ID_user === auth?.id && "owner"
-          } `}
+            message?.send?.ID_user === auth?.id ? "owner" : ""
+          }`}
         >
           <div className="messageInfo">
             <img
@@ -130,59 +131,79 @@ const Message = ({ message, start }) => {
           </div>
           <div className="messageContent">
             {message?.text && (
-              <p className="message-background">{message.text}</p>
+              <Fragment>
+                <Delete
+                  id={message?.ID_message}
+                  idUser={message?.send?.ID_user}
+                />
+                <p className="message-background">{message.text}</p>
+              </Fragment>
             )}
             {message?.img &&
               message.img.split(",").map((img, index) => (
-                <div className="message-background img-container" key={index}>
-                  <img src={img} alt="image rattaché au message" />
-                  <DownloadSVG
-                    width="60"
-                    height="60"
-                    onClick={() =>
-                      handleDownload(
-                        img,
-                        img.split("/")[img.split("/").length - 1]
-                      )
-                    }
-                    className="message-download-svg"
+                <Fragment key={index}>
+                  <Delete
+                    id={message?.ID_message}
+                    idUser={message?.send?.ID_user}
+                    file={img}
                   />
-                </div>
+                  <div className="message-background img-container">
+                    <img src={img} alt="image rattaché au message" />
+                    <DownloadSVG
+                      width="60"
+                      height="60"
+                      onClick={() =>
+                        handleDownload(
+                          img,
+                          img.split("/")[img.split("/").length - 1]
+                        )
+                      }
+                      className="message-download-svg"
+                    />
+                  </div>
+                </Fragment>
               ))}
             {message?.file &&
               message.file.split(",").map((file, index) => {
                 const ext = file.split(".")[file.split(".").length - 1];
                 const name = file.split("/")[file.split("/").length - 1];
                 return (
-                  <div key={index} className="message-background">
-                    <div className="message-file-container">
-                      <div className="message-icon-container">
-                        <img
-                          src={
-                            ext == "pdf"
-                              ? pdf
-                              : ext == "doc" || ext == "docx"
-                              ? doc
-                              : ext == "xlsx" || ext == "xls"
-                              ? excel
-                              : standard
-                          }
-                          alt="icon document"
-                        />
-                        <div className="message-name-container">
-                          <span>{name}</span>
-                          <span className="message-file-extension">
-                            {ext.toUpperCase()}
-                          </span>
+                  <Fragment key={index}>
+                    <Delete
+                      id={message?.ID_message}
+                      idUser={message?.send?.ID_user}
+                      file={file}
+                    />
+                    <div key={index} className="message-background">
+                      <div className="message-file-container">
+                        <div className="message-icon-container">
+                          <img
+                            src={
+                              ext == "pdf"
+                                ? pdf
+                                : ext == "doc" || ext == "docx"
+                                ? doc
+                                : ext == "xlsx" || ext == "xls"
+                                ? excel
+                                : standard
+                            }
+                            alt="icon document"
+                          />
+                          <div className="message-name-container">
+                            <span>{name}</span>
+                            <span className="message-file-extension">
+                              {ext.toUpperCase()}
+                            </span>
+                          </div>
                         </div>
+                        <DownloadSVG
+                          width="50"
+                          height="50"
+                          onClick={() => handleDownload(file, name)}
+                        />
                       </div>
-                      <DownloadSVG
-                        width="50"
-                        height="50"
-                        onClick={() => handleDownload(file, name)}
-                      />
                     </div>
-                  </div>
+                  </Fragment>
                 );
               })}
           </div>

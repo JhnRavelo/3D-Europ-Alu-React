@@ -2,6 +2,9 @@ import "./ModalDelete.css";
 import Trash from "../../../assets/png/poubelle.png";
 import propTypes from "prop-types";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
+import useSocket from "../../../hooks/useSocket";
+import useAuth from "../../../hooks/useAuth";
+import useMessage from "../../../hooks/useMessage";
 
 const ModalDelete = ({
   setDeleteOpen,
@@ -11,18 +14,35 @@ const ModalDelete = ({
   title,
 }) => {
   const privateAxios = useAxiosPrivate();
+  const { socket } = useSocket();
+  const { auth } = useAuth();
+  const { chatter, setSendMessage } = useMessage();
+
   const handleDelete = async () => {
     try {
-      const res = await privateAxios.delete(`${url}/${deleteRow}`);
+      let res = await privateAxios.delete(`${url}/${deleteRow}`);
+
+      if (url == "/message/delete") {
+        res = await privateAxios.post(url, deleteRow);
+      }
 
       if (res.data == "supprimé") {
         setDeleteOpen(false);
         setDeleteRow(null);
+      } else if (res.data == "message supprimé") {
+        setDeleteOpen(false);
+        setSendMessage((prev) => !prev);
+        socket.emit("sendMessage", {
+          text: deleteRow,
+          receiver: chatter.ID_user,
+          sender: auth?.id,
+        });
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <>
       <div id="champDelete">
@@ -33,7 +53,9 @@ const ModalDelete = ({
             className="x__mark"
             onClick={() => {
               setDeleteOpen(false);
-              setDeleteRow(null);
+              if (setDeleteRow) {
+                setDeleteRow(null);
+              }
             }}
           >
             X
@@ -47,16 +69,18 @@ const ModalDelete = ({
           </p>
           <div className="button__delete">
             <button className="suppr" onClick={() => handleDelete()}>
-              Delete
+              Supprimer
             </button>
             <button
               className="cancel"
               onClick={() => {
                 setDeleteOpen(false);
-                setDeleteRow(null);
+                if (setDeleteRow) {
+                  setDeleteRow(null);
+                }
               }}
             >
-              Cancel
+              Annuler
             </button>
           </div>
         </div>
