@@ -64,6 +64,14 @@ const ProfilPage = () => {
   }, [chatter, socket, auth]);
 
   useEffect(() => {
+    if (chatters && chatters?.length > 0 && socket) {
+      chatters.map((chatter) => {
+        socket.emit("joinRoom", { room: chatter.ID_user });
+      });
+    }
+  }, [chatters, socket]);
+
+  useEffect(() => {
     (async () => {
       try {
         if (auth?.name) {

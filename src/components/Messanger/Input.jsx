@@ -1,6 +1,5 @@
 import Send from "../../assets/png/envoyer-le-message.png";
 import { Field, Form, Formik } from "formik";
-import { validationMessage } from "../../lib/utils/validationSchema";
 import propTypes from "prop-types";
 import useSocket from "../../hooks/useSocket";
 import useAuth from "../../hooks/useAuth";
@@ -11,6 +10,7 @@ import { useRef } from "react";
 import Options from "./Options";
 import { messageOptions } from "../../assets/js/options";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import { toast } from "react-toastify";
 
 const initialValues = {
   message: "",
@@ -26,13 +26,13 @@ const Input = () => {
   const optionsRef = useRef();
   const axiosPrivate = useAxiosPrivate();
 
-  const handleSendMessage = async (values, errors, setField) => {
-    if (
-      (!errors.message || !errors.img || !errors.file) &&
-      chatter?.ID_user &&
-      auth?.id
-    ) {
+  const handleSendMessage = async (values, setField) => {
+    if (chatter?.ID_user && auth?.id) {
       try {
+        if(!values?.file && !values?.img && !values?.message) {
+          toast.error("Erreur vous devez envoyer quelque chose");
+          return;
+        }
         const formData = new FormData();
         formData.append("text", values.message);
 
@@ -81,11 +81,8 @@ const Input = () => {
   return (
     <>
       {chatter?.ID_user && (
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationMessage}
-        >
-          {({ values, setFieldValue, errors }) => (
+        <Formik initialValues={initialValues}>
+          {({ values, setFieldValue }) => (
             <Form>
               <div className="input">
                 <Field
@@ -95,7 +92,7 @@ const Input = () => {
                   placeholder="Envoyer un message ..."
                   onKeyDown={(e) => {
                     e.code === "Enter" &&
-                      handleSendMessage(values, errors, setFieldValue);
+                      handleSendMessage(values, setFieldValue);
                   }}
                 />
                 <div className="send">
@@ -115,7 +112,7 @@ const Input = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      handleSendMessage(values, errors, setFieldValue);
+                      handleSendMessage(values, setFieldValue);
                     }}
                     className={
                       values?.message || values?.file || values?.img

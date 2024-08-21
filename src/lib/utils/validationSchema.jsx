@@ -94,10 +94,4 @@ const validationProduct = Yup.object({
   title: Yup.string().required("Requis"),
 });
 
-const validationMessage = Yup.object({
-  message: Yup.string().required("Requis"),
-  img: Yup.mixed().required("Requis"),
-  file: Yup.mixed().required("Requis"),
-});
-
-export { validate, validationPage, validationProduct, validationMessage };
+export { validate, validationPage, validationProduct };

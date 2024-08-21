@@ -1,6 +1,7 @@
 import propTypes from "prop-types";
 import "./options.scss";
 import { Fragment, useRef } from "react";
+import { toast } from "react-toastify";
 
 const Options = ({ setFieldValue, options, optionsRef, handleChange }) => {
   const inputRef = useRef();
@@ -16,8 +17,21 @@ const Options = ({ setFieldValue, options, optionsRef, handleChange }) => {
                 id={option.name}
                 accept={option.accept}
                 onChange={(e) => {
-                  if (e.target.files) {
-                    setFieldValue(option.name, e.target.files);
+                  if (e.target.files && e.target.files.length > 0) {
+                    
+                    for (
+                      let index = 0;
+                      index < e.target.files.length;
+                      index++
+                    ) {
+                      if (e.target.files[index].size < 50 * 1024 * 1024) {
+                        setFieldValue(option.name, e.target.files);
+                      } else {
+                        toast.error("Erreur le fichier est plus grand 50Mo");
+                        setFieldValue(option.name, null);
+                        break;
+                      }
+                    }
                   }
                 }}
                 multiple
