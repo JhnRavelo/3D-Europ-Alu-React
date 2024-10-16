@@ -7,6 +7,7 @@ import PersistantLogin from "../components/Private/PersistantLogin";
 import Home from "../pages/Acceuil/Home";
 import Object from "../pages/Object";
 import ProfilPage from "../pages/Profil/ProfilPage";
+import Participation from "../pages/Participation/Participation";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
@@ -26,6 +27,7 @@ const AppRouter = () => {
           <Route path="/profile" element={<ProfilPage />} />
         </Route>
         <Route index path="/modèle-3D" element={<Object/>} />
+        <Route index path="/jeux" element={<Participation />} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

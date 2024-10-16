@@ -1,0 +1,107 @@
+@import "../../variables.scss";
+@import "../../pages/Admin/responsive.scss";
+
+.participation-container {
+  background: $orange-gradient;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .participation-content {
+    width: 25%;
+    @include xl {
+      width: 40%;
+    }
+    @include mdlg {
+      width: 60%;
+    }
+    @include sm {
+      width: 90%;
+    }
+    .participation-img-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      @include sm {
+        margin-bottom: 3rem;
+      }
+      img {
+        width: 270px;
+        @include sm {
+            width: 90vw;
+        }
+      }
+    }
+    .participation-input-container {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+      margin-bottom: 1rem;
+      @include sm {
+        margin-bottom: 2rem;
+      }
+      .participation-input-icon {
+        background: #ffffff70;
+        color: #f8f9fa;
+        border: unset;
+        font-size: 18px;
+        padding: 15px;
+        width: 50px;
+        border-radius: 0.3rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        @include sm {
+            padding: 25px 15px;
+        }
+      }
+      input {
+        border: unset;
+        border-left: 1px solid #ffffff05;
+        font-size: 16px;
+        background: #ffffff70;
+        padding: 0.5rem 0.7rem;
+        border-radius: 0.3rem;
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        display: block;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        transition: 0.25s ease;
+        &:focus {
+          background-color: #f8f9fa;
+          outline: none;
+        }
+      }
+    }
+    button {
+      width: 100%;
+      background: #842029;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 1.25rem;
+      border-radius: 0.3rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+      @include sm {
+        padding: 1rem;
+      }
+      &:hover {
+        background: #4a1116;
+      }
+    }
+  }
+}
