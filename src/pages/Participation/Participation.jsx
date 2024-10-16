@@ -1,10 +1,11 @@
 import "./participation.scss";
 import logoEuro from "../../assets/png/logo EUROP'ALU-5.png";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import {
   participationFields,
   participationInitialValues,
 } from "../../assets/js/participations";
+import { validationParticipation } from "../../lib/utils/validationSchema";
 // import defaultAxios from "../../api/axios";
 
 const Participation = () => {
@@ -32,6 +33,7 @@ const Participation = () => {
         <Formik
           initialValues={participationInitialValues}
           onSubmit={(values) => handleSubmit(values)}
+          validationSchema={validationParticipation}
         >
           <Form>
             {participationFields.map((field, index) => (
@@ -42,6 +44,7 @@ const Participation = () => {
                   type={field.type}
                   placeholder={field.placeholder}
                 />
+                <ErrorMessage name={field.name} className="error" component="p"/>
               </div>
             ))}
             <button type="submit">Participer au jeux</button>

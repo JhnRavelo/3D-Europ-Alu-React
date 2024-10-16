@@ -94,4 +94,14 @@ const validationProduct = Yup.object({
   title: Yup.string().required("Requis"),
 });
 
+export const validationParticipation = Yup.object({
+  fullName: Yup.string().required("Vous devez mettre votre nom"),
+  email: Yup.string()
+    .required("Vous devez mettre votre adresse email")
+    .email(`l'adresse email est invalide`),
+  phone: Yup.string()
+    .matches(phoneRegEx, "Numéro de téléphone invalide")
+    .required("Le numéro de téléphone est requis"),
+});
+
 export { validate, validationPage, validationProduct };
