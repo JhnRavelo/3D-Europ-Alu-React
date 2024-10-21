@@ -8,6 +8,7 @@ import Home from "../pages/Acceuil/Home";
 import Object from "../pages/Object";
 import ProfilPage from "../pages/Profil/ProfilPage";
 import Participation from "../pages/Participation/Participation";
+import Roulette from "../pages/Roulette/Roulette";
 
 const prime = import.meta.env.VITE_PRIME.split(" ");
 
@@ -28,6 +29,7 @@ const AppRouter = () => {
         </Route>
         <Route index path="/modèle-3D" element={<Object/>} />
         <Route index path="/jeux" element={<Participation />} />
+        <Route path="/roulette" element={<Roulette />} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

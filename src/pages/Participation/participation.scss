@@ -10,6 +10,12 @@
   justify-content: center;
   .participation-content {
     width: 25%;
+    &.roulette {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     @include xl {
       width: 40%;
     }

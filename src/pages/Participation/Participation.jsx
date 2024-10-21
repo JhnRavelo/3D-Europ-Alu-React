@@ -1,5 +1,4 @@
 import "./participation.scss";
-import logoEuro from "../../assets/png/logo EUROP'ALU-5.png";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import {
   participationFields,
@@ -7,29 +6,46 @@ import {
 } from "../../assets/js/participations";
 import { validationParticipation } from "../../lib/utils/validationSchema";
 // import defaultAxios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
+// import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
+import GameContainer from "../../components/Game/GameContainer/GameContainer";
+import useParticipant from "../../hooks/useParticipant";
 
 const Participation = () => {
-
+  const { setParticipant } = useParticipant();
+  const navigate = useNavigate();
   const handleSubmit = async (values) => {
-    const formData = new FormData();
-    const valuesEntries = Object.entries(values);
-    valuesEntries.forEach(([key, value]) => {
-      formData.append(`${key}`, value);
-    });
+    setParticipant(values);
+    // const formData = new FormData();
+    // const valuesEntries = Object.entries(values);
+    // valuesEntries.forEach(([key, value]) => {
+    //   formData.append(`${key}`, value);
+    // });
+    navigate("/roulette");
 
     // try {
     //   const res = await defaultAxios.post("/participation", formData);
 
+    //   if (res.data.success) {
+    //     localStorage.setItem("partjeux", res.data.id);
+    //   } else toast.error(res.data.message);
     // } catch (error) {
+    //   toast.error("Erreur serveur introuvable!");
     //   console.log(error);
     // }
   };
   return (
-    <div className="participation-container">
-      <div className="participation-content">
-        <div className="participation-img-container">
-          <img src={logoEuro} alt="logo Europ'Alu" />
-        </div>
+    <>
+      <Helmet>
+        <title>Jeux - {"Europ'Alu Madagascar"}</title>
+        <meta
+          name="description"
+          content="Formulaire pour le jeux créer par Europ'Alu pour donner des prix à ses clients."
+        />
+        <link rel="canonical" href="https://3d.europ-alu.com/jeux" />
+      </Helmet>
+      <GameContainer slug="form">
         <Formik
           initialValues={participationInitialValues}
           onSubmit={(values) => handleSubmit(values)}
@@ -44,14 +60,18 @@ const Participation = () => {
                   type={field.type}
                   placeholder={field.placeholder}
                 />
-                <ErrorMessage name={field.name} className="error" component="p"/>
+                <ErrorMessage
+                  name={field.name}
+                  className="error"
+                  component="p"
+                />
               </div>
             ))}
             <button type="submit">Participer au jeux</button>
           </Form>
         </Formik>
-      </div>
-    </div>
+      </GameContainer>
+    </>
   );
 };
 
