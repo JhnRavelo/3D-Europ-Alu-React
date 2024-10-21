@@ -13,6 +13,7 @@ import { PageProvider } from "./context/PageProvider.jsx";
 import { SocketProvider } from "./context/SocketProvider.jsx";
 import { ProfilProvider } from "./context/ProfilContext.jsx";
 import { MessageProvider } from "./context/MessageProvider.jsx";
+import { ParticipantProvider } from "./context/ParticipantContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
@@ -24,9 +25,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <SocketProvider>
                 <ProfilProvider>
                   <MessageProvider>
-                    <BrowserRouter>
-                      <App />
-                    </BrowserRouter>
+                    <ParticipantProvider>
+                      <BrowserRouter>
+                        <App />
+                      </BrowserRouter>
+                    </ParticipantProvider>
                   </MessageProvider>
                 </ProfilProvider>
               </SocketProvider>
