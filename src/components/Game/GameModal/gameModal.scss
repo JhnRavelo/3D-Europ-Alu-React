@@ -1,0 +1,215 @@
+.game-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+	padding: 0 10px;
+	transition: opacity 0.4s ease;
+}
+.game-modal.show {
+	opacity: 1;
+	pointer-events: auto;
+	transition: opacity 0.4s 0.4s ease;
+}
+.game-modal .content {
+	padding: 25px 15px 0px 15px;
+	max-width: 320px;
+	width: 100%;
+	border-radius: 10px;
+	background: #fff;
+	text-align: center;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.game-modal img {
+	max-width: 130px;
+	margin-bottom: 20px;
+}
+.game-modal img[src="./gif/fireworks.gif"] {
+	max-width: 180px;
+	margin-bottom: 5px;
+}
+.game-modal img[src="./gif/victory.gif"] {
+	margin-left: -10px;
+}
+.game-modal h4 {
+	font-size: 2rem;
+	margin-top: 15px;
+	margin-bottom: 15px;
+    color: greenyellow;
+}
+
+.game-modal p {
+	font-size: 1.2rem;
+	margin: 15px 0 20px;
+	font-weight: 700;
+    animation:  clignoter 0.8s infinite;
+    color: #1c2b39;
+}
+
+.game-modal button {
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: 600;
+	border-radius: 4px;
+	text-transform: uppercase;
+	background: #5e63ba;
+	padding: 12px 23px;
+}
+
+@keyframes clignoter {
+	0% {
+		opacity: 1;
+		color: greenyellow;
+	}
+	25% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+		color: blue;
+	}
+	75% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		color: orange;
+	}
+}
+
+@keyframes droll {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(50px); 
+		opacity: 0;
+	}
+}
+
+.ticket-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.tixContainer {
+	position: relative;
+	-webkit-transform: rotateZ(-5deg) rotateY(0deg);
+}
+
+.tix {
+	font-size: 30px;
+	display: table;
+	z-index: 2;
+	width: 206px;
+	height: 104px;
+	background:
+		-webkit-radial-gradient(0 100%, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px),
+		-webkit-radial-gradient(100% 100%, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px),
+		-webkit-radial-gradient(100% 0, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px),
+		-webkit-radial-gradient(0 0, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px);
+}
+
+.tix:before {
+	content: "";
+	display: block;
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	left: 0px;
+	z-index: 0;
+	background:
+		-webkit-radial-gradient(0 100%, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px),
+		-webkit-radial-gradient(100% 100%, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px),
+		-webkit-radial-gradient(100% 0, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px),
+		-webkit-radial-gradient(0 0, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px);
+}
+
+.tixInner {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.tixInner span {
+	position: relative;
+	z-index: 10;
+	color: white;
+}
+
+.tixInner:before {
+	z-index: 0;
+	content: "";
+	display: block;
+	width: 186px;
+	height: 86px;
+	position: absolute;
+	left: 8px;
+	top: 8px;
+
+	background:
+		-webkit-radial-gradient(0 100%, circle, rgba(255, 255, 255, 0) 14px, white 15px),
+		-webkit-radial-gradient(100% 100%, circle, rgba(255, 255, 255, 0) 14px, white 15px),
+		-webkit-radial-gradient(100% 0, circle, rgba(255, 255, 255, 0) 14px, white 15px),
+		-webkit-radial-gradient(0 0, circle, rgba(255, 255, 255, 0) 14px, white 15px);
+}
+
+.tixInner:after {
+	z-index: 0;
+	content: "";
+	display: block;
+	width: 182px;
+	height: 82px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+
+	background:
+		-webkit-radial-gradient(0 100%, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px),
+		-webkit-radial-gradient(100% 100%, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px),
+		-webkit-radial-gradient(100% 0, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px),
+		-webkit-radial-gradient(0 0, circle, rgba(204, 102, 153, 0) 14px, rgb(232, 98, 34) 15px);
+}
+
+.tix,
+.tix:before,
+.tix:after,
+.tixInner:before,
+.tixInner:after {
+	background-position:
+		bottom left,
+		bottom right,
+		top right,
+		top left;
+	-webkit-background-size: 50% 50%;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.tixInner {
+	span {
+		z-index: 10;
+		position: relative;
+		color: #fff;
+	}
+}
+
+a {
+	text-decoration: none;
+}
