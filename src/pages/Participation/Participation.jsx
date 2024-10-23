@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./participation.scss";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import {
@@ -5,36 +6,39 @@ import {
   participationInitialValues,
 } from "../../assets/js/participations";
 import { validationParticipation } from "../../lib/utils/validationSchema";
-// import defaultAxios from "../../api/axios";
+import defaultAxios from "../../api/axios";
 import { useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import GameContainer from "../../components/Game/GameContainer/GameContainer";
 import useParticipant from "../../hooks/useParticipant";
+import { useEffect } from "react";
+import useGetParticipation from "../../hooks/useGetParticipation";
 
 const Participation = () => {
   const { setParticipant } = useParticipant();
   const navigate = useNavigate();
+  const getParticipation = useGetParticipation();
+
   const handleSubmit = async (values) => {
     setParticipant(values);
-    // const formData = new FormData();
-    // const valuesEntries = Object.entries(values);
-    // valuesEntries.forEach(([key, value]) => {
-    //   formData.append(`${key}`, value);
-    // });
-    navigate("/roulette");
 
-    // try {
-    //   const res = await defaultAxios.post("/participation", formData);
+    try {
+      const res = await defaultAxios.post("/participation", values);
 
-    //   if (res.data.success) {
-    //     localStorage.setItem("partjeux", res.data.id);
-    //   } else toast.error(res.data.message);
-    // } catch (error) {
-    //   toast.error("Erreur serveur introuvable!");
-    //   console.log(error);
-    // }
+      if (res.data.success) {
+        navigate("/roulette");
+      } else toast.error(res.data.message);
+    } catch (error) {
+      toast.error("Erreur serveur introuvable!");
+      console.log(error);
+    }
   };
+
+  useEffect(() => {
+    getParticipation("/roulette");
+  }, []);
+
   return (
     <>
       <Helmet>

@@ -1,14 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Helmet } from "react-helmet-async";
 import GameContainer from "../../components/Game/GameContainer/GameContainer";
 import wheelAudio from "../../assets/audio/Wheel.mp3";
 import fireworksAudio from "../../assets/audio/Fireworks.mp3";
 import openModalAudio from "../../assets/audio/Modal.mp3";
 import "./roulette.scss";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { prizes } from "../../assets/js/roulette";
 import GameModal from "../../components/Game/GameModal/GameModal";
 import { useNavigate } from "react-router-dom";
 import useParticipant from "../../hooks/useParticipant";
+import useGetParticipation from "../../hooks/useGetParticipation";
+import { toast } from "react-toastify";
+import defaultAxios from "../../api/axios";
 
 const Roulette = () => {
   const rouletteRef = useRef();
@@ -20,7 +24,7 @@ const Roulette = () => {
   const audioModal = new Audio(openModalAudio);
   const audioResult = new Audio(fireworksAudio);
   const navigate = useNavigate();
-  localStorage.getItem("partjeux");
+  const getParticipation = useGetParticipation();
 
   const handleSpin = () => {
     if (btnRef.current && rouletteRef.current) {
@@ -42,8 +46,19 @@ const Roulette = () => {
     }
   };
 
-  const handleGame = () => {
+  const handleGame = async () => {
     rouletteRef.current.classList.remove("blur");
+    const res = await defaultAxios.post("/participation/prize", {
+      prize: prize.name,
+    });
+
+    if (!res.data.success) {
+      navigate("/jeux");
+      return;
+    } else if (res.data.success == "other") {
+      navigate("/");
+      return;
+    }
     setOpen(true);
     audioModal.play();
     setTimeout(() => {
@@ -51,9 +66,16 @@ const Roulette = () => {
     }, 800);
     setTimeout(() => {
       audioResult.pause();
-      navigate("/jeux");
+      toast.info(
+        "Merci d'avoir participer, nous vous avons envoyer votre cadeaux par email"
+      );
+      navigate("/");
     }, 5000);
   };
+
+  useEffect(() => {
+    getParticipation("/jeux");
+  }, []);
 
   return (
     <>
@@ -66,7 +88,11 @@ const Roulette = () => {
         <link rel="canonical" href="https://3d.europ-alu.com/roulette" />
       </Helmet>
       <GameContainer slug="roulette">
-        <GameModal prize={prize} open={open} winnerName={participant?.fullName} />
+        <GameModal
+          prize={prize}
+          open={open}
+          winnerName={participant?.fullName}
+        />
         <div className="roulette-component">
           <div className="triangle"></div>
           <button id="spin" ref={btnRef} onClick={() => handleSpin()}>
