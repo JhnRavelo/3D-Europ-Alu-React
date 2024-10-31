@@ -1,67 +1,73 @@
-import prizeOne from "../../assets/prize/001012692_896x598_c.jpg";
-import prizeTwo from "../../assets/prize/europ-smart-prize.png";
-import prizeThree from "../../assets/prize/remise-10.png";
-import prizeFour from "../../assets/prize/remise_9.png";
-import prizeFive from "../../assets/prize/remise_8.png";
-import prizeSix from "../../assets/prize/remise_7.png";
-import prizeSeven from "../../assets/prize/remise_6.png";
-import prizeEight from "../../assets/prize/remise_5.png";
-
 export const prizes = [
   {
-    img: prizeOne,
+    img: "/prize/goodies.jpg",
+    file: "/prize/2.png",
     className: "one",
     name: "un goodies Europ'Alu",
+    prize: "goodies",
     maxDeg: 22.5,
     minDeg: 337.5,
   },
   {
-    img: prizeTwo,
+    img: "/prize/objet_connecté.png",
+    file: "/prize/1.png",
     className: "two",
     name: "un objet connecté",
+    prize: "objet connecté",
     maxDeg: 337.5,
     minDeg: 292.5,
   },
   {
-    img: prizeThree,
+    img: "/prize/remise_10.jpg",
+    file: "/prize/remise_10.png",
     className: "three",
     name: "une remise de 10%",
+    prize: "remise 10",
     maxDeg: 292.5,
     minDeg: 247.5,
   },
   {
-    img: prizeFour,
+    img: "/prize/remise_9.jpg",
+    file: "/prize/remise_9.png",
     className: "four",
     name: "une remise de 9%",
+    prize: "remise 9",
     maxDeg: 247.5,
     minDeg: 202.5,
   },
   {
-    img: prizeFive,
+    img: "/prize/remise_8.jpg",
+    file: "/prize/remise_8.png",
     className: "five",
     name: "une remise de 8%",
+    prize: "remise 8",
     maxDeg: 202.5,
     minDeg: 157.5,
   },
   {
-    img: prizeSix,
+    img: "/prize/remise_7.jpg",
+    file: "/prize/remise_7.png",
     className: "six",
     name: "une remise de 7%",
-
+    prize: "remise 7",
     maxDeg: 157.5,
     minDeg: 112.5,
   },
   {
-    img: prizeSeven,
+    img: "/prize/remise_6.jpg",
+    file: "/prize/remise_6.png",
     className: "seven",
     name: "une remise de 6%",
+    prize: "remise 6",
     maxDeg: 112.5,
     minDeg: 67.5,
   },
   {
-    img: prizeEight,
+    img: "/prize/remise_5.jpg",
+    file: "/prize/remise_5.png",
     className: "eight",
     name: "une remise de 5%",
+    prize: "remise 5",
     maxDeg: 67.5,
     minDeg: 22.5,
   },

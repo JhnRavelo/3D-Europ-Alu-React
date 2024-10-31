@@ -48,6 +48,17 @@ const Participation = () => {
           content="Formulaire pour le jeux créer par Europ'Alu pour donner des prix à ses clients."
         />
         <link rel="canonical" href="https://3d.europ-alu.com/jeux" />
+        <meta property="og:title" content="Jeux - Europ'Alu Madagascar" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:image"
+          content="https://3d.europ-alu.com/thumbnail/thumbnail.PNG"
+        />
+        <meta
+          property="og:url"
+          content="https://3d.europ-alu.com/index.htm"
+        ></meta>
+        <meta property="og:description" content="Offering tour packages for individuals or groups."></meta>
       </Helmet>
       <GameContainer slug="form">
         <Formik

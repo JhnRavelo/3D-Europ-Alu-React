@@ -13,10 +13,12 @@ import useParticipant from "../../hooks/useParticipant";
 import useGetParticipation from "../../hooks/useGetParticipation";
 import { toast } from "react-toastify";
 import defaultAxios from "../../api/axios";
+import { FacebookShareButton } from "react-share";
 
 const Roulette = () => {
   const rouletteRef = useRef();
   const btnRef = useRef();
+  const facebookRef = useRef();
   const [prize, setPrize] = useState();
   const [open, setOpen] = useState();
   const { participant } = useParticipant();
@@ -28,13 +30,15 @@ const Roulette = () => {
 
   const handleSpin = () => {
     if (btnRef.current && rouletteRef.current) {
-      const numberOfSpin = Math.ceil(Math.random() * 4000) + 2000;
+      let numberOfSpin = Math.ceil(Math.random() * 4000) + 2000;
+      let remain = numberOfSpin % 360;
+      if (remain > 292.5 && remain <= 337.5) numberOfSpin += 40;
       btnRef.current.style.pointerEvents = "none";
       rouletteRef.current.style.transition = "all 8s ease";
       rouletteRef.current.style.transform = "rotate(" + numberOfSpin + "deg)";
       rouletteRef.current.classList.add("blur");
-      const remain = numberOfSpin % 360;
       let prizeOfThePlayer;
+      remain = numberOfSpin % 360;
       if (remain < 22.5) {
         prizeOfThePlayer = prizes[0];
       } else
@@ -50,6 +54,7 @@ const Roulette = () => {
     rouletteRef.current.classList.remove("blur");
     const res = await defaultAxios.post("/participation/prize", {
       prize: prize.name,
+      img: prize.img,
     });
 
     if (!res.data.success) {
@@ -69,6 +74,7 @@ const Roulette = () => {
       toast.info(
         "Merci d'avoir participer, nous vous avons envoyer votre cadeaux par email"
       );
+      facebookRef.current.click();
       navigate("/");
     }, 5000);
   };
@@ -87,6 +93,11 @@ const Roulette = () => {
         />
         <link rel="canonical" href="https://3d.europ-alu.com/roulette" />
       </Helmet>
+      <FacebookShareButton
+        url="https://3d.europ-alu.com/jeux"
+        ref={facebookRef}
+        style={{ display: "none" }}
+      />
       <GameContainer slug="roulette">
         <GameModal
           prize={prize}
@@ -105,7 +116,7 @@ const Roulette = () => {
           >
             {prizes.map((prize, index) => (
               <div className={prize.className} key={index}>
-                <img className="emoji" src={prize.img} alt="prix du jeux" />
+                <img className="emoji" src={prize.file} alt="prix du jeux" />
               </div>
             ))}
           </div>

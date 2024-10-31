@@ -40,12 +40,26 @@
     }
 }
 
+.roulette-container .one,
+.two {
+    img {
+        transform: rotate(180deg);
+        width: 200%;
+        height: auto;
+        margin-bottom: 0px;
+    }
+}
+
 .roulette-container .one {
-    background-color: #3f51b5;
     left: 50%;
+    img {
+        transform: rotate(180deg);
+        width: 200%;
+        height: auto;
+        margin-bottom: 0px;
+    }
 }
 .roulette-container .two {
-    background-color: #ff9800;
     transform: rotate(45deg);
 }
 .roulette-container .three {
