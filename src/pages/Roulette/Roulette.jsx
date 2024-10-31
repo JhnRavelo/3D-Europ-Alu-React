@@ -28,25 +28,53 @@ const Roulette = () => {
   const navigate = useNavigate();
   const getParticipation = useGetParticipation();
 
-  const handleSpin = () => {
+  const handleSpin = async () => {
     if (btnRef.current && rouletteRef.current) {
-      let numberOfSpin = Math.ceil(Math.random() * 4000) + 2000;
-      let remain = numberOfSpin % 360;
-      if (remain > 292.5 && remain <= 337.5) numberOfSpin += 40;
-      btnRef.current.style.pointerEvents = "none";
-      rouletteRef.current.style.transition = "all 8s ease";
-      rouletteRef.current.style.transform = "rotate(" + numberOfSpin + "deg)";
-      rouletteRef.current.classList.add("blur");
-      let prizeOfThePlayer;
-      remain = numberOfSpin % 360;
-      if (remain < 22.5) {
-        prizeOfThePlayer = prizes[0];
-      } else
-        prizeOfThePlayer = prizes.find(
-          (prize) => remain > prize.minDeg && remain <= prize.maxDeg
-        );
-      setPrize(prizeOfThePlayer);
-      audio.play();
+      try {
+        const res = await defaultAxios.get("/participation/prize");
+        let numberOfSpin = Math.ceil(Math.random() * 4000) + 2000;
+        let remain = numberOfSpin % 360;
+
+        if (res?.data) {
+          res.data.map((prize) => {
+            if (
+              prize.prize == "objet connecté" &&
+              prize.rest == 0 &&
+              remain > 292.5 &&
+              remain <= 337.5
+            ) {
+              numberOfSpin += 95;
+            } else if (
+              prize.prize == "goodies" &&
+              prize.rest == 0 &&
+              remain < 22.5 &&
+              remain >= 337.5
+            ) {
+              numberOfSpin += 45;
+            }
+          });
+        }
+        remain = numberOfSpin % 360;
+
+        if (remain > 292.5 && remain <= 337.5) numberOfSpin += 40;
+        btnRef.current.style.pointerEvents = "none";
+        rouletteRef.current.style.transition = "all 8s ease";
+        rouletteRef.current.style.transform = "rotate(" + numberOfSpin + "deg)";
+        rouletteRef.current.classList.add("blur");
+        let prizeOfThePlayer;
+        remain = numberOfSpin % 360;
+
+        if (remain < 22.5) {
+          prizeOfThePlayer = prizes[0];
+        } else
+          prizeOfThePlayer = prizes.find(
+            (prize) => remain > prize.minDeg && remain <= prize.maxDeg
+          );
+        setPrize(prizeOfThePlayer);
+        audio.play();
+      } catch (error) {
+        toast.error("Une erreur est survenu pendant le jeu");
+      }
     }
   };
 
@@ -55,6 +83,7 @@ const Roulette = () => {
     const res = await defaultAxios.post("/participation/prize", {
       prize: prize.name,
       img: prize.img,
+      gift: prize.prize,
     });
 
     if (!res.data.success) {
