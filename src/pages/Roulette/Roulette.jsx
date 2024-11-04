@@ -73,6 +73,7 @@ const Roulette = () => {
         setPrize(prizeOfThePlayer);
         audio.play();
       } catch (error) {
+        console.log(error)
         toast.error("Une erreur est survenu pendant le jeu");
       }
     }
@@ -125,6 +126,7 @@ const Roulette = () => {
       <FacebookShareButton
         url="https://3d.europ-alu.com/jeux"
         ref={facebookRef}
+        quote="Participez au jeux d'Europ'Alu pour gagner des lots 🎁"
         style={{ display: "none" }}
       />
       <GameContainer slug="roulette">

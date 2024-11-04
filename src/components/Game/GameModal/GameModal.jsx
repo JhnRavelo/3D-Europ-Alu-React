@@ -10,7 +10,7 @@ const GameModal = ({ winnerName, prize, open }) => {
         <p>
           {winnerName} a gagné {prize?.name ? prize.name : ""}
         </p>
-        {prize?.name.includes("%") ? (
+        {/* {prize?.name.includes("%") ? (
           <div className="ticket-container">
           <div className="tixContainer">
             <a className="tix" href="#">
@@ -23,9 +23,9 @@ const GameModal = ({ winnerName, prize, open }) => {
             </a>
           </div>
           </div>
-        ) : (
+        ) : ( */}
           <img src={prize?.img} className="goodies"/>
-        )}
+        {/* )} */}
       </div>
     </div>
   );

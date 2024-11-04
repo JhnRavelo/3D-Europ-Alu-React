@@ -9,7 +9,7 @@ export const prizes = [
     minDeg: 337.5,
   },
   {
-    img: "/prize/objet_connecté.png",
+    img: "/prize/objet_connecté.jpg",
     file: "/prize/1.png",
     className: "two",
     name: "un objet connecté",
