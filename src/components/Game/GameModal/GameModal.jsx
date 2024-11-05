@@ -1,3 +1,4 @@
+import { FacebookShareButton } from "react-share";
 import "./gameModal.scss";
 import propTypes from "prop-types";
 
@@ -7,25 +8,19 @@ const GameModal = ({ winnerName, prize, open }) => {
       <div className="content">
         <img className="img" src="./gif/fireworks.gif" alt="gif" />
         <h4 className="title">Félicitations!</h4>
-        <p>
+        <p className="winner-text">
           {winnerName} a gagné {prize?.name ? prize.name : ""}
         </p>
-        {/* {prize?.name.includes("%") ? (
-          <div className="ticket-container">
-          <div className="tixContainer">
-            <a className="tix" href="#">
-              <div className="tixInner">
-                <span className="remise">
-                  <strong>Remise</strong> -
-                  {prize.name.split(" ")[prize.name.split(" ").length - 1]}
-                </span>
-              </div>
-            </a>
-          </div>
-          </div>
-        ) : ( */}
-          <img src={prize?.img} className="goodies"/>
-        {/* )} */}
+        <img src={prize?.img} className="goodies" />
+        <p className="facebook-text">
+          Partagez votre victoire avec vos amis sur{" "}
+        </p>
+        <FacebookShareButton
+          url="https://3d.europ-alu.com/jeux"
+          className="facebook-container"
+        >
+          <span>facebook</span>
+        </FacebookShareButton>
       </div>
     </div>
   );

@@ -13,12 +13,10 @@ import useParticipant from "../../hooks/useParticipant";
 import useGetParticipation from "../../hooks/useGetParticipation";
 import { toast } from "react-toastify";
 import defaultAxios from "../../api/axios";
-import { FacebookShareButton } from "react-share";
 
 const Roulette = () => {
   const rouletteRef = useRef();
   const btnRef = useRef();
-  const facebookRef = useRef();
   const [prize, setPrize] = useState();
   const [open, setOpen] = useState();
   const { participant } = useParticipant();
@@ -104,9 +102,8 @@ const Roulette = () => {
       toast.info(
         "Merci d'avoir participer, nous vous avons envoyer votre cadeaux par email"
       );
-      facebookRef.current.click();
       navigate("/");
-    }, 5000);
+    }, 8000);
   };
 
   useEffect(() => {
@@ -123,12 +120,6 @@ const Roulette = () => {
         />
         <link rel="canonical" href="https://3d.europ-alu.com/roulette" />
       </Helmet>
-      <FacebookShareButton
-        url="https://3d.europ-alu.com/jeux"
-        ref={facebookRef}
-        quote="Participez au jeux d'Europ'Alu pour gagner des lots 🎁"
-        style={{ display: "none" }}
-      />
       <GameContainer slug="roulette">
         <GameModal
           prize={prize}

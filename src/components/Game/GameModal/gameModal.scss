@@ -30,28 +30,26 @@
 }
 .game-modal img {
 	max-width: 130px;
-	margin-bottom: 20px;
 }
 .game-modal img[src="./gif/fireworks.gif"] {
 	max-width: 180px;
-	margin-bottom: 5px;
 }
 .game-modal img[src="./gif/victory.gif"] {
 	margin-left: -10px;
 }
 .game-modal h4 {
 	font-size: 2rem;
-	margin-top: 15px;
-	margin-bottom: 15px;
-    color: greenyellow;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: greenyellow;
 }
 
-.game-modal p {
+.game-modal .winner-text {
 	font-size: 1.2rem;
 	margin: 15px 0 20px;
 	font-weight: 700;
-    animation:  clignoter 0.8s infinite;
-    color: #1c2b39;
+	animation: clignoter 0.8s infinite;
+	color: #1c2b39;
 }
 
 .game-modal button {
@@ -65,6 +63,27 @@
 	text-transform: uppercase;
 	background: #5e63ba;
 	padding: 12px 23px;
+}
+
+.facebook-text {
+	font-weight: 700;
+	font-size: 16px;
+	margin: 5px 0px;
+}
+
+.facebook-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	span {
+		text-transform: lowercase;
+		padding: 5px;
+		background-color: #0965fe;
+		color: #fff;
+		border-radius: 3px;
+	}
 }
 
 @keyframes clignoter {
@@ -94,18 +113,18 @@
 		opacity: 1;
 	}
 	100% {
-		transform: translateY(50px); 
+		transform: translateY(50px);
 		opacity: 0;
 	}
 }
 
 .ticket-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .tixContainer {
