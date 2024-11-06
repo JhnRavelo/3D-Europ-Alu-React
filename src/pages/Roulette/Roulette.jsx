@@ -62,7 +62,7 @@ const Roulette = () => {
         let prizeOfThePlayer;
         remain = numberOfSpin % 360;
 
-        if (remain < 22.5) {
+        if (remain <= 22.5 || remain > 337.5) {
           prizeOfThePlayer = prizes[0];
         } else
           prizeOfThePlayer = prizes.find(

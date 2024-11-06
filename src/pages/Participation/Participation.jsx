@@ -52,11 +52,11 @@ const Participation = () => {
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
-          content="https://3d.europ-alu.com/thumbnail/thumbnail.PNG"
+          content="https://3d.europ-alu.com/thumbnail/thumbnail.jpg"
         />
         <meta
           property="og:url"
-          content="https://3d.europ-alu.com/index.htm"
+          content="https://3d.europ-alu.com/index.html"
         ></meta>
         <meta property="og:description" content="Offering tour packages for individuals or groups."></meta>
       </Helmet>
