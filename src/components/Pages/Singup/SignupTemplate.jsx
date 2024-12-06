@@ -150,7 +150,7 @@ const SignupTemplate = () => {
     <div className="card" data-step>
       <div className="modal-box register-form">
         <div className="login-div">
-          <div className="logo__form"></div>
+          {/* <div className="logo__form"></div> */}
           <div className="close-btn" onClick={formClosed}>
             <FontAwesomeIcon icon={faTimes} className="fa-xmark" />
           </div>

@@ -15,23 +15,23 @@ const Menu =  () => {
     <div className="menu">
         <div className="item">
             <span className="title">MAIN</span>
-            <Link to="/admin/" className="listItem">
+            {/* <Link to="/admin/" className="listItem">
                 <img src={home} alt="" />
                 <span className="listItemTitle">Home</span>
-            </Link>
+            </Link> */}
             <Link to="/admin/profile" className="listItem">
                 <img src={admin} alt="admin" />
                 <span className="listItemTitle">Profile</span>
             </Link>
             <span className="title">Gestion</span>
-            <Link to="/admin/page" className="listItem">
+            {/* <Link to="/admin/page" className="listItem">
                 <img src={page} alt="users" />
                 <span className="listItemTitle">Pages</span>
             </Link>
             <Link to="/admin/products" className="listItem">
                 <img src={product} alt="product" />
                 <span className="listItemTitle">Produits</span>
-            </Link>
+            </Link> */}
             <Link to="/admin/user" className="listItem">
                 <img src={profile} alt="users" />
                 <span className="listItemTitle">Utilisateurs</span>
@@ -40,16 +40,16 @@ const Menu =  () => {
                 <img src={seller} alt="product" />
                 <span className="listItemTitle">Commercials</span>
             </Link>
-            <span className="title">Listes</span>
-            <Link to="/admin/order" className="listItem">
+            {/* <span className="title">Listes</span> */}
+            {/* <Link to="/admin/order" className="listItem">
                 <img src={order} alt="product" />
                 <span className="listItemTitle">Commandes</span>
-            </Link>
-            <span className="title">Evènements</span>
+            </Link> */}
+            {/* <span className="title">Evènements</span>
             <Link to="/admin/log" className="listItem">
                 <img src={log} alt="product" />
                 <span className="listItemTitle">Journals</span>
-            </Link>
+            </Link> */}
         </div>
     </div>
   )

@@ -86,7 +86,7 @@ const Header = () => {
     <>
       <header ref={headerRef} id="header">
         <div className="header">
-          <div className="header-logo">
+          {/* <div className="header-logo">
             <img
               onClick={() => navigate("/")}
               className="logo-header"
@@ -97,7 +97,7 @@ const Header = () => {
               height="auto"
               loading="eager"
             />
-          </div>
+          </div> */}
           <div className="login__logout" ref={userRef}>
             <div className="deco">
               <div className="use__icon" onClick={showOption}>

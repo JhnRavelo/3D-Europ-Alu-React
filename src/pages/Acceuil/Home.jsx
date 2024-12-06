@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Accueil - {"Europ'Alu Madagascar"}</title>
+        <title>Accueil</title>
         <meta
           name="description"
           content="Depuis 2005, Europ'Alu s'est imposée comme La référence de Madagascar en termes de menuiseries aluminium et d'habillage de façade."
@@ -22,7 +22,7 @@ const Home = () => {
         <div className="body"></div>
         <div className="flou"></div>
         <div className="header__home__page">
-          <div className="logo__home">
+          {/* <div className="logo__home">
             <img
               src={logoEuro}
               alt="logo d'Europ'Alu Madagascar"
@@ -31,22 +31,22 @@ const Home = () => {
               title="logo d'Europ'Alu Madagascar"
               loading="eager"
             />
-          </div>
+          </div> */}
         </div>
         <div className="body__home__page">
           <section className="intro" id="historique">
-            <h1 className="intro__h1">
+            {/* <h1 className="intro__h1">
               Innovation Continue <span>.</span>
             </h1>
             <p className="intro__p">
               La menuiserie aluminium qui révolutionne la construction à
               Madagascar, avec des produits de qualité, sur mesure et conformes
               aux normes européennes.
-            </p>
+            </p> */}
             <div className="button button__intro">
-              <Link to="/modèle-3D">
+              {/* <Link to="/modèle-3D">
                 <div className="start">Commencer</div>
-              </Link>
+              </Link> */}
               <div
                 className="start connect"
                 onClick={() => {

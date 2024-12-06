@@ -77,10 +77,10 @@ const Header = () => {
 
   return (
     <div className="navbar">
-      <div className="logo">
+      {/* <div className="logo">
         <img src={logoEuro} alt="logo" />
         <span>{"Europ'Alu"}</span>
-      </div>
+      </div> */}
       {(pathname == "/admin" ||
         pathname == "/admin/" ||
         pathname.includes("/admin/product/") ||

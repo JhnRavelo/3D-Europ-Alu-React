@@ -100,10 +100,10 @@ const Roulette = () => {
     setTimeout(() => {
       audioResult.pause();
       toast.info(
-        "Merci d'avoir participer, nous vous avons envoyer votre cadeaux par email"
+        "Merci d'avoir participer, nous vous avons envoyer un email sur la façon de récupérer votre cadeau"
       );
       navigate("/");
-    }, 8000);
+    }, 12000);
   };
 
   useEffect(() => {

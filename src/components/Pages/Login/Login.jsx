@@ -60,7 +60,7 @@ const Login = () => {
           navigate(from, { replace: true });
         } else {
           if (role == prime[0]) {
-            navigate("/admin/");
+            navigate("/admin/user");
           } else if (role == prime[2] && location.pathname == "/") {
             navigate("/profile");
           } else if (role == prime[1]) {
